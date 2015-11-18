@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../adnans_lab7.srcs/sources_1/imports/Lab7/kcpsm6.v"
+verilog xil_defaultlib  "../../../software/software.v"
+verilog xil_defaultlib  "../../../adnans_lab7.srcs/sources_1/imports/Lab7/tutorial.v"
+verilog xil_defaultlib  "../../../adnans_lab7.srcs/sim_1/imports/Lab7/testbench.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
