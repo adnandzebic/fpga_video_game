@@ -1,0 +1,79 @@
+;;============================================================================
+;; File: software.psm
+;; This is the PicoBlaze program for EE178 Lab #7.
+;;============================================================================
+
+;;============================================================================
+;; Port address declarations.
+;;============================================================================
+
+CONSTANT switches_lo     , 00 ; port for 8-bit switch input
+CONSTANT switches_hi     , 01 ; port for 8-bit switch input
+CONSTANT leds_lo         , 02 ; port for 8-bit led data out
+CONSTANT leds_hi         , 03 ; port for 8-bit led data out
+
+CONSTANT my_sid_lo       , 46 ; lo byte of student id (put yours here)
+CONSTANT my_sid_hi       , 44 ; hi byte of student id (put yours here)
+
+CONSTANT zero            , 00 ; zero
+CONSTANT one             , 01 ; one
+
+;;============================================================================
+;; Infinite loop.
+;;============================================================================
+
+        start: INPUT s0, switches_lo               ; get lo switch values
+               INPUT s1, switches_hi               ; get hi switch values
+               LOAD s2, s0;
+               LOAD s3, s1;
+
+               COMPARE s0, my_sid_lo;
+
+               JUMP Z, equalhi;
+               JUMP NZ, count1;
+
+                equalhi:
+                  COMPARE s1, my_sid_hi;
+                  JUMP Z, sendLED;
+                  JUMP NZ, count1;
+
+                    count1:
+                      SR0 s2;
+                      JUMP C, addition1;
+                      JUMP Z, count2;
+                      JUMP count1;
+
+                      count2:
+                        SR0 s3;
+                        JUMP C, addition1;
+                        JUMP Z, Fcount;
+                        JUMP count2;
+
+                      addition1:
+                        ADD s8, one;
+                        JUMP count1;
+
+                          Fcount:
+                            LOAD s9, zero;
+                            OUTPUT s8, leds_lo;
+                            OUTPUT s9, leds_hi;
+                            LOAD s8, zero;
+                            JUMP start;
+
+                              sendLED:
+                                OUTPUT s0, leds_lo;
+                                OUTPUT s1, leds_hi;
+                                JUMP start;
+
+;;============================================================================
+;;
+;;============================================================================
+
+; Currently, this program acts as a "virtual wire" by reading
+; the switch values and copying them to the leds.  You should
+; prove to yourself that this works.
+
+; Then, you need to modify this program.  If the 16-bit switch
+; value in {s1,s0} equals {my_sid_hi,my_sid_lo} then display it
+; on the leds.  Otherwise, count the number of "1's" in {s1,s0}
+; and display the result on the leds.

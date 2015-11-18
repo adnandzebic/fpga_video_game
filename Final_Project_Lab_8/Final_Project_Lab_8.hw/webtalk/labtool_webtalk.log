@@ -1,0 +1,12 @@
+
+****** Webtalk v2015.2 (64-bit)
+  **** SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+  **** IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+    ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/hpm/Desktop/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.hw/webtalk/labtool_webtalk.tcl -notrace
+
+    while executing
+"webtalk_transmit -clientid 783345370 -regid "210935599_0_0_123" -xml C:/Users/hpm/Desktop/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.hw/w..."
+    (file "C:/Users/hpm/Desktop/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.hw/webtalk/labtool_webtalk.tcl" line 27)
+INFO: [Common 17-206] Exiting Webtalk at Tue Nov 17 22:38:26 2015...
