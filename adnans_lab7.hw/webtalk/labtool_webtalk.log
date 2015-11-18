@@ -1,0 +1,12 @@
+
+****** Webtalk v2015.2 (64-bit)
+  **** SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+  **** IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+    ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+
+source F:/adnans_lab7/adnans_lab7.hw/webtalk/labtool_webtalk.tcl -notrace
+
+    while executing
+"webtalk_transmit -clientid 246667289 -regid "210942232_0_0_343" -xml F:/adnans_lab7/adnans_lab7.hw/webtalk/usage_statistics_ext_labtool.xml -html F:/a..."
+    (file "F:/adnans_lab7/adnans_lab7.hw/webtalk/labtool_webtalk.tcl" line 28)
+INFO: [Common 17-206] Exiting Webtalk at Tue Nov 17 22:09:45 2015...
