@@ -1,0 +1,81 @@
+;;============================================================================
+;; File: software.psm
+;; This is the PicoBlaze program for EE178 Lab #7.
+;;============================================================================
+
+;;============================================================================
+;; Port address declarations.
+;;============================================================================
+
+CONSTANT switches_lo     , 00 ; port for 8-bit switch input
+CONSTANT switches_hi     , 01 ; port for 8-bit switch input
+CONSTANT leds_lo         , 02 ; port for 8-bit led data out
+CONSTANT leds_hi         , 03 ; port for 8-bit led data out
+
+CONSTANT my_sid_lo       , 44 ; lo byte of student id (put yours here)
+CONSTANT my_sid_hi       , 11 ; hi byte of student id (put yours here)
+
+CONSTANT zero            , 00 ; zero
+CONSTANT one             , 01 ; one
+
+;;============================================================================
+;; Infinite loop.
+;;============================================================================
+
+         loop: INPUT s0, switches_lo               ; get lo switch values
+               INPUT s1, switches_hi               ; get hi switch values
+
+               LOAD sA, my_sid_lo;
+               LOAD sB, my_sid_hi;
+
+               COMPARE s0, my_sid_lo;
+               JUMP Z, lower_byte_is_set;
+               JUMP count_bits;
+
+               lower_byte_is_set:
+                    COMPARE s1, my_sid_hi;
+                    JUMP Z, both_bytes_are_set;
+                    JUMP count_bits;
+
+               both_bytes_are_set:
+                    OUTPUT sA, leds_lo;
+                    OUTPUT sB, leds_hi;
+                    JUMP loop;
+
+               count_bits:
+                    LOAD sC, s0;
+                    LOAD sD, s1;
+                    LOAD sE, zero; // used for counting bits
+
+                          loop2:
+                               SR0 sC;
+                               JUMP C, a_one_was_detected;
+
+                               COMPARE sC, zero;
+                               JUMP Z, lowest_byte_is_now_zero;
+                               JUMP loop2;
+
+                               a_one_was_detected:
+                                    ADD sE, one;
+                                    JUMP loop2;
+
+                               lowest_byte_is_now_zero:
+                                    COMPARE sD, zero;
+                                    JUMP Z, both_bytes_are_now_zero;
+                                    SR0 sD;
+                                    JUMP C, a_one_was_detected;
+                                    JUMP loop2;
+
+                               both_bytes_are_now_zero:
+                                    OUTPUT sE, leds_lo;
+                                    LOAD s3, zero;
+                                    OUTPUT s3, leds_hi; // Erase upper LEDs
+                                    JUMP loop;
+ 
+                               
+                              
+                               
+
+;;============================================================================
+;;
+;;============================================================================
