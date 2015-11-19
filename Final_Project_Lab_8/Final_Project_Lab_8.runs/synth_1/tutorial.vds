@@ -2,10 +2,10 @@
 # Vivado v2015.2 (64-bit)
 # SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
 # IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
-# Start of session at: Sun Nov 15 06:23:47 2015
-# Process ID: 2860
-# Log file: F:/adnans_lab7/adnans_lab7.runs/synth_1/tutorial.vds
-# Journal file: F:/adnans_lab7/adnans_lab7.runs/synth_1\vivado.jou
+# Start of session at: Wed Nov 18 04:45:00 2015
+# Process ID: 4008
+# Log file: F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.runs/synth_1/tutorial.vds
+# Journal file: F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source tutorial.tcl -notrace
 Command: synth_design -top tutorial -part xc7a35tcpg236-1
@@ -13,10 +13,10 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 243.098 ; gain = 68.172
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 243.387 ; gain = 68.434
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'tutorial' [F:/adnans_lab7/adnans_lab7.srcs/sources_1/imports/Lab7/tutorial.v:13]
-INFO: [Synth 8-638] synthesizing module 'kcpsm6' [F:/adnans_lab7/adnans_lab7.srcs/sources_1/imports/Lab7/kcpsm6.v:67]
+INFO: [Synth 8-638] synthesizing module 'tutorial' [F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/sources_1/imports/Lab7/tutorial.v:13]
+INFO: [Synth 8-638] synthesizing module 'kcpsm6' [F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/sources_1/imports/Lab7/kcpsm6.v:67]
 	Parameter hwbuild bound to: 8'b00000000 
 	Parameter interrupt_vector bound to: 12'b001111111111 
 	Parameter scratch_pad_memory_size bound to: 64 - type: integer 
@@ -287,14 +287,14 @@ INFO: [Synth 8-256] done synthesizing module 'LUT6_2__parameterized48' (9#1) [C:
 INFO: [Synth 8-638] synthesizing module 'LUT6__parameterized27' [C:/Xilinx/Vivado/2015.2/scripts/rt/data/unisim_comp.v:15919]
 	Parameter INIT bound to: 64'b1111111100000000111100001111000011001100110011001010101010101010 
 INFO: [Synth 8-256] done synthesizing module 'LUT6__parameterized27' (9#1) [C:/Xilinx/Vivado/2015.2/scripts/rt/data/unisim_comp.v:15919]
-INFO: [Synth 8-256] done synthesizing module 'kcpsm6' (10#1) [F:/adnans_lab7/adnans_lab7.srcs/sources_1/imports/Lab7/kcpsm6.v:67]
-INFO: [Synth 8-638] synthesizing module 'software' [F:/adnans_lab7/software/software.v:54]
+INFO: [Synth 8-256] done synthesizing module 'kcpsm6' (10#1) [F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/sources_1/imports/Lab7/kcpsm6.v:67]
+INFO: [Synth 8-638] synthesizing module 'software' [F:/fpga_video_game/Final_Project_Lab_8/software/software.v:54]
 INFO: [Synth 8-638] synthesizing module 'RAMB36E1' [C:/Xilinx/Vivado/2015.2/scripts/rt/data/unisim_comp.v:33365]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: FALSE - type: string 
 	Parameter EN_ECC_WRITE bound to: FALSE - type: string 
-	Parameter INITP_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001010001010110111011001101101110100000010101010110110110100000000 
+	Parameter INITP_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000001000100010001000100010001000100010001000101101101101101101101101101101101101101101101101101101101101100110011011011011011011010100101101010010110101101000 
 	Parameter INITP_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -310,12 +310,12 @@ INFO: [Synth 8-638] synthesizing module 'RAMB36E1' [C:/Xilinx/Vivado/2015.2/scri
 	Parameter INITP_0D bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_0E bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_0F bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_00 bound to: 256'b0001111000000000000011010001000000001100000000000010000000000000110110110000001111011010000000100010000000001101001000000000101011010001000100010010000000001101001000000000011111010000010001000001101100010001000110100100010010010001000000011001000000000000 
-	Parameter INIT_01 bound to: 256'b0010000000000000110100110000001100010011000000001101111000000010001000000001000010100000000101010100110100001110001000000001110011011101000000000010000000010000000111100000000100100000000100000010000000010111110111000000000010100000000101010100110000001110 
-	Parameter INIT_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_04 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_05 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter INIT_00 bound to: 256'b0010000000010001110101110000111100010111000000010001011000000000001000000000001100100000000011001101011011111111000101100000000100010101000000000010000000000011001000000000011111010101111111110001010100000001110110110000010111011100000001101001000000000100 
+	Parameter INIT_01 bound to: 256'b0010000000111011110110100000000100100000000111100010000000111001110110100000000000100000000110111001101000000001001000000001101100011010000000010010000000000000001000000001100111010000000000100010000000010100001000000001011111010000000000010010000000000111 
+	Parameter INIT_02 bound to: 256'b0010000000110000001000000100010111011010000001100010000000101101001000000100001111011010000001010010000000101010001000000100000111011010000001000010000000100111001000000011111111011010000000110010000000100100001000000011110111011010000000100010000000100001 
+	Parameter INIT_03 bound to: 256'b0001101100001101001000000000000000011011001001010010000000000000000110111001111100100000000000000001101100000011001000000100110100100000010010111101101000001001001000000011011000100000010010011101101000001000001000000011001100100000010001111101101000000111 
+	Parameter INIT_04 bound to: 256'b0010000000000000000110100000000000011011000000110010000000000000000110110000100100100000000000000001101100000001001000000000000000011011000111110010000000000000000110110100000100100000000000000001101101001001001000000000000000011011100110010010000000000000 
+	Parameter INIT_05 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000 
 	Parameter INIT_06 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_07 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_08 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -466,10 +466,10 @@ INFO: [Synth 8-638] synthesizing module 'RAMB36E1' [C:/Xilinx/Vivado/2015.2/scri
 	Parameter WRITE_WIDTH_A bound to: 18 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 18 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'RAMB36E1' (11#1) [C:/Xilinx/Vivado/2015.2/scripts/rt/data/unisim_comp.v:33365]
-INFO: [Synth 8-256] done synthesizing module 'software' (12#1) [F:/adnans_lab7/software/software.v:54]
-INFO: [Synth 8-256] done synthesizing module 'tutorial' (13#1) [F:/adnans_lab7/adnans_lab7.srcs/sources_1/imports/Lab7/tutorial.v:13]
+INFO: [Synth 8-256] done synthesizing module 'software' (12#1) [F:/fpga_video_game/Final_Project_Lab_8/software/software.v:54]
+INFO: [Synth 8-256] done synthesizing module 'tutorial' (13#1) [F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/sources_1/imports/Lab7/tutorial.v:13]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 278.355 ; gain = 103.430
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 277.664 ; gain = 102.711
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -479,7 +479,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 278.355 ; gain = 103.430
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 277.664 ; gain = 102.711
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 152 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -488,8 +488,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [F:/adnans_lab7/adnans_lab7.srcs/constrs_1/imports/Lab7/tutorial.xdc]
-Finished Parsing XDC File [F:/adnans_lab7/adnans_lab7.srcs/constrs_1/imports/Lab7/tutorial.xdc]
+Parsing XDC File [F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/constrs_1/imports/Lab7/tutorial.xdc]
+Finished Parsing XDC File [F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/constrs_1/imports/Lab7/tutorial.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -500,27 +500,29 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMS32, RAMS32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32): 4 instances
   RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 527.617 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 527.996 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "leds" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "leds" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "dp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "an3" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -534,9 +536,11 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Registers : 
 	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 12    
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -548,9 +552,11 @@ Module tutorial
 Detailed RTL Component Info : 
 +---Registers : 
 	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 12    
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -563,16 +569,18 @@ BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "an3" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "dp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "leds" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "leds" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Parallel Reinference  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 527.996 ; gain = 353.043
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -590,16 +598,16 @@ WARNING: [Synth 8-3332] Sequential element (\kcpsm6_inst/read_strobe_flop ) is u
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 527.996 ; gain = 353.043
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 527.617 ; gain = 352.691
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 527.996 ; gain = 353.043
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -607,10 +615,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 537.289 ; gain = 362.363
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 538.148 ; gain = 363.195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 538.301 ; gain = 363.375
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 538.148 ; gain = 363.195
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -622,7 +630,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -640,7 +648,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -653,7 +661,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -665,13 +673,13 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Start Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -688,39 +696,40 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     1|
-|2     |LUT3     |     1|
-|3     |LUT4     |     3|
-|4     |LUT5     |     8|
-|5     |LUT6     |    30|
-|6     |LUT6_2   |    50|
-|7     |MUXCY    |    29|
-|8     |RAM32M   |     4|
-|9     |RAM64M   |     2|
-|10    |RAMB36E1 |     1|
-|11    |XORCY    |    27|
-|12    |FD       |    45|
-|13    |FDR      |    18|
-|14    |FDRE     |    30|
-|15    |IBUF     |    17|
-|16    |OBUF     |    16|
+|2     |LUT2     |     1|
+|3     |LUT3     |     1|
+|4     |LUT4     |     2|
+|5     |LUT5     |    14|
+|6     |LUT6     |    32|
+|7     |LUT6_2   |    50|
+|8     |MUXCY    |    29|
+|9     |RAM32M   |     4|
+|10    |RAM64M   |     2|
+|11    |RAMB36E1 |     1|
+|12    |XORCY    |    27|
+|13    |FD       |    45|
+|14    |FDR      |    18|
+|15    |FDRE     |    42|
+|16    |IBUF     |    19|
+|17    |OBUF     |    28|
 +------+---------+------+
 
 Report Instance Areas: 
 +------+----------------+---------+------+
 |      |Instance        |Module   |Cells |
 +------+----------------+---------+------+
-|1     |top             |         |   282|
-|2     |  kcpsm6_inst   |kcpsm6   |   218|
-|3     |  software_inst |software |    14|
+|1     |top             |         |   316|
+|2     |  kcpsm6_inst   |kcpsm6   |   219|
+|3     |  software_inst |software |    21|
 +------+----------------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 375.695
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 550.621 ; gain = 111.242
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 550.621 ; gain = 375.695
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 550.695 ; gain = 109.969
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 550.695 ; gain = 375.742
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 164 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 166 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -734,8 +743,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-199 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+203 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 550.621 ; gain = 361.840
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 550.621 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 15 06:24:12 2015...
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 550.695 ; gain = 361.695
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 550.695 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 18 04:45:24 2015...

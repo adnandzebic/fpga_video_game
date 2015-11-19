@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (win64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Sun Nov 15 06:25:04 2015
+| Date             : Wed Nov 18 04:46:13 2015
 | Host             : Arya running 64-bit major release  (build 9200)
 | Command          : report_power -file tutorial_power_routed.rpt -pb tutorial_power_summary_routed.pb
 | Design           : tutorial
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.076 |
+| Total On-Chip Power (W)  | 0.077 |
 | Dynamic (W)              | 0.005 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
@@ -50,17 +50,17 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.001 |      297 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |       92 |     20800 |            0.44 |
+| Slice Logic              |     0.001 |      317 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |      100 |     20800 |            0.48 |
 |   LUT as Distributed RAM |    <0.001 |       24 |      9600 |            0.25 |
-|   Register               |    <0.001 |       95 |     41600 |            0.23 |
+|   Register               |    <0.001 |      107 |     41600 |            0.26 |
 |   CARRY4                 |    <0.001 |       10 |      8150 |            0.12 |
 |   Others                 |     0.000 |       20 |       --- |             --- |
-| Signals                  |     0.002 |      271 |       --- |             --- |
+| Signals                  |     0.002 |      293 |       --- |             --- |
 | Block RAM                |    <0.001 |        1 |        50 |            2.00 |
-| I/O                      |    <0.001 |       33 |       106 |           31.13 |
+| I/O                      |    <0.001 |       47 |       106 |           44.34 |
 | Static Power             |     0.072 |          |           |                 |
-| Total                    |     0.076 |          |           |                 |
+| Total                    |     0.077 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -70,7 +70,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.014 |       0.005 |      0.010 |
+| Vccint    |       1.000 |     0.015 |       0.005 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -140,7 +140,7 @@ Table of Contents
 | Name                                                    | Power (W) |
 +---------------------------------------------------------+-----------+
 | tutorial                                                |     0.005 |
-|   kcpsm6_inst                                           |     0.003 |
+|   kcpsm6_inst                                           |     0.004 |
 |     address_loop[0].output_data.pc_vector_mux_lut       |    <0.001 |
 |     address_loop[10].output_data.pc_vector_mux_lut      |    <0.001 |
 |     address_loop[2].output_data.pc_vector_mux_lut       |    <0.001 |

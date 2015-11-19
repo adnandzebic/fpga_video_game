@@ -12,6 +12,19 @@
 
 module tutorial (
   input wire clk,
+  output reg an3,
+  output reg an2,
+  output reg an1,
+  output reg an0,
+  output reg ca,
+  output reg cb,
+  output reg cc,
+  output reg cd,
+  output reg ce,
+  output reg cf,
+  output reg cg,
+  output reg dp,
+  input wire [1:0] buttons,
   input wire [15:0] switches,
   output reg [15:0] leds
   );
@@ -65,6 +78,8 @@ module tutorial (
     begin
       if (port_id == 8'h02) leds[7:0] <= out_port;
       if (port_id == 8'h03) leds[15:8] <= out_port;
+      if (port_id == 8'h05) {ca, cb, cc, cd, ce, cf, cg, dp} <= out_port;
+      if (port_id == 8'h06) {an0, an1, an2, an3} <= out_port;
     end
   end
 
@@ -77,6 +92,7 @@ module tutorial (
     case (port_id)
       8'h00: in_port <= switches[7:0];
       8'h01: in_port <= switches[15:8];
+      8'h04: in_port <= buttons[1:0];
       default: in_port <= 8'h00;
     endcase
   end

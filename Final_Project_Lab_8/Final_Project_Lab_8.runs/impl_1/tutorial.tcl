@@ -51,12 +51,12 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   debug::add_scope template.lib 1
   set_property design_mode GateLvl [current_fileset]
-  set_property webtalk.parent_dir F:/adnans_lab7/adnans_lab7.cache/wt [current_project]
-  set_property parent.project_path F:/adnans_lab7/adnans_lab7.xpr [current_project]
-  set_property ip_repo_paths f:/adnans_lab7/adnans_lab7.cache/ip [current_project]
-  set_property ip_output_repo f:/adnans_lab7/adnans_lab7.cache/ip [current_project]
-  add_files -quiet F:/adnans_lab7/adnans_lab7.runs/synth_1/tutorial.dcp
-  read_xdc F:/adnans_lab7/adnans_lab7.srcs/constrs_1/imports/Lab7/tutorial.xdc
+  set_property webtalk.parent_dir F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.cache/wt [current_project]
+  set_property parent.project_path F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.xpr [current_project]
+  set_property ip_repo_paths f:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.cache/ip [current_project]
+  set_property ip_output_repo f:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.cache/ip [current_project]
+  add_files -quiet F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.runs/synth_1/tutorial.dcp
+  read_xdc F:/fpga_video_game/Final_Project_Lab_8/Final_Project_Lab_8.srcs/constrs_1/imports/Lab7/tutorial.xdc
   link_design -top tutorial -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
