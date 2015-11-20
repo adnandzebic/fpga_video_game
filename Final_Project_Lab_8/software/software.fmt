@@ -17,6 +17,13 @@
                      CONSTANT anodes, 06         ; port for 4-bit seven segment anode data out
                      CONSTANT my_sid_lo, 46      ; lo byte of student id (put yours here)
                      CONSTANT my_sid_hi, 44      ; hi byte of student id (put yours here)
+                     ;;============================================================================
+                     ;; ENABLE INTERRUPTS
+                     ;;============================================================================
+                     ENABLE INTERRUPT
+                     ;;============================================================================
+                     ;; USEFUL CONSTANTS
+                     ;;============================================================================
                      CONSTANT zero, 00           ; zero
                      CONSTANT one, 01            ; one
                      CONSTANT two, 02            ; two
@@ -33,23 +40,6 @@
                main: INPUT s0, buttons           ; get button values
                      OUTPUT sC, anodes           ;   NOTE: SC = zero (this turns on the display)
                      OUTPUT sB, seven_segments   ;
-   DEBOUNCING_WAIT1: 
-                     ADD s5, one                 ;
-                     COMPARE s5, 11111111'b      ;
-                     JUMP Z, DEBOUNCING_WAIT2    ;
-                     JUMP DEBOUNCING_WAIT1       ;
-   DEBOUNCING_WAIT2: 
-                     LOAD s5, 00000000'b         ;
-                     ADD s6, one                 ;
-                     COMPARE s6, 11111111'b      ;
-                     JUMP Z, DEBOUNCING_WAIT3    ;
-                     JUMP DEBOUNCING_WAIT1       ;
-   DEBOUNCING_WAIT3: 
-                     LOAD s6, 00000000'b         ;
-                     ADD s7, one                 ;
-                     COMPARE s7, 00001111'b      ;
-                     JUMP Z, compare1            ;
-                     JUMP DEBOUNCING_WAIT2       ;
            compare1: 
                      COMPARE s0, 00000001'b      ;
                      JUMP Z, up_button_pressed   ;
@@ -106,38 +96,55 @@ down_button_pressed:
                      JUMP reset                  ;
        display_zero: 
                      LOAD sB, 00000011'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
         display_one: 
                      LOAD sB, 10011111'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
         display_two: 
                      LOAD sB, 00100101'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
       display_three: 
                      LOAD sB, 00001101'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
        display_four: 
                      LOAD sB, 10011001'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
        display_five: 
                      LOAD sB, 01001001'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
         display_six: 
                      LOAD sB, 01000001'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
       display_seven: 
                      LOAD sB, 00011111'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
       display_eight: 
                      LOAD sB, 00000001'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
        display_nine: 
                      LOAD sB, 00001001'b         ;
-                     JUMP main                   ;
+                     JUMP WAIT1                  ;
               reset: 
                      LOAD sB, 00000011'b         ; ZERO
                      LOAD sA, zero               ;
                      JUMP main                   ;
+              WAIT1: 
+                     ADD s5, one                 ;
+                     COMPARE s5, 11111111'b      ;
+                     JUMP Z, WAIT2               ;
+                     JUMP WAIT1                  ;
+              WAIT2: 
+                     LOAD s5, 00000000'b         ;
+                     ADD s6, one                 ;
+                     COMPARE s6, 11111111'b      ;
+                     JUMP Z, WAIT3               ;
+                     JUMP WAIT1                  ;
+              WAIT3: 
+                     LOAD s6, 00000000'b         ;
+                     ADD s7, one                 ;
+                     COMPARE s7, 00000011'b      ;
+                     JUMP Z, compare1            ;
+                     JUMP WAIT2                  ;
                      JUMP main                   ;
                      ;;============================================================================
                      ;;
