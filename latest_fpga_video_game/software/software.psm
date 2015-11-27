@@ -236,7 +236,7 @@ random_block_location:
                JUMP Z, new_random                  ; jump to new random creator
                JUMP NZ, skip_everything            ; goes back
 skip_everything: RETURN                            ; returns back
-  new_random: INPUT s5, prng                       ; create to new random number
+  new_random:  INPUT s5, prng                      ; create to new random number
                COMPARE s5, 0F                      ; check if it's in range
                JUMP NC, check_other_bound_range    ; check lower bound of map
                JUMP C, new_random                  ; get new variable
@@ -534,20 +534,21 @@ draw_helicopter_blades:
 ;;============================================================================
 
 check_collision:
-              LOAD s5, sF                         ; get current horizontal position of block
+              LOAD s5, sE                         ; get current horizontal position of block
+              SUB s5, 0A                          ; actual block is 10 pixels back
               COMPARE s5, 64                      ; check if s5 coincides with heli (horizontal check)
               JUMP Z, check_vertical              ; jump to check vertical positioning
               JUMP NZ, no_collision               ; jump to no_collision routine
 
 check_vertical:
-              LOAD s6, sE                         ; get current vertical position of block
+              LOAD s6, sF                         ; get current vertical position of block
               LOAD s7, sC                         ; load helicopter front position
-        loop: COMPARE s5, s6                      ; compare s5 and s6
+        loop: COMPARE s7, s6                      ; compare s7 and s6
               JUMP Z, collision_occurred          ; jump to collision_occured
               ADD s6, 01                          ; add one to s6
-              LOAD s7, sE                         ; load original value for reference only
-              ADD s7, 3c                          ; add 60 to s7
-              COMPARE s6, s7                      ; compare s6 to bottom of block (s7)
+              LOAD s8, sF                         ; load original value for reference only
+              ADD s8, 3c                          ; add 60 to s8
+              COMPARE s6, s8                      ; compare s6 to bottom of block (s8)
               JUMP Z, no_collision                ; jump to no_collision routine
               JUMP NZ, loop                       ; keep looping
 
@@ -555,7 +556,14 @@ no_collision: SUB sE, 01                          ; decrement sE
               ADD sC, 01                          ; increment sC
               RETURN                              ; leave, since no collisions occurred
 
-collision_occurred: RETURN                        ; return from routine without any increments
+collision_occurred: 
+               OUTPUT s5, stax                     ; set desired stax
+               OUTPUT s7, stay                     ; set desired stay
+               INPUT s8, prng                      ; load random endx
+               OUTPUT s8, endx                     ; set random endx
+               INPUT s8, prng                      ; load random endy
+               OUTPUT s8, endy                     ; set random endy
+	       RETURN                        ; return from routine without any increments
 
 ;;============================================================================
 ;; Interrupt - Vector.
