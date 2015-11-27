@@ -90,8 +90,7 @@
                          CALL draw_helicopter             ; draw the helicopter
                          CALL random_block_location       ; determines a random place for the block (y direction only)
                          CALL draw_block                  ; draw the block using draw_block subroutine
-                         SUB sE, 01                       ;
-                         ADD sC, 01                       ;
+                         CALL check_collision             ; check if any collisions happen
                          RETURN                           ; finished with play subroutine
                          ;;============================================================================
                          ;; Map - Draw Map Subroutine
@@ -431,6 +430,29 @@ draw_helicopter_cockpit:
                          COMPARE s5, busy_go              ; check busy status
                          JUMP Z, wait                     ; if busy, wait more
                          RETURN                           ; leave line drawing subroutine
+                         ;;============================================================================
+                         ;; Check Collisions - Check Collisions Subroutine
+                         ;;============================================================================
+        check_collision: 
+                         LOAD s5, sF                      ; get current horizontal position of block
+                         COMPARE s5, 64                   ; check if s5 coincides with heli (horizontal check)
+                         JUMP Z, check_vertical           ; jump to check vertical positioning
+                         JUMP NZ, no_collision            ; jump to no_collision routine
+         check_vertical: 
+                         LOAD s6, sE                      ; get current vertical position of block
+                         LOAD s7, sC                      ; load helicopter front position
+                   loop: COMPARE s5, s6                   ; compare s5 and s6
+                         JUMP Z, collision_occurred       ; jump to collision_occured
+                         ADD s6, 01                       ; add one to s6
+                         LOAD s7, sE                      ; load original value for reference only
+                         ADD s7, 3C                       ; add 60 to s7
+                         COMPARE s6, s7                   ; compare s6 to bottom of block (s7)
+                         JUMP Z, no_collision             ; jump to no_collision routine
+                         JUMP NZ, loop                    ; keep looping
+           no_collision: SUB sE, 01                       ; decrement sE
+                         ADD sC, 01                       ; increment sC
+                         RETURN                           ; leave, since no collisions occurred
+     collision_occurred: RETURN                           ; return from routine without any increments
                          ;;============================================================================
                          ;; Interrupt - Vector.
                          ;;============================================================================

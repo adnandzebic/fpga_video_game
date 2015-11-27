@@ -48,20 +48,20 @@ CONSTANT buttons_rt      , 01 ; right
 ;; Boot.
 ;;============================================================================
 
-         boot: LOAD s0, zero                       ; initialize
-               LOAD s1, zero                       ; initialize
-               LOAD s2, zero                       ; initialize
-               LOAD s3, zero                       ; initialize
-               LOAD s4, zero                       ; initialize
-               LOAD sC, 80                         ; starting helicopter position
-               LOAD sD, 05                         ; initialize (needed later)
-               LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
-               LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
-               LOAD s5, mode_exp                   ; load desired mode
-               OUTPUT s5, mode                     ; set desired mode
-               LOAD s5, beam_hi                    ; load desired beam
-               OUTPUT s5, beam                     ; set desired beam
-               ENABLE INTERRUPT                    ; enable interrupts
+         boot:  LOAD s0, zero                       ; initialize
+                LOAD s1, zero                       ; initialize
+                LOAD s2, zero                       ; initialize
+                LOAD s3, zero                       ; initialize
+                LOAD s4, zero                       ; initialize
+                LOAD sC, 80                         ; starting helicopter position
+                LOAD sD, 05                         ; initialize (needed later)
+                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
+                LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
+                LOAD s5, mode_exp                   ; load desired mode
+                OUTPUT s5, mode                     ; set desired mode
+                LOAD s5, beam_hi                    ; load desired beam
+                OUTPUT s5, beam                     ; set desired beam
+                ENABLE INTERRUPT                    ; enable interrupts
 
 ;;============================================================================
 ;; Main.
@@ -107,8 +107,8 @@ CONSTANT buttons_rt      , 01 ; right
                CALL draw_helicopter                ; draw the helicopter
                CALL random_block_location          ; determines a random place for the block (y direction only)
                CALL draw_block                     ; draw the block using draw_block subroutine
-               SUB sE, 01;
-               ADD sC, 01;
+	       CALL check_collision                ; check if any collisions happen
+
                RETURN                              ; finished with play subroutine
 
 ;;============================================================================
@@ -529,6 +529,33 @@ draw_helicopter_blades:
               JUMP Z, wait                        ; if busy, wait more
               RETURN                              ; leave line drawing subroutine
 
+;;============================================================================
+;; Check Collisions - Check Collisions Subroutine
+;;============================================================================
+
+check_collision:
+              LOAD s5, sF                         ; get current horizontal position of block
+              COMPARE s5, 64                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              JUMP NZ, no_collision               ; jump to no_collision routine
+
+check_vertical:
+              LOAD s6, sE                         ; get current vertical position of block
+              LOAD s7, sC                         ; load helicopter front position
+        loop: COMPARE s5, s6                      ; compare s5 and s6
+              JUMP Z, collision_occurred          ; jump to collision_occured
+              ADD s6, 01                          ; add one to s6
+              LOAD s7, sE                         ; load original value for reference only
+              ADD s7, 3c                          ; add 60 to s7
+              COMPARE s6, s7                      ; compare s6 to bottom of block (s7)
+              JUMP Z, no_collision                ; jump to no_collision routine
+              JUMP NZ, loop                       ; keep looping
+
+no_collision: SUB sE, 01                          ; decrement sE
+              ADD sC, 01                          ; increment sC
+              RETURN                              ; leave, since no collisions occurred
+
+collision_occurred: RETURN                        ; return from routine without any increments
 
 ;;============================================================================
 ;; Interrupt - Vector.

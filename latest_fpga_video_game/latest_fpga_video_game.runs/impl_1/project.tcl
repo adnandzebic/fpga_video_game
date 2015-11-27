@@ -48,7 +48,6 @@ set_msg_config -id {HDL 9-1654} -limit 100000
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
   debug::add_scope template.lib 1
   set_property design_mode GateLvl [current_fileset]
   set_property webtalk.parent_dir F:/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/wt [current_project]
