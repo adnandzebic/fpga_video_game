@@ -1,10 +1,10 @@
 // Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-// Date        : Sat Nov 28 19:38:15 2015
+// Date        : Sat Nov 28 20:55:36 2015
 // Host        : mylaptop running 64-bit unknown
 // Command     : write_verilog -force -mode funcsim
-//               /tmp/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.v
+//               /home/adnan/Documents/School/EE178/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.v
 // Design      : framebuffer
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -139,7 +139,7 @@ module framebuffer
   (* C_XDEVICEFAMILY = "artix7" *) 
   (* DONT_TOUCH *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
-  framebuffer_blk_mem_gen_v8_2 U0
+  framebufferblk_mem_gen_v8_2 U0
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -204,7 +204,7 @@ module framebuffer
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
-module framebuffer_blk_mem_gen_generic_cstr
+module framebufferblk_mem_gen_generic_cstr
    (douta,
     doutb,
     clka,
@@ -263,7 +263,7 @@ module framebuffer_blk_mem_gen_generic_cstr
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_mux \has_mux_a.A 
+  framebufferblk_mem_gen_mux \has_mux_a.A 
        (.\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (p_0_out),
         .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (\ramloop[3].ram.r_n_0 ),
         .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 (\ramloop[2].ram.r_n_0 ),
@@ -275,7 +275,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .addra(addra[15:14]),
         .clka(clka),
         .douta(douta));
-  framebuffer_blk_mem_gen_mux__parameterized0 \has_mux_b.B 
+  framebufferblk_mem_gen_mux__parameterized0 \has_mux_b.B 
        (.\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ({\ramloop[0].ram.r_n_1 ,\ramloop[0].ram.r_n_2 }),
         .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ({\ramloop[3].ram.r_n_1 ,\ramloop[3].ram.r_n_2 }),
         .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ({\ramloop[2].ram.r_n_1 ,\ramloop[2].ram.r_n_2 }),
@@ -287,7 +287,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .addrb(addrb[14]),
         .clkb(clkb),
         .doutb(doutb));
-  framebuffer_blk_mem_gen_prim_width \ramloop[0].ram.r 
+  framebufferblk_mem_gen_prim_width \ramloop[0].ram.r 
        (.addra(addra[14:0]),
         .\addra[15] (\ramloop[4].ram.r_n_3 ),
         .addrb(addrb[13:0]),
@@ -300,7 +300,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .\doutb[4] ({\ramloop[0].ram.r_n_1 ,\ramloop[0].ram.r_n_2 }),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized0 \ramloop[1].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized0 \ramloop[1].ram.r 
        (.DOADO(\ramloop[1].ram.r_n_0 ),
         .DOBDO({\ramloop[1].ram.r_n_1 ,\ramloop[1].ram.r_n_2 }),
         .addra(addra),
@@ -311,7 +311,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .dinb({dinb[4],dinb[0]}),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized1 \ramloop[2].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized1 \ramloop[2].ram.r 
        (.addra(addra[14:0]),
         .\addra[15] (\ramloop[4].ram.r_n_3 ),
         .addrb(addrb[13:0]),
@@ -324,7 +324,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .\doutb[5] ({\ramloop[2].ram.r_n_1 ,\ramloop[2].ram.r_n_2 }),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized2 \ramloop[3].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized2 \ramloop[3].ram.r 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -335,7 +335,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .\doutb[5] ({\ramloop[3].ram.r_n_1 ,\ramloop[3].ram.r_n_2 }),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized3 \ramloop[4].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized3 \ramloop[4].ram.r 
        (.\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (\ramloop[4].ram.r_n_3 ),
         .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (\ramloop[4].ram.r_n_4 ),
         .addra(addra),
@@ -348,7 +348,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .\doutb[6] ({\ramloop[4].ram.r_n_1 ,\ramloop[4].ram.r_n_2 }),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized4 \ramloop[5].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized4 \ramloop[5].ram.r 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -359,7 +359,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .\doutb[6] ({\ramloop[5].ram.r_n_1 ,\ramloop[5].ram.r_n_2 }),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized5 \ramloop[6].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized5 \ramloop[6].ram.r 
        (.addra(addra[14:0]),
         .\addra[15] (\ramloop[4].ram.r_n_3 ),
         .addrb(addrb[13:0]),
@@ -372,7 +372,7 @@ module framebuffer_blk_mem_gen_generic_cstr
         .\doutb[7] ({\ramloop[6].ram.r_n_1 ,\ramloop[6].ram.r_n_2 }),
         .wea(wea),
         .web(web));
-  framebuffer_blk_mem_gen_prim_width__parameterized6 \ramloop[7].ram.r 
+  framebufferblk_mem_gen_prim_width__parameterized6 \ramloop[7].ram.r 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -386,7 +386,7 @@ module framebuffer_blk_mem_gen_generic_cstr
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
-module framebuffer_blk_mem_gen_mux
+module framebufferblk_mem_gen_mux
    (douta,
     DOADO,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
@@ -474,7 +474,7 @@ module framebuffer_blk_mem_gen_mux
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
-module framebuffer_blk_mem_gen_mux__parameterized0
+module framebufferblk_mem_gen_mux__parameterized0
    (doutb,
     addrb,
     clkb,
@@ -586,7 +586,7 @@ module framebuffer_blk_mem_gen_mux__parameterized0
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width
+module framebufferblk_mem_gen_prim_width
    (\douta[0] ,
     \doutb[4] ,
     \addra[15] ,
@@ -625,7 +625,7 @@ module framebuffer_blk_mem_gen_prim_width
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper \prim_noinit.ram 
        (.addra(addra),
         .\addra[15] (\addra[15] ),
         .addrb(addrb),
@@ -641,7 +641,7 @@ module framebuffer_blk_mem_gen_prim_width
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized0
+module framebufferblk_mem_gen_prim_width__parameterized0
    (DOADO,
     DOBDO,
     addra,
@@ -674,7 +674,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized0
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized0 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized0 \prim_noinit.ram 
        (.DOADO(DOADO),
         .DOBDO(DOBDO),
         .addra(addra),
@@ -688,7 +688,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized0
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized1
+module framebufferblk_mem_gen_prim_width__parameterized1
    (\douta[1] ,
     \doutb[5] ,
     \addra[15] ,
@@ -727,7 +727,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized1
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized1 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized1 \prim_noinit.ram 
        (.addra(addra),
         .\addra[15] (\addra[15] ),
         .addrb(addrb),
@@ -743,7 +743,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized1
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized2
+module framebufferblk_mem_gen_prim_width__parameterized2
    (\douta[1] ,
     \doutb[5] ,
     addra,
@@ -776,7 +776,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized2
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized2 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized2 \prim_noinit.ram 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -790,7 +790,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized2
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized3
+module framebufferblk_mem_gen_prim_width__parameterized3
    (\douta[2] ,
     \doutb[6] ,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
@@ -829,7 +829,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized3
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized3 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized3 \prim_noinit.ram 
        (.\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
         .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
@@ -845,7 +845,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized3
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized4
+module framebufferblk_mem_gen_prim_width__parameterized4
    (\douta[2] ,
     \doutb[6] ,
     addra,
@@ -878,7 +878,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized4
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized4 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized4 \prim_noinit.ram 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -892,7 +892,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized4
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized5
+module framebufferblk_mem_gen_prim_width__parameterized5
    (\douta[3] ,
     \doutb[7] ,
     \addra[15] ,
@@ -931,7 +931,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized5
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized5 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized5 \prim_noinit.ram 
        (.addra(addra),
         .\addra[15] (\addra[15] ),
         .addrb(addrb),
@@ -947,7 +947,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized5
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module framebuffer_blk_mem_gen_prim_width__parameterized6
+module framebufferblk_mem_gen_prim_width__parameterized6
    (\douta[3] ,
     \doutb[7] ,
     addra,
@@ -980,7 +980,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized6
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_prim_wrapper__parameterized6 \prim_noinit.ram 
+  framebufferblk_mem_gen_prim_wrapper__parameterized6 \prim_noinit.ram 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -994,7 +994,7 @@ module framebuffer_blk_mem_gen_prim_width__parameterized6
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper
+module framebufferblk_mem_gen_prim_wrapper
    (\douta[0] ,
     \doutb[4] ,
     \addra[15] ,
@@ -1043,7 +1043,7 @@ module framebuffer_blk_mem_gen_prim_wrapper
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -1256,7 +1256,7 @@ module framebuffer_blk_mem_gen_prim_wrapper
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized0
+module framebufferblk_mem_gen_prim_wrapper__parameterized0
    (DOADO,
     DOBDO,
     addra,
@@ -1299,7 +1299,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized0
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -1512,7 +1512,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized0
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized1
+module framebufferblk_mem_gen_prim_wrapper__parameterized1
    (\douta[1] ,
     \doutb[5] ,
     \addra[15] ,
@@ -1561,7 +1561,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized1
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -1774,7 +1774,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized1
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized2
+module framebufferblk_mem_gen_prim_wrapper__parameterized2
    (\douta[1] ,
     \doutb[5] ,
     addra,
@@ -1817,7 +1817,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized2
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -2030,7 +2030,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized2
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized3
+module framebufferblk_mem_gen_prim_wrapper__parameterized3
    (\douta[2] ,
     \doutb[6] ,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
@@ -2079,7 +2079,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized3
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -2302,7 +2302,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized3
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized4
+module framebufferblk_mem_gen_prim_wrapper__parameterized4
    (\douta[2] ,
     \doutb[6] ,
     addra,
@@ -2345,7 +2345,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized4
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -2558,7 +2558,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized4
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized5
+module framebufferblk_mem_gen_prim_wrapper__parameterized5
    (\douta[3] ,
     \doutb[7] ,
     \addra[15] ,
@@ -2607,7 +2607,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized5
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -2820,7 +2820,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized5
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module framebuffer_blk_mem_gen_prim_wrapper__parameterized6
+module framebufferblk_mem_gen_prim_wrapper__parameterized6
    (\douta[3] ,
     \doutb[7] ,
     addra,
@@ -2863,7 +2863,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized6
   wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   RAMB36E1 #(
     .DOA_REG(0),
     .DOB_REG(0),
@@ -3076,7 +3076,7 @@ module framebuffer_blk_mem_gen_prim_wrapper__parameterized6
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_top" *) 
-module framebuffer_blk_mem_gen_top
+module framebufferblk_mem_gen_top
    (douta,
     doutb,
     clka,
@@ -3109,7 +3109,7 @@ module framebuffer_blk_mem_gen_top
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_generic_cstr \valid.cstr 
+  framebufferblk_mem_gen_generic_cstr \valid.cstr 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -3147,7 +3147,7 @@ endmodule
 (* C_WRITE_DEPTH_B = "32768" *) (* C_WRITE_MODE_A = "READ_FIRST" *) (* C_WRITE_MODE_B = "READ_FIRST" *) 
 (* C_WRITE_WIDTH_A = "4" *) (* C_WRITE_WIDTH_B = "8" *) (* C_XDEVICEFAMILY = "artix7" *) 
 (* ORIG_REF_NAME = "blk_mem_gen_v8_2" *) (* downgradeipidentifiedwarnings = "yes" *) 
-module framebuffer_blk_mem_gen_v8_2
+module framebufferblk_mem_gen_v8_2
    (clka,
     rsta,
     ena,
@@ -3377,7 +3377,7 @@ module framebuffer_blk_mem_gen_v8_2
   assign sbiterr = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  framebuffer_blk_mem_gen_v8_2_synth inst_blk_mem_gen
+  framebufferblk_mem_gen_v8_2_synth inst_blk_mem_gen
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -3391,7 +3391,7 @@ module framebuffer_blk_mem_gen_v8_2
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_v8_2_synth" *) 
-module framebuffer_blk_mem_gen_v8_2_synth
+module framebufferblk_mem_gen_v8_2_synth
    (douta,
     doutb,
     clka,
@@ -3424,7 +3424,7 @@ module framebuffer_blk_mem_gen_v8_2_synth
   wire [0:0]wea;
   wire [0:0]web;
 
-  framebuffer_blk_mem_gen_top \gnativebmg.native_blk_mem_gen 
+  framebufferblk_mem_gen_top \gnativebmg.native_blk_mem_gen 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),

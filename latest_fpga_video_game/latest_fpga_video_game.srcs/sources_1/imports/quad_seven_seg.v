@@ -31,8 +31,6 @@ module quad_seven_seg (
  );
 
  
-// My current design uses more than one clock?
-// Creating the counter
  reg [15:0]counter;
   
  always @ (posedge clk)
@@ -115,7 +113,7 @@ reg [6:0] temp3;
         4'hD : temp1 = 7'b0100001; // Digit D (hex)
         4'hE : temp1 = 7'b0000110; // Digit E (hex)
         4'hF : temp1 = 7'b0001110; // Digit F (hex)
-        default : temp0 = 7'bxxxxxxx; // Weird case
+        default : temp1 = 7'bxxxxxxx; // Weird case
       endcase
       
       ca = temp1[0];
@@ -158,7 +156,7 @@ reg [6:0] temp3;
         4'hD : temp2 = 7'b0100001; // Digit D (hex)
         4'hE : temp2 = 7'b0000110; // Digit E (hex)
         4'hF : temp2 = 7'b0001110; // Digit F (hex)
-        default : temp0 = 7'bxxxxxxx; // Weird case
+        default : temp2 = 7'bxxxxxxx; // Weird case
       endcase
       
       ca = temp2[0];
@@ -200,7 +198,7 @@ reg [6:0] temp3;
         4'hD : temp3 = 7'b0100001; // Digit D (hex)
         4'hE : temp3 = 7'b0000110; // Digit E (hex)
         4'hF : temp3 = 7'b0001110; // Digit F (hex)
-        default : temp0 = 7'bxxxxxxx; // Weird case
+        default : temp3 = 7'bxxxxxxx; // Weird case
       endcase
       
       

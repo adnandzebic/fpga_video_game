@@ -48,20 +48,21 @@ CONSTANT buttons_rt      , 01 ; right
 ;; Boot.
 ;;============================================================================
 
-         boot:  LOAD s0, zero                       ; initialize
-                LOAD s1, zero                       ; initialize
-                LOAD s2, zero                       ; initialize
-                LOAD s3, zero                       ; initialize
-                LOAD s4, zero                       ; initialize
-                LOAD sC, 80                         ; starting helicopter position
-                LOAD sD, 05                         ; initialize (needed later)
-                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
-                LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
-                LOAD s5, mode_exp                   ; load desired mode
-                OUTPUT s5, mode                     ; set desired mode
-                LOAD s5, beam_hi                    ; load desired beam
-                OUTPUT s5, beam                     ; set desired beam
-                ENABLE INTERRUPT                    ; enable interrupts
+         boot: LOAD s0, zero                       ; initialize
+               LOAD s1, zero                       ; initialize
+               LOAD s2, zero                       ; initialize
+               LOAD s3, zero                       ; initialize
+               LOAD s4, zero                       ; initialize
+               LOAD sB, 00                         ; initial distance
+               LOAD sC, 80                         ; starting helicopter position
+               LOAD sD, 05                         ; initialize (needed later)
+               LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
+               LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
+               LOAD s5, mode_exp                   ; load desired mode
+               OUTPUT s5, mode                     ; set desired mode
+               LOAD s5, beam_hi                    ; load desired beam
+               OUTPUT s5, beam                     ; set desired beam
+               ENABLE INTERRUPT                    ; enable interrupts
 
 ;;============================================================================
 ;; Main.
@@ -77,19 +78,19 @@ CONSTANT buttons_rt      , 01 ; right
 ;; Interrupt - Service Routine.
 ;;============================================================================
 
-          isr: INPUT s2, buttons                    ; get center button value
+          isr: INPUT s2, buttons                   ; get center button value
                INPUT s3, switches_hi               ; get hi switch values
                INPUT s4, buttons                   ; get button values
-               OUTPUT s2, qssd_lo                  ; put lo qssd values
-               OUTPUT s3, qssd_hi                  ; put hi qssd values
-               OUTPUT s4, qssd_dp                  ; put dp qssd values
+               ;OUTPUT s2, qssd_lo                  ; put lo qssd values
+               ;OUTPUT s3, qssd_hi                  ; put hi qssd values
+               ;OUTPUT s4, qssd_dp                  ; put dp qssd values
                ;OUTPUT s2, stax                     ; set desired stax
                ;OUTPUT s3, stay                     ; set desired stay
                ;INPUT s5, prng                      ; load random endx
                ;OUTPUT s5, endx                     ; set random endx
                ;INPUT s5, prng                      ; load random endy
                ;OUTPUT s5, endy                     ; set random endy
-               CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+               ;CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
                CALL play                           ; call play subroutine
                RETURNI ENABLE                      ; done with isr
 
@@ -115,29 +116,43 @@ CONSTANT buttons_rt      , 01 ; right
 ;; Map - Draw Map Subroutine
 ;;============================================================================
 
-         map: LOAD s5, zero                       ; load zero into s5
+         map: 
+         
+              ;;============================================================================
+              ;; Draws Top Line of Map (Line 1)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
               OUTPUT s5, stax                     ; set desired stax
-              LOAD s5, 0F                         ; load 15 into s5
-              OUTPUT s5, stay                     ; set desired stay
-              LOAD s5, FF                         ; load 255 into s5
+              LOAD s6, 0F                         ; load 15 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
               OUTPUT s5, endx                     ; set desired endx
-              LOAD s5, 0F                         ; load 15 into s5
-              OUTPUT s5, endy                     ; set desired endy
+              OUTPUT s6, endy                     ; set desired endy
               CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
 
-              LOAD s5, zero                       ; load zero into s5
+              ;;============================================================================
+              ;; Draws Bottom Line of Map (Line 2)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
               OUTPUT s5, stax                     ; set desired stax
-              LOAD s5, F0                         ; load 240 into s5
-              OUTPUT s5, stay                     ; set desired stay
-              LOAD s5, FF                         ; load 255 into s5
+              LOAD s6, F0                         ; load 240 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
               OUTPUT s5, endx                     ; set desired endx
-              LOAD s5, F0                         ; load 240 into s5
-              OUTPUT s5, endy                     ; set desired endy
+              OUTPUT s6, endy                     ; set desired endy
               CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
-              RETURN                              ; finished with map subroutine
+              RETURN                              ; leave map subroutine
 
 ;;============================================================================
-;; Draw Block - Draw Block Subroutine
+;; Draw Helicopter - Draw Helicopter Subroutine
 ;;============================================================================
 
   draw_helicopter: 
@@ -145,6 +160,7 @@ CONSTANT buttons_rt      , 01 ; right
               CALL draw_helicopter_cockpit       ; call the subroutine to draw the cockpit
               CALL draw_helicopter_blades        ; call the subroutine to draw the blades
               CALL draw_helicopter_tail          ; call the subroutine to draw the tail
+              CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
 
               RETURN                              ; go back from drawing helicopter
 
@@ -235,11 +251,14 @@ random_block_location:
                COMPARE sE, 00                      ; is it time to create a new variable?
                JUMP Z, new_random                  ; jump to new random creator
                JUMP NZ, skip_everything            ; goes back
-skip_everything: RETURN                            ; returns back
+               
+skip_everything: RETURN                            ; returns back (no new rand. number)
+
   new_random:  INPUT s5, prng                      ; create to new random number
                COMPARE s5, 0F                      ; check if it's in range
                JUMP NC, check_other_bound_range    ; check lower bound of map
                JUMP C, new_random                  ; get new variable
+               
 check_other_bound_range:
                COMPARE s5, B4                      ; compare s5 to 180
                JUMP NC, new_random                 ; get a new random number
@@ -517,6 +536,80 @@ draw_helicopter_blades:
 
               RETURN                              ; go back from subroutine
 
+;;============================================================================
+;; Draw Helicopter Smoke - Draw Helicopter Smoke Subroutine
+;;============================================================================
+
+  draw_helicopter_smoke: 
+
+              ;;============================================================================
+              ;; Draws Smoke of Helicopter (Line 1)
+              ;;============================================================================
+
+              ;; Start Point
+              LOAD s5, 64                          ; load 100 into s5
+              SUB s5, 28                           ; position starting smoke right point of line 1
+              OUTPUT s5, stax                      ; output to starting x position of line 1
+
+              LOAD s6, sC                          ; load helicopter smoke vertical position for line 1
+              OUTPUT s6, stay                      ; output to starting y position of line 1
+              ;;
+
+              ;; End Point
+              SUB s5, 04                           ; position starting smoke left point of line 1
+              OUTPUT s5, endx                      ; output to starting y position of line 1
+
+              OUTPUT s6, endy                      ; output to ending y position of line 1, matching helicopter
+              CALL draw_line                       ;draws a line (careful: this subroutine overwrites s5)
+              ;;
+             
+              ;;============================================================================
+              ;; Draws Smoke of Helicopter (Line 2)
+              ;;============================================================================
+
+              ;; Start Point
+              LOAD s5, 64                          ; load 100 into s5
+              SUB s5, 34                           ; position starting smoke right point of line 2
+              OUTPUT s5, stax                      ; output to starting x position of line 2
+
+              LOAD s6, sC                          ; load starting smoke vertical position for line 2
+              ADD s6, 04                           ; add 4 to s6 (shift down by 4)
+              OUTPUT s6, stay                      ; output to starting y position of line 2
+              ;;
+
+              ;; End Point
+              SUB s5, 04                           ; subtract s5 by 4 for length of line
+              OUTPUT s5, endx                      ; output to endx
+
+              OUTPUT s6, endy                      ; outputs vertical locaton of smoke line 2
+              CALL draw_line                       ;draws a line (careful: this subroutine overwrites s5)
+              ;;
+
+              ;;============================================================================
+              ;; Draws Smoke of Helicopter (Line 3)
+              ;;============================================================================
+              
+              ;; Start Point
+              LOAD s5, 64                          ; load 100 into s5
+              SUB s5, 40                           ; position starting smoke right point of line 3
+              OUTPUT s5, stax                      ; output to starting x position of line 3
+
+              LOAD s6, sC                          ; load starting smoke vertical position for line 3
+              SUB s6, 04                           ; add 4 to s6 (shift down by 4)
+              OUTPUT s6, stay                      ; output to starting y position of line 3
+              ;;
+
+              ;; End Point
+              SUB s5, 04                           ; subtract s5 by 4 for length of line
+              OUTPUT s5, endx                      ; output to endx
+
+              OUTPUT s6, endy                      ; output same y position of line 3
+              CALL draw_line                       ; draws a line (careful: this subroutine overwrites s5)
+              ;;
+
+              RETURN                               ; go back to subroutine
+
+
 
 ;;============================================================================
 ;; Draw Line - Draw Line Subroutine
@@ -554,6 +647,7 @@ check_vertical:
 
 no_collision: SUB sE, 01                          ; decrement sE
               ADD sC, 01                          ; increment sC
+              CALL distance                       ; used for keeping the score (increments distance)
               RETURN                              ; leave, since no collisions occurred
 
 collision_occurred: 
@@ -563,7 +657,23 @@ collision_occurred:
                OUTPUT s8, endx                     ; set random endx
                INPUT s8, prng                      ; load random endy
                OUTPUT s8, endy                     ; set random endy
-	       RETURN                        ; return from routine without any increments
+	       RETURN                              ; return from routine without any increments
+
+;;============================================================================
+;; Distance - Distance Subroutine
+;;============================================================================
+
+    distance: OUTPUT sB, qssd_lo                  ; put distance value to qssd
+              COMPARE sB, FF                      ; check if max (99) was reached
+              JUMP Z, distance2                   ; jump to distance2
+              ADD sB, one                         ; increment distance value
+              RETURN                              ; finished with distance subroutine
+              
+   distance2: ADD sA, one                         ; add one to the next degree
+              LOAD sB, zero                       ; reset sB
+	      OUTPUT sB, qssd_lo                  ; put distance value to qssd
+	      OUTPUT sA, qssd_hi                  ; put distance value to qssd
+	      RETURN                              ; finished with distance subroutine
 
 ;;============================================================================
 ;; Interrupt - Vector.

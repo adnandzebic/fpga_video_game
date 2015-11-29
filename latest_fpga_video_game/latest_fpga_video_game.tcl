@@ -1,0 +1,12 @@
+reset_run synth_1;
+launch_runs synth_1;
+wait_on_run synth_1;
+reset_run impl_1;
+launch_runs impl_1 -to_step write_bitstream;
+wait_on_run impl_1;
+open_hw;
+connect_hw_server;
+open_hw_target;
+set_property PROBES.FILE {} [lindex [get_hw_devices] 0];
+set_property PROGRAM.FILE {/home/adnan/Documents/School/EE178/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/impl_1/project.bit} [lindex [get_hw_devices] 0];
+program_hw_devices [lindex [get_hw_devices] 0];
