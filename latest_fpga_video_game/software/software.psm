@@ -254,7 +254,7 @@ random_block_location:
                
 skip_everything: RETURN                            ; returns back (no new rand. number)
 
-  new_random:  INPUT s5, prng                      ; create to new random number
+   new_random: INPUT s5, prng                      ; create to new random number
                COMPARE s5, 0F                      ; check if it's in range
                JUMP NC, check_other_bound_range    ; check lower bound of map
                JUMP C, new_random                  ; get new variable
@@ -270,6 +270,11 @@ check_other_bound_range:
 ;;============================================================================
 
 move_heli_up:
+               COMPARE sC, 15                      ; check if the helicopter is colliding with top wall
+               JUMP NZ, decrement                  ; if not colliding, then move helicopter appropriately
+               JUMP NC, decrement                  ; necessary as well
+               RETURN                              ; do not increment if colliding with top wall
+   decrement:
                SUB sC, 02                          ; move the helicopter up
                RETURN                              ; get out of subroutine
 
@@ -627,6 +632,29 @@ draw_helicopter_blades:
 ;;============================================================================
 
 check_collision:
+	      ;;============================================================================
+	      ;; Check Collisions with Map (top wall)
+	      ;;============================================================================
+	      LOAD s5, 0F                         ; top wall vertical coordinate (15)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      SUB s6, 0A                          ; the helicopter's blades 10 pixels higher
+	      COMPARE s5, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+	      JUMP NC, collision_occurred         ; jump to collision occurred (necessary)
+	      
+	      ;;============================================================================
+	      ;; Check Collisions with Map (bottom wall)
+	      ;;============================================================================
+	      LOAD s5, F0                         ; bottom wall vertical coordinate (240)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      COMPARE s5, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+
+	      ;;============================================================================
+	      ;; Check Collisions with Block
+	      ;;============================================================================
+
               LOAD s5, sE                         ; get current horizontal position of block
               SUB s5, 0A                          ; actual block is 10 pixels back
               COMPARE s5, 64                      ; check if s5 coincides with heli (horizontal check)
@@ -657,6 +685,7 @@ collision_occurred:
                OUTPUT s8, endx                     ; set random endx
                INPUT s8, prng                      ; load random endy
                OUTPUT s8, endy                     ; set random endy
+               CALL draw_line                      ; draw random line
 	       RETURN                              ; return from routine without any increments
 
 ;;============================================================================

@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Sun Nov 29 05:10:43 2015
+| Date         : Sun Nov 29 12:32:45 2015
 | Host         : mylaptop running 64-bit unknown
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file project_timing_summary_routed.rpt -rpx project_timing_summary_routed.rpx
 | Design       : project

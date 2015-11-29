@@ -101,14 +101,14 @@
                 play: INPUT s5, buttons              ; get center button values
                       CALL map                       ; draw the map using map subroutine
 
-                      INPUT s5, buttons              ; get button values
-                      COMPARE s5, buttons_ct         ; check if center button is pressed
-                      CALL Z, move_heli_up           ; call subroutine that moves the helicopter up
-
                       CALL draw_helicopter           ; draw the helicopter
                       CALL random_block_location     ; determines a random place for the block (y direction only)
                       CALL draw_block                ; draw the block using draw_block subroutine
                       CALL check_collision           ; check if any collisions happen
+
+                      INPUT s5, buttons              ; get button values
+                      COMPARE s5, buttons_ct         ; check if center button is pressed
+                      CALL Z, move_heli_up           ; call subroutine that moves the helicopter up
 
                       RETURN                         ; finished with play subroutine
 
@@ -270,6 +270,11 @@
                       ;;============================================================================
 
         move_heli_up:
+                      COMPARE sc, 15                 ; check if the helicopter is colliding with top wall
+                      JUMP NZ, decrement             ; if not colliding, then move helicopter appropriately
+                      JUMP NC, decrement             ; necessary as well
+                      RETURN                         ; do not increment if colliding with top wall
+           decrement:
                       SUB sc, 02                     ; move the helicopter up
                       RETURN                         ; get out of subroutine
 
@@ -627,6 +632,29 @@
                       ;;============================================================================
 
      check_collision:
+                      ;;============================================================================
+                      ;; Check Collisions with Map (top wall)
+                      ;;============================================================================
+                      LOAD s5, 0F                    ; top wall vertical coordinate (15)
+                      LOAD s6, sc                    ; get vertical position of helicopter
+                      SUB s6, 0A                     ; the helicopter's blades 10 pixels higher
+                      COMPARE s5, s6                 ; check if the two intersect
+                      JUMP Z, collision_occurred     ; jump to collision occurred
+                      JUMP NC, collision_occurred    ; jump to collision occurred (necessary)
+
+                      ;;============================================================================
+                      ;; Check Collisions with Map (bottom wall)
+                      ;;============================================================================
+                      LOAD s5, F0                    ; bottom wall vertical coordinate (240)
+                      LOAD s6, sc                    ; get vertical position of helicopter
+                      ADD s6, 05                     ; the helicopter's bottom is 5 pixels below
+                      COMPARE s5, s6                 ; check if the two intersect
+                      JUMP Z, collision_occurred     ; jump to collision occurred
+
+                      ;;============================================================================
+                      ;; Check Collisions with Block
+                      ;;============================================================================
+
                       LOAD s5, se                    ; get current horizontal position of block
                       SUB s5, 0A                     ; actual block is 10 pixels back
                       COMPARE s5, 64                 ; check if s5 coincides with heli (horizontal check)
@@ -657,6 +685,7 @@
                       OUTPUT s8, endx                ; set random endx
                       INPUT s8, prng                 ; load random endy
                       OUTPUT s8, endy                ; set random endy
+                      CALL draw_line                 ; draw random line
                       RETURN                         ; return from routine without any increments
 
                       ;;============================================================================
@@ -664,7 +693,7 @@
                       ;;============================================================================
 
             distance: OUTPUT sb, qssd_lo             ; put distance value to qssd
-                      COMPARE sb, 99                 ; check if max (99) was reached
+                      COMPARE sb, FF                 ; check if max (99) was reached
                       JUMP Z, distance2              ; jump to distance2
                       ADD sb, one                    ; increment distance value
                       RETURN                         ; finished with distance subroutine
