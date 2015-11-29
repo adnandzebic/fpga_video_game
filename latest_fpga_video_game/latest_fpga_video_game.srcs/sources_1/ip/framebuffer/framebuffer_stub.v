@@ -1,10 +1,10 @@
 // Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2015.2 (win64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-// Date        : Tue Nov 24 23:19:07 2015
-// Host        : Arya running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+// Date        : Sat Nov 28 19:38:15 2015
+// Host        : mylaptop running 64-bit unknown
 // Command     : write_verilog -force -mode synth_stub
-//               f:/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_stub.v
+//               /tmp/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_stub.v
 // Design      : framebuffer
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

@@ -1,0 +1,187 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date              : Sat Nov 28 19:52:57 2015
+| Host              : mylaptop running 64-bit unknown
+| Command           : report_clock_utilization -file project_clock_utilization_routed.rpt
+| Design            : project
+| Device            : 7a35t-cpg236
+| Speed File        : -1  PRODUCTION 1.14 2014-09-11
+| Temperature Grade : C
+------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Details of Global Clocks
+3. Details of Regional Clocks
+4. Details of Multi-Regional Clocks
+5. Details of I/O Clocks
+6. Details of Local Clocks
+7. Clock Regions : Key Resource Utilization
+8. Net wise resources used in clock region X0Y0
+9. Net wise resources used in clock region X1Y0
+10. Net wise resources used in clock region X1Y1
+
+1. Clock Primitive Utilization
+------------------------------
+
++-------+------+-----------+-----------+
+| Type  | Used | Available | Num Fixed |
++-------+------+-----------+-----------+
+| BUFG  |    1 |        32 |         0 |
+| BUFH  |    1 |        72 |         0 |
+| BUFIO |    0 |        20 |         0 |
+| MMCM  |    1 |         5 |         0 |
+| PLL   |    0 |         5 |         0 |
+| BUFR  |    0 |        20 |         0 |
+| BUFMR |    0 |        10 |         0 |
++-------+------+-----------+-----------+
+
+
+2. Details of Global Clocks
+---------------------------
+
++-------+---------------------------------+-----------------------+--------------+-------+
+|       |                                 |                       |   Num Loads  |       |
++-------+---------------------------------+-----------------------+------+-------+-------+
+| Index | BUFG Cell                       | Net Name              | BELs | Sites | Fixed |
++-------+---------------------------------+-----------------------+------+-------+-------+
+|     1 | vga_example_inst/clk_out_bufgce | vga_example_inst/pclk |  336 |   121 |    no |
++-------+---------------------------------+-----------------------+------+-------+-------+
+
+
++-------+-------------------------------+-------------------------+--------------+-------+
+|       |                               |                         |   Num Loads  |       |
++-------+-------------------------------+-------------------------+------+-------+-------+
+| Index | BUFH Cell                     | Net Name                | BELs | Sites | Fixed |
++-------+-------------------------------+-------------------------+------+-------+-------+
+|     1 | vga_example_inst/clk_out_bufh | vga_example_inst/clk_ss |    8 |     1 |    no |
++-------+-------------------------------+-------------------------+------+-------+-------+
+
+
++-------+--------------------------------+--------------------------+--------------+-------+
+|       |                                |                          |   Num Loads  |       |
++-------+--------------------------------+--------------------------+------+-------+-------+
+| Index | MMCM Cell                      | Net Name                 | BELs | Sites | Fixed |
++-------+--------------------------------+--------------------------+------+-------+-------+
+|     1 | vga_example_inst/clk_in_mmcme2 | vga_example_inst/clkfb   |    1 |     1 |    no |
+|     2 | vga_example_inst/clk_in_mmcme2 | vga_example_inst/clk_out |    2 |     2 |    no |
++-------+--------------------------------+--------------------------+------+-------+-------+
+
+
+3. Details of Regional Clocks
+-----------------------------
+
+4. Details of Multi-Regional Clocks
+-----------------------------------
+
+5. Details of I/O Clocks
+------------------------
+
+6. Details of Local Clocks
+--------------------------
+
++-------+----------------------------------------------------+--------------------------------------------------------+--------------+-------+
+|       |                                                    |                                                        |   Num Loads  |       |
++-------+----------------------------------------------------+--------------------------------------------------------+------+-------+-------+
+| Index | Local Clk Src                                      | Net Name                                               | BELs | Sites | Fixed |
++-------+----------------------------------------------------+--------------------------------------------------------+------+-------+-------+
+|     1 | vga_example_inst/my_linedraw/next_state_reg[1]_i_2 | vga_example_inst/my_linedraw/next_state_reg[1]_i_2_n_0 |    2 |     2 |    no |
++-------+----------------------------------------------------+--------------------------------------------------------+------+-------+-------+
+
+
+7. Clock Regions : Key Resource Utilization
+-------------------------------------------
+
++-------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+|                   | Global Clock |     BUFRs    |    BUFMRs    |    BUFIOs    |     MMCM     |      PLL     |      GT      |      PCI     |    ILOGIC    |    OLOGIC    |      FF      |     LUTM     |    RAMB18    |    RAMB36    |    DSP48E1   |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| X0Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  241 |  9600 |   10 |  1600 |    0 |    20 |    5 |    10 |    0 |    20 |
+| X1Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   53 | 12000 |   32 |  1800 |    0 |    40 |    4 |    20 |    0 |    20 |
+| X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  9600 |    0 |  1600 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y1              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    1 |    50 |    0 | 12000 |    0 |  1800 |    0 |    40 |    0 |    20 |    0 |    20 |
+| X0Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 14400 |    0 |  1600 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y2              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |  7600 |    0 |  1200 |    0 |    10 |    0 |     5 |    0 |    20 |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+* RAMB36 site can be used as two RAMB18/FIFO18 sites.
+
+
+8. Net wise resources used in clock region X0Y0
+-----------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-------------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |      Clock Net Name     |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-------------------------+
+| BUFH        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   8 |     0 |        0 | vga_example_inst/clk_ss |
+| BUFGCTRL    | BUFHCE_X0Y8 |   no  |         0 |        0 |       0 |        10 |       0 |       0 | 231 |    10 |        0 | vga_example_inst/pclk   |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-------------------------+
+
+
+9. Net wise resources used in clock region X1Y0
+-----------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |     Clock Net Name    |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------+
+| BUFGCTRL    | BUFHCE_X1Y8 |   no  |         0 |        0 |       0 |         7 |       0 |       0 |  53 |    32 |        0 | vga_example_inst/pclk |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------+
+
+
+10. Net wise resources used in clock region X1Y1
+------------------------------------------------
+
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------+
+| Source Type | BUFHCE Site  | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |     Clock Net Name    |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------+
+| BUFGCTRL    | BUFHCE_X1Y23 |   no  |         0 |        0 |       0 |         0 |       0 |       1 |   0 |     0 |        0 | vga_example_inst/pclk |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------------+
+
+
+
+# Location of BUFG Primitives 
+set_property LOC BUFGCTRL_X0Y0 [get_cells vga_example_inst/clk_out_bufgce]
+
+# Location of IO Clock Primitives
+
+# Location of MMCM Clock Primitives
+set_property LOC MMCME2_ADV_X1Y0 [get_cells vga_example_inst/clk_in_mmcme2]
+
+# Location of BUFH Clock Primitives
+set_property LOC BUFHCE_X0Y0 [get_cells vga_example_inst/clk_out_bufh]
+
+# Location of BUFR Clock Primitives
+
+# Location of BUFMR Clock Primitives
+
+# Location of PLL Clock Primitives
+
+# Location of IO Primitives which is load of clock spine
+
+# Location of clock ports
+set_property LOC IOB_X1Y26 [get_ports clk]
+
+# Clock net "vga_example_inst/clk_ss" driven by instance "vga_example_inst/clk_out_bufh" located at site "BUFHCE_X0Y0"
+#startgroup
+create_pblock {CLKAG_vga_example_inst/clk_ss}
+add_cells_to_pblock [get_pblocks  {CLKAG_vga_example_inst/clk_ss}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="vga_example_inst/clk_ss"}]]]
+resize_pblock [get_pblocks {CLKAG_vga_example_inst/clk_ss}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
+#endgroup
+
+# Clock net "vga_example_inst/my_linedraw/next_state_reg[1]_i_2_n_0" driven by instance "vga_example_inst/my_linedraw/next_state_reg[1]_i_2" located at site "SLICE_X13Y8"
+#startgroup
+create_pblock {CLKAG_vga_example_inst/my_linedraw/next_state_reg[1]_i_2_n_0}
+add_cells_to_pblock [get_pblocks  {CLKAG_vga_example_inst/my_linedraw/next_state_reg[1]_i_2_n_0}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="vga_example_inst/my_linedraw/next_state_reg[1]_i_2_n_0"}]]]
+resize_pblock [get_pblocks {CLKAG_vga_example_inst/my_linedraw/next_state_reg[1]_i_2_n_0}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
+#endgroup
+
+# Clock net "vga_example_inst/pclk" driven by instance "vga_example_inst/clk_out_bufgce" located at site "BUFGCTRL_X0Y0"
+#startgroup
+create_pblock {CLKAG_vga_example_inst/pclk}
+add_cells_to_pblock [get_pblocks  {CLKAG_vga_example_inst/pclk}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="vga_example_inst/pclk"}]]]
+resize_pblock [get_pblocks {CLKAG_vga_example_inst/pclk}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+#endgroup
