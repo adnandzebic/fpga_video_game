@@ -187,8 +187,6 @@ stay_in_gameover_state:
               LOAD s3, F0                         ; load F0 into s3
               CALL draw_line                      ; draws the line
               
-              RETURN                              ; go back from drawing map
-              
 ;;============================================================================
 ;; Start Screen - Draw Start Screen Subroutine
 ;;============================================================================
@@ -1117,12 +1115,11 @@ draw_helicopter_blades:
 ;; Old Draw Line - Old Draw Line Subroutine (WILL DELETE LATER)
 ;;============================================================================
 
-old_draw_line:
-              LOAD s5, busy_go                    ; load go command
+   draw_line: LOAD s5, busy_go                    ; load go command
               OUTPUT s5, busy                     ; send go command
-       wait0: INPUT s5, busy                      ; read busy status
+        wait: INPUT s5, busy                      ; read busy status
               COMPARE s5, busy_go                 ; check busy status
-              JUMP Z, wait0                        ; if busy, wait more
+              JUMP Z, wait                        ; if busy, wait more
               RETURN                              ; leave line drawing subroutine
 
 ;;============================================================================
