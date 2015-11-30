@@ -45,6 +45,15 @@ CONSTANT buttons_lf      , 02 ; left
 CONSTANT buttons_rt      , 01 ; right
 
 ;;============================================================================
+;; Macro State declarations
+;;============================================================================
+
+CONSTANT START_STATE     , 00 ; start screen state
+CONSTANT PLAY_STATE      , 01 ; play state
+CONSTANT GAMEOVER_STATE  , 02 ; game over screen state
+CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
+
+;;============================================================================
 ;; Boot.
 ;;============================================================================
 
@@ -53,7 +62,9 @@ CONSTANT buttons_rt      , 01 ; right
                LOAD s2, zero                       ; initialize
                LOAD s3, zero                       ; initialize
                LOAD s4, zero                       ; initialize
-               LOAD sB, 00                         ; initial distance
+               LOAD s9, START_STATE                ; initial state is to enter start screen
+               LOAD sA, 00                         ; initial distance (score)
+               LOAD sB, 00                         ; initial distance (score)
                LOAD sC, 80                         ; starting helicopter position
                LOAD sD, 05                         ; initialize (needed later)
                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
@@ -68,31 +79,69 @@ CONSTANT buttons_rt      , 01 ; right
 ;; Main.
 ;;============================================================================
 
-         main: INPUT s0, buttons                   ; get center button value
-               INPUT s1, switches_hi               ; get hi switch values
-               OUTPUT s0, leds_lo                  ; put lo led values
-               ;OUTPUT s1, leds_hi                  ; put hi led values
+         main: 
                JUMP main                           ; go back and repeat
 
 ;;============================================================================
 ;; Interrupt - Service Routine.
 ;;============================================================================
 
-          isr: INPUT s2, buttons                   ; get center button value
-               INPUT s3, switches_hi               ; get hi switch values
-               INPUT s4, buttons                   ; get button values
-               ;OUTPUT s2, qssd_lo                  ; put lo qssd values
-               ;OUTPUT s3, qssd_hi                  ; put hi qssd values
-               ;OUTPUT s4, qssd_dp                  ; put dp qssd values
-               ;OUTPUT s2, stax                     ; set desired stax
-               ;OUTPUT s3, stay                     ; set desired stay
-               ;INPUT s5, prng                      ; load random endx
-               ;OUTPUT s5, endx                     ; set random endx
-               ;INPUT s5, prng                      ; load random endy
-               ;OUTPUT s5, endy                     ; set random endy
-               ;CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
-               CALL play                           ; call play subroutine
+          isr: COMPARE s9, START_STATE             ; check if in the start state
+               CALL Z, start                       ; call the start screen state
+               COMPARE s9, PLAY_STATE              ; check if in the play state
+               CALL Z, play                        ; call play subroutine
+               COMPARE s9, GAMEOVER_STATE          ; check if in the gameover state
+               CALL Z, gameover                    ; call the gameover subroutine
+               
                RETURNI ENABLE                      ; done with isr
+               
+;;============================================================================
+;; Start - Start Subroutine
+;;============================================================================
+
+        start: INPUT s5, buttons                   ; get center button values
+               CALL start_screen                   ; draw the map using map subroutine
+
+               INPUT s5, buttons                   ; get button values
+               COMPARE s5, buttons_ct              ; check if center button is pressed
+               JUMP Z, enter_play_state            ; jump to enter_play_state
+               JUMP NZ, stay_in_start_state        ; remain in current state with a jump to stay_in_start_state
+               
+enter_play_state:
+               LOAD s9, PLAY_STATE                 ; load play_state and enter play mode
+               RETURN                              ; return from start subroutine
+
+stay_in_start_state:
+               RETURN                              ; return from start subroutine
+               
+;;============================================================================
+;; Game Over - Game Over Subroutine
+;;============================================================================
+
+     gameover: INPUT s5, buttons                   ; get center button values
+               ;CALL map                            ; draw the map using map subroutine
+
+               INPUT s5, buttons                   ; get button values
+               COMPARE s5, buttons_ct              ; check if center button is pressed
+               JUMP Z, enter_play_state2           ; jump to enter_play_state2
+               JUMP NZ, stay_in_gameover_state     ; remain in current state with a jump to stay_in_gameover_state
+               
+enter_play_state2:
+               LOAD s9, PLAY_STATE                 ; load play_state and enter play mode
+               
+               ;; RESET EVERYTHING BEFORE RETURNING
+               LOAD sA, 00                         ; initial distance (score)
+               LOAD sB, 00                         ; initial distance (score)
+               OUTPUT sB, qssd_lo                  ; reset qssd_lo
+	       OUTPUT sA, qssd_hi                  ; reset qssd_hi
+               LOAD sC, 80                         ; starting helicopter position
+               LOAD sD, 05                         ; initialize (needed later)
+               LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
+               LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
+               RETURN                              ; return from start subroutine
+
+stay_in_gameover_state:
+               RETURN                              ; return from start subroutine
 
 ;;============================================================================
 ;; Play - Play Subroutine
@@ -150,6 +199,487 @@ CONSTANT buttons_rt      , 01 ; right
               OUTPUT s6, endy                     ; set desired endy
               CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
               RETURN                              ; leave map subroutine
+              
+;;============================================================================
+;; Start Screen - Draw Start Screen Subroutine
+;;============================================================================
+
+ start_screen: 
+
+              ;;============================================================================
+              ;; Draws Decoration (Line 1a)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 0A                         ; load 15 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+ 
+              ;;===========================================================================
+              ;; Draws Decoration (Line 2a)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 0C                         ; load 15 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              ;;===========================================================================
+              ;; Draws Decoration (Line 3a)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 0E                         ; load 15 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              ;;============================================================================
+              ;; Draws Decoration (Line 1b)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 7E                         ; load 10 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+ 
+              ;;===========================================================================
+              ;; Draws Decoration (Line 2b)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 8A                         ; load 15 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              ;;===========================================================================
+              ;; Draws Decoration (Line 3b)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 00                         ; load 00 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 8C                         ; load 15 into s5
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, FF                         ; set s5 to 255
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)              
+
+ 
+              ;;============================================================================
+              ;; Draws the letter H (Line 1)
+              ;;============================================================================
+
+              ;; STARTING POINT
+              LOAD s5, 0A                         ; load 10 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              ;;============================================================================
+              ;; Draws the letter H (Line 2)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 0A                         ; load 10 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 2D                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 1E                         ; load 30 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter H (Line 3)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 1E                         ; load 30 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter E (Line 1)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 28                         ; load 40 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              ;;============================================================================
+              ;; Draws the letter E (Line 2)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 28                         ; load 40 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 3C                         ; load 60 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter E (Line 3)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 28                         ; load 40 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 2D                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 3C                         ; load 60 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              ;;============================================================================
+              ;; Draws the letter E (Line 3)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 28                         ; load 40 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 3C                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 3C                         ; load 60 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter L (Line 1)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 46                         ; load 70 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter L (Line 2)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 46                         ; load 70 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 3C                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 5A                         ; load 90 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter I (Line 1)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 64                         ; load 70 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter C (Line 1)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 82                         ; load 130 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 73                         ; load 115 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter C (Line 2)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 73                         ; load 115 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 6E                         ; load 110 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 23                         ; load 35 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter C (Line 3)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 6E                         ; load 110 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 23                         ; load 35 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 37                         ; load 55 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+           
+              ;;============================================================================
+              ;; Draws the letter C (Line 4)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 6E                         ; load 110 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 37                         ; load 55 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 73                         ; load 130 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3B                         ; load 44 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter C (Line 5)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 82                         ; load 130 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 3C                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 73                         ; load 115 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 1)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 91                         ; load 145 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 9B                         ; load 155 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 2)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 91                         ; load 145 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 45 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 8C                         ; load 110 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 1E                         ; load 35 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 3)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 8C                         ; load 140 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+           
+              ;;============================================================================
+              ;; Draws the letter O (Line 4)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 8C                         ; load 110 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 3C                         ; load 55 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 91                         ; load 145 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 30 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 5)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 91                         ; load 145 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 3C                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 9B                         ; load 155 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 6)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, 9B                         ; load 110 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 3C                         ; load 55 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, A0                         ; load 160 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 30 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 7)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, A0                         ; load 160 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 3C                         ; load 60 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+
+              ;;============================================================================
+              ;; Draws the letter O (Line 8)
+              ;;============================================================================
+              
+              ;; STARTING POINT
+              LOAD s5, A0                         ; load 160 into s5
+              OUTPUT s5, stax                     ; set desired stax
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, stay                     ; set desired stay
+
+              ;; ENDING POINT
+              LOAD s5, 9B                         ; load 155 into s5
+              OUTPUT s5, endx                     ; set desired endx
+              LOAD s6, 1E                         ; load 30 into s6
+              OUTPUT s6, endy                     ; set desired endy
+              CALL draw_line                      ; draws a line (careful: this subroutine overwrites s5)
+              
+              
+
+              RETURN                              ; leave start_screen subroutine
 
 ;;============================================================================
 ;; Draw Helicopter - Draw Helicopter Subroutine
@@ -635,20 +1165,23 @@ check_collision:
 	      ;;============================================================================
 	      ;; Check Collisions with Map (top wall)
 	      ;;============================================================================
-	      LOAD s5, 0F                         ; top wall vertical coordinate (15)
+	      LOAD s5, 60                         ; position of heli/wall collision
+	      LOAD s8, 0F                         ; top wall vertical coordinate (15)
 	      LOAD s6, sC                         ; get vertical position of helicopter
 	      SUB s6, 0A                          ; the helicopter's blades 10 pixels higher
-	      COMPARE s5, s6                      ; check if the two intersect
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
 	      JUMP Z, collision_occurred          ; jump to collision occurred
 	      JUMP NC, collision_occurred         ; jump to collision occurred (necessary)
 	      
 	      ;;============================================================================
 	      ;; Check Collisions with Map (bottom wall)
 	      ;;============================================================================
-	      LOAD s5, F0                         ; bottom wall vertical coordinate (240)
+	      LOAD s8, F0                         ; bottom wall vertical coordinate (240)
 	      LOAD s6, sC                         ; get vertical position of helicopter
 	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      COMPARE s5, s6                      ; check if the two intersect
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
 	      JUMP Z, collision_occurred          ; jump to collision occurred
 
 	      ;;============================================================================
@@ -686,6 +1219,8 @@ collision_occurred:
                INPUT s8, prng                      ; load random endy
                OUTPUT s8, endy                     ; set random endy
                CALL draw_line                      ; draw random line
+               
+               LOAD s9, GAMEOVER_STATE             ; should go to gameover state instead
 	       RETURN                              ; return from routine without any increments
 
 ;;============================================================================
@@ -693,7 +1228,7 @@ collision_occurred:
 ;;============================================================================
 
     distance: OUTPUT sB, qssd_lo                  ; put distance value to qssd
-              COMPARE sB, FF                      ; check if max (99) was reached
+              COMPARE sB, FF                      ; check if max (FF) was reached
               JUMP Z, distance2                   ; jump to distance2
               ADD sB, one                         ; increment distance value
               RETURN                              ; finished with distance subroutine
