@@ -265,12 +265,21 @@ stay_in_gameover_state:
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 			  
-			  ;; LINE 6 (ANGLED2) FOR R
-			  LOAD s0, 4B             ; stax 75
-              LOAD s1, CE             ; stay 204
-              LOAD s2, 4E             ; endx 79
+
+;; LINE 5 (ANGLED) FOR R
+              LOAD s0, 4B             ; stax 75
+              LOAD s1, CD             ; stay 205
+              LOAD s2, 50             ; endx 80
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
+
+
+			  ;; LINE 6 (ANGLED2) FOR R
+	      ;;LOAD s0, 4B             ; stax 75
+              ;;LOAD s1, CE             ; stay 204
+              ;;LOAD s2, 4F             ; endx 79
+              ;;LOAD s3, D2             ; endy 210
+              ;;CALL draw_line          ;
 			  
 			  ;; LINE 1 (LEFT) FOR E
               LOAD s0, 55             ; stax 85
@@ -412,7 +421,7 @@ stay_in_gameover_state:
 			  ;; LINE 1 (TOP) FOR T1
               LOAD s0, 8C             ; stax 140
               LOAD s1, C8             ; stay 200
-              LOAD s2, 91             ; endx 145
+              LOAD s2, 96             ; endx 150
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
@@ -487,7 +496,7 @@ stay_in_gameover_state:
               CALL draw_line          ;
 
 			  ;; LINE 6 (ANGLED2) FOR R
-			  LOAD s0, A0             ; stax 160
+	      LOAD s0, A0             ; stax 160
               LOAD s1, CE             ; stay 206
               LOAD s2, A4             ; endx 164
               LOAD s3, D2             ; endy 210
@@ -496,7 +505,7 @@ stay_in_gameover_state:
 			  ;; LINE 1 (TOP) FOR T2
               LOAD s0, AA             ; stax 170
               LOAD s1, C8             ; stay 200
-              LOAD s2, AF             ; endx 175
+              LOAD s2, B4             ; endx 180
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
