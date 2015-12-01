@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Mon Nov 30 19:18:43 2015
+| Date         : Mon Nov 30 21:24:27 2015
 | Host         : mylaptop running 64-bit unknown
 | Command      : report_control_sets -verbose -file project_control_sets_placed.rpt
 | Design       : project
@@ -67,8 +67,8 @@ Table of Contents
 |  vga_example_inst/pclk                                  | software_inst/stax_reg[7][0]                    |                                      |                2 |              8 |
 |  vga_example_inst/pclk                                  | software_inst/stay_reg[7][0]                    |                                      |                2 |              8 |
 |  vga_example_inst/pclk                                  | vga_example_inst/my_linedraw/x[10]_i_1_n_0      |                                      |                3 |             11 |
-|  vga_example_inst/pclk                                  | vga_example_inst/my_timing/vcounter[10]_i_2_n_0 | vga_example_inst/my_timing/vcounter0 |                3 |             11 |
 |  vga_example_inst/pclk                                  | vga_example_inst/my_linedraw/y[10]_i_1_n_0      |                                      |                3 |             11 |
+|  vga_example_inst/pclk                                  | vga_example_inst/my_timing/vcounter[10]_i_2_n_0 | vga_example_inst/my_timing/vcounter0 |                3 |             11 |
 |  vga_example_inst/pclk                                  | kcpsm6_inst/p_1_in                              | kcpsm6_inst/internal_reset           |                3 |             12 |
 |  vga_example_inst/pclk                                  | kcpsm6_inst/p_1_in                              |                                      |                2 |             16 |
 |  vga_example_inst/pclk                                  | kcpsm6_inst/register_enable                     |                                      |                2 |             16 |
