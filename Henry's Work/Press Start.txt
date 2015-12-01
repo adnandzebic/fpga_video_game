@@ -209,7 +209,7 @@
 			  ;; LINE 1 (TOP) FOR T1
               LOAD s0, 8C             ; stax 140
               LOAD s1, C8             ; stay 200
-              LOAD s2, 91             ; endx 145
+              LOAD s2, 96             ; endx 150
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
@@ -286,7 +286,7 @@
 			  ;; LINE 1 (TOP) FOR T2
               LOAD s0, AA             ; stax 170
               LOAD s1, C8             ; stay 200
-              LOAD s2, AF             ; endx 175
+              LOAD s2, B4             ; endx 180
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
