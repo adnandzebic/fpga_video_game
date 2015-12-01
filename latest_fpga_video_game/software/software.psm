@@ -266,20 +266,12 @@ stay_in_gameover_state:
               CALL draw_line          ;
 			  
 
-;; LINE 5 (ANGLED) FOR R
-              LOAD s0, 4B             ; stax 75
-              LOAD s1, CD             ; stay 205
-              LOAD s2, 50             ; endx 80
+			  ;; LINE 6 (ANGLED2) FOR R
+	      LOAD s0, 4B             ; stax 75
+              LOAD s1, CE             ; stay 204
+              LOAD s2, 4F             ; endx 79
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
-
-
-			  ;; LINE 6 (ANGLED2) FOR R
-	      ;;LOAD s0, 4B             ; stax 75
-              ;;LOAD s1, CE             ; stay 204
-              ;;LOAD s2, 4F             ; endx 79
-              ;;LOAD s3, D2             ; endy 210
-              ;;CALL draw_line          ;
 			  
 			  ;; LINE 1 (LEFT) FOR E
               LOAD s0, 55             ; stax 85
@@ -421,14 +413,14 @@ stay_in_gameover_state:
 			  ;; LINE 1 (TOP) FOR T1
               LOAD s0, 8C             ; stax 140
               LOAD s1, C8             ; stay 200
-              LOAD s2, 96             ; endx 150
+              LOAD s2, 93             ; endx 147
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
 			  ;; LINE 2 (MIDDLE) FOR T1
-              LOAD s0, 8F             ; stax 143
+              LOAD s0, 90             ; stax 144
               LOAD s1, C8             ; stay 200
-              LOAD s2, 8F             ; endx 143
+              LOAD s2, 90             ; endx 144
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
@@ -505,14 +497,14 @@ stay_in_gameover_state:
 			  ;; LINE 1 (TOP) FOR T2
               LOAD s0, AA             ; stax 170
               LOAD s1, C8             ; stay 200
-              LOAD s2, B4             ; endx 180
+              LOAD s2, B1             ; endx 177
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
 			  ;; LINE 2 (MIDDLE) FOR T2
-              LOAD s0, AD             ; stax 173
+              LOAD s0, AE             ; stax 174
               LOAD s1, C8             ; stay 200
-              LOAD s2, AD             ; endx 173
+              LOAD s2, AE             ; endx 174
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
  
