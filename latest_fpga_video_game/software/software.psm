@@ -753,18 +753,18 @@ stay_in_gameover_state:
               ;;============================================================================
               ;; Draws the letter G (Line 4)
               ;;============================================================================
-              LOAD s0, 6E                        ; load 70 into s0
+              LOAD s0, 5A                        ; load 70 into s0
               LOAD s1, 69                        ; load 90 into s1
-              LOAD s2, 6E                        ; load 90 into s2
+              LOAD s2, 5A                        ; load 90 into s2
               LOAD s3, 78                        ; load 90 to s3
               CALL draw_line                     ; call the draw_line subroutine
 
               ;;============================================================================
               ;; Draws the letter G (Line 5)
               ;;============================================================================
-              LOAD s0, 6E                        ; load 70 into s0
+              LOAD s0, 5A                        ; load 70 into s0
               LOAD s1, 69                        ; load 90 into s1
-              LOAD s2, 64                        ; load 90 into s2
+              LOAD s2, 50                        ; load 90 into s2
               LOAD s3, 69                        ; load 90 to s3
               CALL draw_line                     ; call the draw_line subroutine
 
