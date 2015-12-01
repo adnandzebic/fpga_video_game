@@ -1091,6 +1091,42 @@ stay_in_gameover_state:
               LOAD s3, 69                        ; load 90 to s3
               CALL draw_line                     ; call the draw_line subroutine
 
+              ;;============================================================================
+              ;; Draws the letter A (Line 1)
+              ;;============================================================================
+              LOAD s0, 64                        ; 100
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 78                        ; 120
+              LOAD s3, 5A                        ; 90
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter A (Line 2)
+              ;;============================================================================
+              LOAD s0, 64                        ; 100
+              LOAD s1, 69                        ; 105
+              LOAD s2, 78                        ; 120
+              LOAD s3, 69                        ; 105
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter A (Line 3)
+              ;;============================================================================
+              LOAD s0, 64                        ; 100
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 64                        ; 100
+              LOAD s3, 78                        ; 120
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter A (Line 4)
+              ;;============================================================================
+              LOAD s0, 78                        ; 120
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 78                        ; 120
+              LOAD s3, 78                        ; 120
+              CALL draw_line                     ; call the draw_line subroutine
+
               RETURN                              ; leave start_screen subroutine
 
 ;;============================================================================

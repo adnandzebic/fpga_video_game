@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Mon Nov 30 21:24:45 2015
+| Date             : Mon Nov 30 22:35:04 2015
 | Host             : mylaptop running 64-bit unknown
 | Command          : report_power -file project_power_routed.rpt -pb project_power_summary_routed.pb
 | Design           : project
