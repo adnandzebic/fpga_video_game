@@ -629,7 +629,144 @@
                       OUTPUT s6, endy                ; set desired endy
                       CALL old_draw_line             ; draws a line (careful: this subroutine overwrites s5)
 
+                      ;;============================================================================
+                      ;; Draws the letter P (Line 1)
+                      ;;============================================================================
+                      LOAD s0, AA                    ; load 170 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, BE                    ; load 190 into s2
+                      LOAD s3, AA                    ; keep s3 set at 30
+                      CALL draw_line                 ; call the draw_line subroutine
 
+                      ;;============================================================================
+                      ;; Draws the letter P (Line 2)
+                      ;;============================================================================
+                      LOAD s0, AA                    ; load 170 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, AA                    ; load 170 into s2
+                      LOAD s3, 3C                    ; load 60 into s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter P (Line 3)
+                      ;;============================================================================
+                      LOAD s0, AA                    ; load 170 into s0
+                      LOAD s1, 2D                    ; load 45 into s1
+                      LOAD s2, BE                    ; load 190 into s2
+                      LOAD s3, 2D                    ; keep s0 set at 45
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter P (Line 4)
+                      ;;============================================================================
+                      LOAD s0, BE                    ; load 190 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, BE                    ; load 190 into s2
+                      LOAD s3, 2D                    ; load 45 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter T (Line 1)
+                      ;;============================================================================
+                      LOAD s0, C8                    ; load 200 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, DC                    ; load 220 into s2
+                      LOAD s3, 1E                    ; load 30 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter T (Line 2)
+                      ;;============================================================================
+                      LOAD s0, D2                    ; load 200 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, D2                    ; load 220 into s2
+                      LOAD s3, 3C                    ; load 60 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter E (Line 1)
+                      ;;============================================================================
+                      LOAD s0, E6                    ; load 230 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, E6                    ; load 230 into s2
+                      LOAD s3, 3C                    ; load 30 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter E (Line 2)
+                      ;;============================================================================
+                      LOAD s0, E6                    ; load 230 into s0
+                      LOAD s1, 1E                    ; load 30 into s1
+                      LOAD s2, FA                    ; load 250 into s2
+                      LOAD s3, 1E                    ; load 30 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter E (Line 3)
+                      ;;============================================================================
+                      LOAD s0, E6                    ; load 230 into s0
+                      LOAD s1, 2D                    ; load 30 into s1
+                      LOAD s2, FA                    ; load 250 into s2
+                      LOAD s3, 2D                    ; load 30 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter E (Line 4)
+                      ;;============================================================================
+                      LOAD s0, E6                    ; load 230 into s0
+                      LOAD s1, 3C                    ; load 30 into s1
+                      LOAD s2, FA                    ; load 250 into s2
+                      LOAD s3, 3C                    ; load 30 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; NEW LINE STARTS HERE (GAME)
+                      ;;============================================================================
+
+                      ;;============================================================================
+                      ;; Draws the letter G (Line 1)
+                      ;;============================================================================
+                      LOAD s0, 46                    ; load 70 into s0
+                      LOAD s1, 5A                    ; load 90 into s1
+                      LOAD s2, 5A                    ; load 90 into s2
+                      LOAD s3, 5A                    ; load 90 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter G (Line 2)
+                      ;;============================================================================
+                      LOAD s0, 46                    ; load 70 into s0
+                      LOAD s1, 5A                    ; load 90 into s1
+                      LOAD s2, 46                    ; load 90 into s2
+                      LOAD s3, 78                    ; load 90 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter G (Line 3)
+                      ;;============================================================================
+                      LOAD s0, 46                    ; load 70 into s0
+                      LOAD s1, 78                    ; load 90 into s1
+                      LOAD s2, 5A                    ; load 90 into s2
+                      LOAD s3, 78                    ; load 90 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter G (Line 4)
+                      ;;============================================================================
+                      LOAD s0, 6E                    ; load 70 into s0
+                      LOAD s1, 69                    ; load 90 into s1
+                      LOAD s2, 6E                    ; load 90 into s2
+                      LOAD s3, 78                    ; load 90 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
+
+                      ;;============================================================================
+                      ;; Draws the letter G (Line 5)
+                      ;;============================================================================
+                      LOAD s0, 6E                    ; load 70 into s0
+                      LOAD s1, 69                    ; load 90 into s1
+                      LOAD s2, 64                    ; load 90 into s2
+                      LOAD s3, 69                    ; load 90 to s3
+                      CALL draw_line                 ; call the draw_line subroutine
 
                       RETURN                         ; leave start_screen subroutine
 
@@ -642,7 +779,7 @@
                       CALL draw_helicopter_cockpit   ; call the subroutine to draw the cockpit
                       CALL draw_helicopter_blades    ; call the subroutine to draw the blades
                       CALL draw_helicopter_tail      ; call the subroutine to draw the tail
-                      ;CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
+                      CALL draw_helicopter_smoke     ; call the subroutine to draw the smoke
 
                       RETURN                         ; go back from drawing helicopter
 
