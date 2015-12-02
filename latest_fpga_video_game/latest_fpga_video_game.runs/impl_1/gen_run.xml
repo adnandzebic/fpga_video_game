@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449021267">
   <File Type="OPT-DCP" Name="project_opt.dcp"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
   <File Type="RUN-SRCS" Name="$PDATADIR/runs/impl_1/sources.xml"/>
   <File Type="PWROPT-DCP" Name="project_pwropt.dcp"/>
+=======
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449019030">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="RDI-RDI" Name="project.vdi"/>
+  <File Type="BG-DRC" Name="project.drc"/>
+  <File Type="BG-BGN" Name="project.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="project.sysdef"/>
+  <File Type="BITSTR-MMI" Name="project.mmi"/>
+  <File Type="BITSTR-BMM" Name="project_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="project.nky"/>
+  <File Type="BITSTR-RBT" Name="project.rbt"/>
+  <File Type="BITSTR-MSK" Name="project.msk"/>
+  <File Type="BG-BIN" Name="project.bin"/>
+  <File Type="BG-BIT" Name="project.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="project_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="project_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="project_postroute_physopt.dcp"/>
+  <File Type="ROUTE-CLK" Name="project_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="project_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="project_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="project_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="project_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="project_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="project_route_status.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="project_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="project_power_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="project_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="project_drc_routed.rpt"/>
+>>>>>>> 88ba2281261e3552fdbb3f595e54d2468537ee62
   <File Type="ROUTE-DCP" Name="project_routed.dcp"/>
   <File Type="PA-TCL" Name="project.tcl"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>

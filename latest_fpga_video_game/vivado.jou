@@ -9,3 +9,4 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.xpr
+update_compile_order -fileset sources_1
