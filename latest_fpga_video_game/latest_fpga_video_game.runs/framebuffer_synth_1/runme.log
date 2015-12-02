@@ -12,19 +12,19 @@ source framebuffer.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2015.2/data/ip'.
-WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer.dcp'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_stub.v'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_stub.vhdl'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.v'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'framebuffer' generated file not found 'c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.vhdl'. Please regenerate to continue.
 Command: synth_design -top framebuffer -part xc7a35tcpg236-1 -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 247.016 ; gain = 69.238
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 246.285 ; gain = 67.906
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'framebuffer' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/synth/framebuffer.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'framebuffer' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/synth/framebuffer.vhd:74]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -97,8 +97,8 @@ INFO: [Synth 8-638] synthesizing module 'framebuffer' [c:/Users/hpm/Desktop/fpga
 	Parameter C_COUNT_36K_BRAM bound to: 8 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     20.8193 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_2' declared at 'c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:123' bound to instance 'U0' of component 'blk_mem_gen_v8_2' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/synth/framebuffer.vhd:235]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_v8_2' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:264]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_2' declared at 'c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:123' bound to instance 'U0' of component 'blk_mem_gen_v8_2' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/synth/framebuffer.vhd:235]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_v8_2' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:264]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -171,7 +171,7 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_v8_2' [c:/Users/hpm/Desktop
 	Parameter C_COUNT_36K_BRAM bound to: 8 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     20.8193 mW - type: string 
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_v8_2_synth' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:193449]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_v8_2_synth' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:193449]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -239,7 +239,7 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_v8_2_synth' [c:/Users/hpm/D
 	Parameter C_COMMON_CLK bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_top' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192416]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_top' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192416]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -309,57 +309,57 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_top' [c:/Users/hpm/Desktop/
 	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_input_block' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:186860]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:4793]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_input_block' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:186860]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_MEM_TYPE bound to: 2 - type: integer 
 	Parameter C_HAS_RSTA bound to: 0 - type: integer 
@@ -396,13 +396,13 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_input_block' [c:/Users/hpm/Desk
 	Parameter C_USE_ECC bound to: 0 - type: integer 
 	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
 	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_input_block' (1#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:186860]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192945]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192949]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192953]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192957]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192971]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_generic_cstr' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:184145]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_input_block' (1#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:186860]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192945]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192949]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192953]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192957]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192971]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_generic_cstr' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:184145]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
@@ -475,11 +475,11 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_generic_cstr' [c:/Users/hpm
 	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
 	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'bindec' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5118]
+INFO: [Synth 8-638] synthesizing module 'bindec' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5118]
 	Parameter C_NUM_PRIM_DEPTH bound to: 4 - type: integer 
 	Parameter C_SEL_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'bindec' (2#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5118]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-256] done synthesizing module 'bindec' (2#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5118]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -536,9 +536,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width' [c:/Users/hpm/D
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -595,8 +595,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper' [c:/Users/hpm
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -772,10 +772,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper' (3#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized0' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper' (3#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized0' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -832,9 +832,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized0'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -891,8 +891,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -1068,10 +1068,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized0' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized0' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -1128,9 +1128,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized1'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -1187,8 +1187,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -1364,10 +1364,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized1' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized1' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized2' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized1' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized1' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized2' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -1424,9 +1424,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized2'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized2' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized2' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -1483,8 +1483,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -1660,10 +1660,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized2' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized2' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized3' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized2' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized2' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized3' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -1720,9 +1720,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized3'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized3' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized3' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -1779,8 +1779,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -1956,10 +1956,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized3' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized3' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized4' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized3' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized3' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized4' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -2016,9 +2016,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized4'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized4' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized4' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -2075,8 +2075,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -2252,10 +2252,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized4' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized4' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized5' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized4' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized4' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized5' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -2312,9 +2312,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized5'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized5' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized5' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -2371,8 +2371,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -2548,10 +2548,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized5' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized5' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized6' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized5' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized5' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized6' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -2608,9 +2608,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized6'
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized6' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183487]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:183488]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized6' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
 	Parameter C_SIM_DEVICE bound to: 7SERIES - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
 	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
@@ -2667,8 +2667,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized
 	Parameter C_MEM_ADDR_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_MEM_ADDR_WIDTH_B bound to: 15 - type: integer 
 	Parameter DOUBLING_RESOURCE_FIX bound to: 0 - type: integer 
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
-INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18106]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18375]
 	Parameter DOA_REG bound to: 0 - type: integer 
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
@@ -2844,10 +2844,10 @@ INFO: [Synth 8-3919] null assignment ignored [c:/Users/hpm/Desktop/fpga_video_ga
 	Parameter WRITE_MODE_B bound to: READ_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 1 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 2 - type: integer 
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized6' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized6' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:18433]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized6' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:6972]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized6' (4#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:182845]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_RST_TYPE bound to: sync - type: string 
@@ -2870,8 +2870,8 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux' [c:/Users/hpm/Desktop/
 	Parameter C_EN_ECC_READ bound to: 0 - type: bool 
 	Parameter C_EN_ECC_WRITE bound to: 0 - type: bool 
 	Parameter C_EN_ECC_PIPE bound to: 0 - type: bool 
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_mux' (5#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux__parameterized0' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_mux' (5#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux__parameterized0' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
 	Parameter C_FAMILY bound to: virtex6 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_RST_TYPE bound to: sync - type: string 
@@ -2894,9 +2894,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux__parameterized0' [c:/Us
 	Parameter C_EN_ECC_READ bound to: 0 - type: bool 
 	Parameter C_EN_ECC_WRITE bound to: 0 - type: bool 
 	Parameter C_EN_ECC_PIPE bound to: 0 - type: bool 
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_mux__parameterized0' (5#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_generic_cstr' (6#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:184145]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_output_block' [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:187465]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_mux__parameterized0' (5#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:5381]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_generic_cstr' (6#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:184145]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_output_block' [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:187465]
 	Parameter C_MEM_TYPE bound to: 2 - type: integer 
 	Parameter C_WRITE_WIDTH_A bound to: 4 - type: integer 
 	Parameter C_READ_WIDTH_A bound to: 4 - type: integer 
@@ -2907,13 +2907,13 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_output_block' [c:/Users/hpm/Des
 	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
 	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
 	Parameter C_USE_ECC bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_output_block' (7#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:187465]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_top' (8#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192416]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_v8_2_synth' (9#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:193449]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_v8_2' (10#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:264]
-INFO: [Synth 8-256] done synthesizing module 'framebuffer' (11#1) [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/synth/framebuffer.vhd:74]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_output_block' (7#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:187465]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_top' (8#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:192416]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_v8_2_synth' (9#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd:193449]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_v8_2' (10#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:264]
+INFO: [Synth 8-256] done synthesizing module 'framebuffer' (11#1) [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/synth/framebuffer.vhd:74]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:20 ; elapsed = 00:01:25 . Memory (MB): peak = 444.668 ; gain = 266.891
+Finished RTL Elaboration : Time (s): cpu = 00:01:30 ; elapsed = 00:01:38 . Memory (MB): peak = 443.816 ; gain = 265.438
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -2923,44 +2923,44 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:20 ; elapsed = 00:01:25 . Memory (MB): peak = 444.668 ; gain = 266.891
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:30 ; elapsed = 00:01:38 . Memory (MB): peak = 443.816 ; gain = 265.438
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
-Parsing XDC File [C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/dont_touch.xdc]
+Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.094 . Memory (MB): peak = 545.996 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 545.832 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:29 ; elapsed = 00:01:39 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Constraint Validation : Time (s): cpu = 00:01:40 ; elapsed = 00:01:51 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:29 ; elapsed = 00:01:39 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:40 ; elapsed = 00:01:51 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/dont_touch.xdc, line 9).
+Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:29 ; elapsed = 00:01:39 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:40 ; elapsed = 00:01:51 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:30 ; elapsed = 00:01:39 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3013,14 +3013,14 @@ BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 545.996 ; gain = 368.219
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Cross Boundary Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Parallel Reinference  : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -3031,16 +3031,16 @@ Report RTL Partitions:
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Area Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Parallel Area Optimization  : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:41 ; elapsed = 00:01:52 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -3048,10 +3048,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:56 ; elapsed = 00:02:07 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 545.996 ; gain = 368.219
+Finished Timing Optimization : Time (s): cpu = 00:01:56 ; elapsed = 00:02:07 . Memory (MB): peak = 545.832 ; gain = 367.453
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3063,7 +3063,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Finished Technology Mapping : Time (s): cpu = 00:01:56 ; elapsed = 00:02:07 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3081,7 +3081,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Finished IO Insertion : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -3094,7 +3094,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3106,13 +3106,13 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Start Renaming Generated Ports : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -3163,17 +3163,17 @@ Report Instance Areas:
 |23    |            \prim_noinit.ram          |blk_mem_gen_prim_wrapper__parameterized6 |     1|
 +------+--------------------------------------+-----------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:44 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:01:42 . Memory (MB): peak = 554.746 ; gain = 253.430
-Synthesis Optimization Complete : Time (s): cpu = 00:01:45 ; elapsed = 00:01:55 . Memory (MB): peak = 554.746 ; gain = 376.969
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:01:53 . Memory (MB): peak = 554.063 ; gain = 252.961
+Synthesis Optimization Complete : Time (s): cpu = 00:01:57 ; elapsed = 00:02:08 . Memory (MB): peak = 554.063 ; gain = 375.684
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc] for cell 'U0'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
@@ -3181,7 +3181,7 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 101 Infos, 68 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:44 ; elapsed = 00:01:54 . Memory (MB): peak = 554.746 ; gain = 354.758
+synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 554.063 ; gain = 354.977
 INFO: [Coretcl 2-1174] Renamed 22 cell refs.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.109 . Memory (MB): peak = 554.746 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 01 17:56:29 2015...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.079 . Memory (MB): peak = 554.063 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 01 22:58:12 2015...

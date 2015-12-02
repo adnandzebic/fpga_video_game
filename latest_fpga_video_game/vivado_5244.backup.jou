@@ -1,0 +1,36 @@
+#-----------------------------------------------------------
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Tue Dec 01 22:56:44 2015
+# Process ID: 6044
+# Log file: C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/vivado.log
+# Journal file: C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.xpr
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1

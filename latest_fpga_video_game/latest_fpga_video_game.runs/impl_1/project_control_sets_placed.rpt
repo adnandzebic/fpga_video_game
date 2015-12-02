@@ -1,14 +1,8 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
-<<<<<<< HEAD
 | Tool Version : Vivado v.2015.2 (win64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 01 17:57:48 2015
+| Date         : Wed Dec 02 13:29:46 2015
 | Host         : hpm-PC running 64-bit Service Pack 1  (build 7601)
-=======
-| Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec  1 21:23:58 2015
-| Host         : mylaptop running 64-bit unknown
->>>>>>> 88ba2281261e3552fdbb3f595e54d2468537ee62
 | Command      : report_control_sets -verbose -file project_control_sets_placed.rpt
 | Design       : project
 | Device       : xc7a35t
@@ -61,6 +55,7 @@ Table of Contents
 |  vga_example_inst/pclk                                  | software_inst/qssd_reg[16][2]                   |                                      |                1 |              4 |
 |  vga_example_inst/pclk                                  | software_inst/beam_reg[3][0]                    |                                      |                1 |              4 |
 |  vga_example_inst/pclk                                  |                                                 | kcpsm6_inst/internal_reset           |                3 |              6 |
+|  vga_example_inst/clk_ss                                |                                                 |                                      |                1 |              8 |
 |  vga_example_inst/pclk                                  |                                                 | software_inst/instruction[7]         |                6 |              8 |
 |  vga_example_inst/pclk                                  | software_inst/stay_reg[7][0]                    |                                      |                2 |              8 |
 |  vga_example_inst/pclk                                  | software_inst/stax_reg[7][0]                    |                                      |                2 |              8 |
@@ -71,7 +66,6 @@ Table of Contents
 |  vga_example_inst/pclk                                  | software_inst/E[1]                              |                                      |                4 |              8 |
 |  vga_example_inst/pclk                                  | software_inst/E[0]                              |                                      |                5 |              8 |
 |  vga_example_inst/pclk                                  | kcpsm6_inst/spm_enable                          |                                      |                2 |              8 |
-|  vga_example_inst/clk_ss                                |                                                 |                                      |                1 |              8 |
 |  vga_example_inst/pclk                                  | vga_example_inst/my_timing/vcounter[10]_i_2_n_0 | vga_example_inst/my_timing/vcounter0 |                3 |             11 |
 |  vga_example_inst/pclk                                  | vga_example_inst/my_linedraw/y[10]_i_1_n_0      |                                      |                3 |             11 |
 |  vga_example_inst/pclk                                  | vga_example_inst/my_linedraw/x[10]_i_1_n_0      |                                      |                3 |             11 |
