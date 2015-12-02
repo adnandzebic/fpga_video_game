@@ -44,6 +44,10 @@
                       CONSTANT buttons_lf, 02        ; left
                       CONSTANT buttons_rt, 01        ; right
 
+                      CONSTANT start_menu_1, 00      ;
+                      CONSTANT start_menu_2, 3C      ;
+                      CONSTANT start_menu_3, 78      ;
+
                       ;;============================================================================
                       ;; Macro State declarations
                       ;;============================================================================
@@ -86,7 +90,9 @@
                       ;; Interrupt - Service Routine.
                       ;;============================================================================
 
-                 isr: COMPARE s9, START_STATE        ; check if in the start state
+                 isr:
+
+                      COMPARE s9, START_STATE        ; check if in the start state
                       CALL Z, start                  ; call the start screen state
                       COMPARE s9, PLAY_STATE         ; check if in the play state
                       CALL Z, play                   ; call play subroutine

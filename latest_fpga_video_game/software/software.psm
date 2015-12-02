@@ -23,6 +23,9 @@ CONSTANT qssd_dp         , 0c ; port for 8-bit qssd data out
 CONSTANT switches_lo     , 0d ; port for 8-bit switch input
 CONSTANT switches_hi     , 0e ; port for 8-bit switch input
 CONSTANT buttons         , 0f ; port for 8-bit button input
+CONSTANT red             , 10 ; port for 8-bit red value
+CONSTANT green           , 11 ; port for 8-bit green value
+CONSTANT blue            , 11 ; port for 8-bit green value
 
 CONSTANT zero            , 00 ; zero
 CONSTANT one             , 01 ; one
@@ -43,6 +46,10 @@ CONSTANT buttons_up      , 08 ; up
 CONSTANT buttons_dn      , 04 ; down
 CONSTANT buttons_lf      , 02 ; left
 CONSTANT buttons_rt      , 01 ; right
+
+CONSTANT start_menu_1    , 00 ;
+CONSTANT start_menu_2    , 3C ;
+CONSTANT start_menu_3    , 78;
 
 ;;============================================================================
 ;; Macro State declarations
@@ -86,7 +93,9 @@ CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
 ;; Interrupt - Service Routine.
 ;;============================================================================
 
-          isr: COMPARE s9, START_STATE             ; check if in the start state
+          isr: 
+
+               COMPARE s9, START_STATE             ; check if in the start state
                CALL Z, start                       ; call the start screen state
                COMPARE s9, PLAY_STATE              ; check if in the play state
                CALL Z, play                        ; call play subroutine
@@ -209,10 +218,10 @@ stay_in_gameover_state:
 	      ;; Code for PRESS START [START MENU] ;;
 	      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 			  
-			  ;;;;;;;;;;;;;;;
-			  ;;BEGIN PRESS;;
-			  ;;;;;;;;;;;;;;;
-			  
+	      ;;;;;;;;;;;;;;;
+	      ;;BEGIN PRESS;;
+	      ;;;;;;;;;;;;;;;
+
 			  ;; LINE 1 (LEFT) FOR P
               LOAD s0, 41             ; stax 65
               LOAD s1, C8             ; stay 200
