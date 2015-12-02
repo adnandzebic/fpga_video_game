@@ -1665,9 +1665,19 @@ draw_helicopter_cockpit:
                       ;; Game Over - Game Over Subroutine
                       ;;============================================================================
 
-            gameover: INPUT s5, buttons              ; get center button values
+            gameover:
                       CALL map                       ; draw the map using map subroutine
                       CALL draw_helicopter           ; draw the helicopter
+                      CALL draw_block
+
+                      LOAD s5, 64                    ; collision point (horzintal)
+                      OUTPUT s5, stax                ; set desired stax
+                      OUTPUT sc, stay                ; set desired stay
+                      INPUT s8, prng                 ; load random endx
+                      OUTPUT s8, endx                ; set random endx
+                      INPUT s8, prng                 ; load random endy
+                      OUTPUT s8, endy                ; set random endy
+                      CALL old_draw_line             ; draw random line
 
                       INPUT s5, buttons              ; get button values
                       COMPARE s5, buttons_up         ; check if up button is pressed

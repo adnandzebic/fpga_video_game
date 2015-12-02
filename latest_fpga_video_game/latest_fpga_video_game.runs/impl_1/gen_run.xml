@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449021267">
   <File Type="OPT-DCP" Name="project_opt.dcp"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
@@ -7,6 +8,9 @@
   <File Type="PWROPT-DCP" Name="project_pwropt.dcp"/>
 =======
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449019030">
+=======
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449024378">
+>>>>>>> dbda3ea00d4948c7aa02f77a71ccbb4c6245236e
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="project.vdi"/>
   <File Type="BG-DRC" Name="project.drc"/>
