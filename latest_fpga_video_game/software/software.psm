@@ -80,6 +80,8 @@ CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
                OUTPUT s5, mode                     ; set desired mode
                LOAD s5, beam_hi                    ; load desired beam
                OUTPUT s5, beam                     ; set desired beam
+               LOAD s5, FF                         ; load FF into s5 (red value)
+               OUTPUT s5, red                      ; set desired red
                ENABLE INTERRUPT                    ; enable interrupts
 
 ;;============================================================================
@@ -1235,118 +1237,7 @@ stay_in_gameover_state:
               LOAD s2, 23             ; endx 35
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
-			  
-			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+
 			  
 			  
 
