@@ -130,7 +130,9 @@ stay_in_start_state:
      gameover:
                CALL map                            ; draw the map using map subroutine
                CALL draw_helicopter                ; draw the helicopter
-               CALL draw_block                   
+               CALL draw_block                     ;
+			   CALL draw_gameover				   ;
+
 
                LOAD s5, 64                         ; collision point (horzintal)
                OUTPUT s5, stax                     ; set desired stax
@@ -1212,6 +1214,141 @@ stay_in_gameover_state:
               CALL draw_line                     ; call the draw_line subroutine
 
               RETURN                              ; leave start_screen subroutine
+
+			  
+;;============================================================================
+;; Game Over - Draw Game Over Screen Subroutine
+;;============================================================================
+
+ draw_gameover: 
+	      ;;;;;;;;;;;;;;;;;;;;;;;;
+	      ;; Code for Game Over ;;
+	      ;;;;;;;;;;;;;;;;;;;;;;;;
+			  
+			  ;;;;;;;;;;;;;;;
+			  ;;BEGIN GAME;;
+			  ;;;;;;;;;;;;;;;
+			  
+			  ;; LINE 1 (TOP) FOR C
+              LOAD s0, 2D             ; stax 45
+              LOAD s1, 1E             ; stay 30
+              LOAD s2, 23             ; endx 35
+              LOAD s3, 1E             ; endy 30
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  ;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+			  
+			  
 
 ;;============================================================================
 ;; Draw Helicopter - Draw Helicopter Subroutine

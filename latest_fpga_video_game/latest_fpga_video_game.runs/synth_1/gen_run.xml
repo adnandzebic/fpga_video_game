@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449033789">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449021267">
+=======
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449019003">
+=======
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449024351">
+>>>>>>> dbda3ea00d4948c7aa02f77a71ccbb4c6245236e
+>>>>>>> c0bdca1195ede6fb258d5347f02d495e8102ccb2
   <File Type="VDS-TIMING-PB" Name="project_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="project_timing_summary_synth.rpt"/>
+>>>>>>> 88ba2281261e3552fdbb3f595e54d2468537ee62
   <File Type="RDS-DCP" Name="project.dcp"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
   <File Type="RDS-UTIL-PB" Name="project_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="project_utilization_synth.rpt"/>
+  <File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
   <File Type="RDS-PROPCONSTRS" Name="project_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="project.vds"/>
   <File Type="PA-TCL" Name="project.tcl"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/synth_1/synth_1.psg"/>
-  <File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
-  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
+  <File Type="RDS-RDS" Name="project.vds"/>
+  <File Type="RDS-UTIL" Name="project_utilization_synth.rpt"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="project_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="project_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/vga_timing.v">

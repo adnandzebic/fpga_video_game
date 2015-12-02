@@ -1,10 +1,10 @@
 -- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
--- Date        : Sat Nov 28 20:55:36 2015
--- Host        : mylaptop running 64-bit unknown
+-- Tool Version: Vivado v.2015.2 (win64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+-- Date        : Tue Dec 01 17:56:29 2015
+-- Host        : hpm-PC running 64-bit Service Pack 1  (build 7601)
 -- Command     : write_vhdl -force -mode funcsim
---               /home/adnan/Documents/School/EE178/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.vhdl
+--               C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_funcsim.vhdl
 -- Design      : framebuffer
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_mux is
+entity framebuffer_blk_mem_gen_mux is
   port (
     douta : out STD_LOGIC_VECTOR ( 3 downto 0 );
     DOADO : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -29,10 +29,10 @@ entity framebufferblk_mem_gen_mux is
     clka : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_mux : entity is "blk_mem_gen_mux";
-end framebufferblk_mem_gen_mux;
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_mux : entity is "blk_mem_gen_mux";
+end framebuffer_blk_mem_gen_mux;
 
-architecture STRUCTURE of framebufferblk_mem_gen_mux is
+architecture STRUCTURE of framebuffer_blk_mem_gen_mux is
   signal sel_pipe : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \douta[0]_INST_0\ : label is "soft_lutpair0";
@@ -107,7 +107,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_mux__parameterized0\ is
+entity \framebuffer_blk_mem_gen_mux__parameterized0\ is
   port (
     doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     addrb : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -122,10 +122,10 @@ entity \framebufferblk_mem_gen_mux__parameterized0\ is
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_mux__parameterized0\ : entity is "blk_mem_gen_mux";
-end \framebufferblk_mem_gen_mux__parameterized0\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_mux__parameterized0\ : entity is "blk_mem_gen_mux";
+end \framebuffer_blk_mem_gen_mux__parameterized0\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_mux__parameterized0\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_mux__parameterized0\ is
   signal \no_softecc_sel_reg.ce_pri.sel_pipe_reg_n_0_[1]\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \doutb[0]_INST_0\ : label is "soft_lutpair2";
@@ -233,7 +233,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_prim_wrapper is
+entity framebuffer_blk_mem_gen_prim_wrapper is
   port (
     \douta[0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[4]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -249,10 +249,10 @@ entity framebufferblk_mem_gen_prim_wrapper is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
-end framebufferblk_mem_gen_prim_wrapper;
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
+end framebuffer_blk_mem_gen_prim_wrapper;
 
-architecture STRUCTURE of framebufferblk_mem_gen_prim_wrapper is
+architecture STRUCTURE of framebuffer_blk_mem_gen_prim_wrapper is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -263,8 +263,8 @@ architecture STRUCTURE of framebufferblk_mem_gen_prim_wrapper is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -565,7 +565,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized0\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized0\ is
   port (
     DOADO : out STD_LOGIC_VECTOR ( 0 to 0 );
     DOBDO : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -579,10 +579,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized0\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized0\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized0\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized0\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized0\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized0\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized0\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -593,8 +593,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized0\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -895,7 +895,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized1\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized1\ is
   port (
     \douta[1]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[5]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -911,10 +911,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized1\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized1\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized1\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized1\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized1\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized1\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized1\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -925,8 +925,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized1\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -1227,7 +1227,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized2\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized2\ is
   port (
     \douta[1]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[5]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -1241,10 +1241,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized2\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized2\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized2\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized2\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized2\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized2\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized2\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -1255,8 +1255,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized2\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -1557,7 +1557,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized3\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized3\ is
   port (
     \douta[2]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[6]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -1573,10 +1573,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized3\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized3\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized3\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized3\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized3\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized3\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized3\ is
   signal \^device_7series.no_bmm_info.true_dp.simple_prim36.ram_0\ : STD_LOGIC;
   signal \^device_7series.no_bmm_info.true_dp.simple_prim36.ram_1\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
@@ -1589,8 +1589,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized3\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
   \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0\ <= \^device_7series.no_bmm_info.true_dp.simple_prim36.ram_0\;
   \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1\ <= \^device_7series.no_bmm_info.true_dp.simple_prim36.ram_1\;
@@ -1909,7 +1909,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized4\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized4\ is
   port (
     \douta[2]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[6]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -1923,10 +1923,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized4\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized4\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized4\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized4\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized4\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized4\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized4\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -1937,8 +1937,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized4\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -2239,7 +2239,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized5\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized5\ is
   port (
     \douta[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[7]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2255,10 +2255,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized5\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized5\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized5\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized5\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized5\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized5\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized5\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -2269,8 +2269,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized5\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -2571,7 +2571,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_wrapper__parameterized6\ is
+entity \framebuffer_blk_mem_gen_prim_wrapper__parameterized6\ is
   port (
     \douta[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[7]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2585,10 +2585,10 @@ entity \framebufferblk_mem_gen_prim_wrapper__parameterized6\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_wrapper__parameterized6\ : entity is "blk_mem_gen_prim_wrapper";
-end \framebufferblk_mem_gen_prim_wrapper__parameterized6\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_wrapper__parameterized6\ : entity is "blk_mem_gen_prim_wrapper";
+end \framebuffer_blk_mem_gen_prim_wrapper__parameterized6\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized6\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_wrapper__parameterized6\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -2599,8 +2599,8 @@ architecture STRUCTURE of \framebufferblk_mem_gen_prim_wrapper__parameterized6\ 
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute BOX_TYPE : string;
-  attribute BOX_TYPE of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
+  attribute box_type : string;
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ : label is "PRIMITIVE";
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
@@ -2901,7 +2901,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_prim_width is
+entity framebuffer_blk_mem_gen_prim_width is
   port (
     \douta[0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[4]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2917,12 +2917,12 @@ entity framebufferblk_mem_gen_prim_width is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
-end framebufferblk_mem_gen_prim_width;
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
+end framebuffer_blk_mem_gen_prim_width;
 
-architecture STRUCTURE of framebufferblk_mem_gen_prim_width is
+architecture STRUCTURE of framebuffer_blk_mem_gen_prim_width is
 begin
-\prim_noinit.ram\: entity work.framebufferblk_mem_gen_prim_wrapper
+\prim_noinit.ram\: entity work.framebuffer_blk_mem_gen_prim_wrapper
      port map (
       addra(14 downto 0) => addra(14 downto 0),
       \addra[15]\ => \addra[15]\,
@@ -2942,7 +2942,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized0\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized0\ is
   port (
     DOADO : out STD_LOGIC_VECTOR ( 0 to 0 );
     DOBDO : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2956,12 +2956,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized0\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized0\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized0\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized0\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized0\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized0\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized0\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized0\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized0\
      port map (
       DOADO(0) => DOADO(0),
       DOBDO(1 downto 0) => DOBDO(1 downto 0),
@@ -2979,7 +2979,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized1\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized1\ is
   port (
     \douta[1]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[5]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2995,12 +2995,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized1\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized1\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized1\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized1\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized1\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized1\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized1\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized1\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized1\
      port map (
       addra(14 downto 0) => addra(14 downto 0),
       \addra[15]\ => \addra[15]\,
@@ -3020,7 +3020,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized2\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized2\ is
   port (
     \douta[1]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[5]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3034,12 +3034,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized2\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized2\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized2\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized2\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized2\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized2\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized2\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized2\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized2\
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3057,7 +3057,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized3\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized3\ is
   port (
     \douta[2]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[6]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3073,12 +3073,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized3\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized3\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized3\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized3\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized3\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized3\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized3\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized3\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized3\
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0\ => \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\,
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1\ => \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0\,
@@ -3098,7 +3098,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized4\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized4\ is
   port (
     \douta[2]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[6]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3112,12 +3112,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized4\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized4\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized4\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized4\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized4\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized4\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized4\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized4\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized4\
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3135,7 +3135,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized5\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized5\ is
   port (
     \douta[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[7]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3151,12 +3151,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized5\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized5\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized5\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized5\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized5\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized5\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized5\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized5\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized5\
      port map (
       addra(14 downto 0) => addra(14 downto 0),
       \addra[15]\ => \addra[15]\,
@@ -3176,7 +3176,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \framebufferblk_mem_gen_prim_width__parameterized6\ is
+entity \framebuffer_blk_mem_gen_prim_width__parameterized6\ is
   port (
     \douta[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \doutb[7]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3190,12 +3190,12 @@ entity \framebufferblk_mem_gen_prim_width__parameterized6\ is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \framebufferblk_mem_gen_prim_width__parameterized6\ : entity is "blk_mem_gen_prim_width";
-end \framebufferblk_mem_gen_prim_width__parameterized6\;
+  attribute ORIG_REF_NAME of \framebuffer_blk_mem_gen_prim_width__parameterized6\ : entity is "blk_mem_gen_prim_width";
+end \framebuffer_blk_mem_gen_prim_width__parameterized6\;
 
-architecture STRUCTURE of \framebufferblk_mem_gen_prim_width__parameterized6\ is
+architecture STRUCTURE of \framebuffer_blk_mem_gen_prim_width__parameterized6\ is
 begin
-\prim_noinit.ram\: entity work.\framebufferblk_mem_gen_prim_wrapper__parameterized6\
+\prim_noinit.ram\: entity work.\framebuffer_blk_mem_gen_prim_wrapper__parameterized6\
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3213,7 +3213,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_generic_cstr is
+entity framebuffer_blk_mem_gen_generic_cstr is
   port (
     douta : out STD_LOGIC_VECTOR ( 3 downto 0 );
     doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -3227,10 +3227,10 @@ entity framebufferblk_mem_gen_generic_cstr is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
-end framebufferblk_mem_gen_generic_cstr;
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
+end framebuffer_blk_mem_gen_generic_cstr;
 
-architecture STRUCTURE of framebufferblk_mem_gen_generic_cstr is
+architecture STRUCTURE of framebuffer_blk_mem_gen_generic_cstr is
   signal p_0_out : STD_LOGIC;
   signal \ramloop[0].ram.r_n_1\ : STD_LOGIC;
   signal \ramloop[0].ram.r_n_2\ : STD_LOGIC;
@@ -3258,7 +3258,7 @@ architecture STRUCTURE of framebufferblk_mem_gen_generic_cstr is
   signal \ramloop[7].ram.r_n_1\ : STD_LOGIC;
   signal \ramloop[7].ram.r_n_2\ : STD_LOGIC;
 begin
-\has_mux_a.A\: entity work.framebufferblk_mem_gen_mux
+\has_mux_a.A\: entity work.framebuffer_blk_mem_gen_mux
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\(0) => p_0_out,
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[3].ram.r_n_0\,
@@ -3272,7 +3272,7 @@ begin
       clka => clka,
       douta(3 downto 0) => douta(3 downto 0)
     );
-\has_mux_b.B\: entity work.\framebufferblk_mem_gen_mux__parameterized0\
+\has_mux_b.B\: entity work.\framebuffer_blk_mem_gen_mux__parameterized0\
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\(1) => \ramloop[0].ram.r_n_1\,
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\(0) => \ramloop[0].ram.r_n_2\,
@@ -3294,7 +3294,7 @@ begin
       clkb => clkb,
       doutb(7 downto 0) => doutb(7 downto 0)
     );
-\ramloop[0].ram.r\: entity work.framebufferblk_mem_gen_prim_width
+\ramloop[0].ram.r\: entity work.framebuffer_blk_mem_gen_prim_width
      port map (
       addra(14 downto 0) => addra(14 downto 0),
       \addra[15]\ => \ramloop[4].ram.r_n_3\,
@@ -3311,7 +3311,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[1].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized0\
+\ramloop[1].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized0\
      port map (
       DOADO(0) => \ramloop[1].ram.r_n_0\,
       DOBDO(1) => \ramloop[1].ram.r_n_1\,
@@ -3326,7 +3326,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[2].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized1\
+\ramloop[2].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized1\
      port map (
       addra(14 downto 0) => addra(14 downto 0),
       \addra[15]\ => \ramloop[4].ram.r_n_3\,
@@ -3343,7 +3343,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[3].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized2\
+\ramloop[3].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized2\
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3358,7 +3358,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[4].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized3\
+\ramloop[4].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized3\
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram\ => \ramloop[4].ram.r_n_3\,
       \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0\ => \ramloop[4].ram.r_n_4\,
@@ -3375,7 +3375,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[5].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized4\
+\ramloop[5].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized4\
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3390,7 +3390,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[6].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized5\
+\ramloop[6].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized5\
      port map (
       addra(14 downto 0) => addra(14 downto 0),
       \addra[15]\ => \ramloop[4].ram.r_n_3\,
@@ -3407,7 +3407,7 @@ begin
       wea(0) => wea(0),
       web(0) => web(0)
     );
-\ramloop[7].ram.r\: entity work.\framebufferblk_mem_gen_prim_width__parameterized6\
+\ramloop[7].ram.r\: entity work.\framebuffer_blk_mem_gen_prim_width__parameterized6\
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3427,7 +3427,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_top is
+entity framebuffer_blk_mem_gen_top is
   port (
     douta : out STD_LOGIC_VECTOR ( 3 downto 0 );
     doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -3441,12 +3441,12 @@ entity framebufferblk_mem_gen_top is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_top : entity is "blk_mem_gen_top";
-end framebufferblk_mem_gen_top;
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_top : entity is "blk_mem_gen_top";
+end framebuffer_blk_mem_gen_top;
 
-architecture STRUCTURE of framebufferblk_mem_gen_top is
+architecture STRUCTURE of framebuffer_blk_mem_gen_top is
 begin
-\valid.cstr\: entity work.framebufferblk_mem_gen_generic_cstr
+\valid.cstr\: entity work.framebuffer_blk_mem_gen_generic_cstr
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3464,7 +3464,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_v8_2_synth is
+entity framebuffer_blk_mem_gen_v8_2_synth is
   port (
     douta : out STD_LOGIC_VECTOR ( 3 downto 0 );
     doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -3478,12 +3478,12 @@ entity framebufferblk_mem_gen_v8_2_synth is
     web : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_v8_2_synth : entity is "blk_mem_gen_v8_2_synth";
-end framebufferblk_mem_gen_v8_2_synth;
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_v8_2_synth : entity is "blk_mem_gen_v8_2_synth";
+end framebuffer_blk_mem_gen_v8_2_synth;
 
-architecture STRUCTURE of framebufferblk_mem_gen_v8_2_synth is
+architecture STRUCTURE of framebuffer_blk_mem_gen_v8_2_synth is
 begin
-\gnativebmg.native_blk_mem_gen\: entity work.framebufferblk_mem_gen_top
+\gnativebmg.native_blk_mem_gen\: entity work.framebuffer_blk_mem_gen_top
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3501,7 +3501,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity framebufferblk_mem_gen_v8_2 is
+entity framebuffer_blk_mem_gen_v8_2 is
   port (
     clka : in STD_LOGIC;
     rsta : in STD_LOGIC;
@@ -3566,156 +3566,156 @@ entity framebufferblk_mem_gen_v8_2 is
     s_axi_rdaddrecc : out STD_LOGIC_VECTOR ( 14 downto 0 )
   );
   attribute C_ADDRA_WIDTH : integer;
-  attribute C_ADDRA_WIDTH of framebufferblk_mem_gen_v8_2 : entity is 16;
+  attribute C_ADDRA_WIDTH of framebuffer_blk_mem_gen_v8_2 : entity is 16;
   attribute C_ADDRB_WIDTH : integer;
-  attribute C_ADDRB_WIDTH of framebufferblk_mem_gen_v8_2 : entity is 15;
+  attribute C_ADDRB_WIDTH of framebuffer_blk_mem_gen_v8_2 : entity is 15;
   attribute C_ALGORITHM : integer;
-  attribute C_ALGORITHM of framebufferblk_mem_gen_v8_2 : entity is 1;
+  attribute C_ALGORITHM of framebuffer_blk_mem_gen_v8_2 : entity is 1;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of framebufferblk_mem_gen_v8_2 : entity is 4;
+  attribute C_AXI_ID_WIDTH of framebuffer_blk_mem_gen_v8_2 : entity is 4;
   attribute C_AXI_SLAVE_TYPE : integer;
-  attribute C_AXI_SLAVE_TYPE of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_AXI_SLAVE_TYPE of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_AXI_TYPE : integer;
-  attribute C_AXI_TYPE of framebufferblk_mem_gen_v8_2 : entity is 1;
+  attribute C_AXI_TYPE of framebuffer_blk_mem_gen_v8_2 : entity is 1;
   attribute C_BYTE_SIZE : integer;
-  attribute C_BYTE_SIZE of framebufferblk_mem_gen_v8_2 : entity is 9;
+  attribute C_BYTE_SIZE of framebuffer_blk_mem_gen_v8_2 : entity is 9;
   attribute C_COMMON_CLK : integer;
-  attribute C_COMMON_CLK of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_COMMON_CLK of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_COUNT_18K_BRAM : string;
-  attribute C_COUNT_18K_BRAM of framebufferblk_mem_gen_v8_2 : entity is "0";
+  attribute C_COUNT_18K_BRAM of framebuffer_blk_mem_gen_v8_2 : entity is "0";
   attribute C_COUNT_36K_BRAM : string;
-  attribute C_COUNT_36K_BRAM of framebufferblk_mem_gen_v8_2 : entity is "8";
+  attribute C_COUNT_36K_BRAM of framebuffer_blk_mem_gen_v8_2 : entity is "8";
   attribute C_CTRL_ECC_ALGO : string;
-  attribute C_CTRL_ECC_ALGO of framebufferblk_mem_gen_v8_2 : entity is "NONE";
+  attribute C_CTRL_ECC_ALGO of framebuffer_blk_mem_gen_v8_2 : entity is "NONE";
   attribute C_DEFAULT_DATA : string;
-  attribute C_DEFAULT_DATA of framebufferblk_mem_gen_v8_2 : entity is "0";
+  attribute C_DEFAULT_DATA of framebuffer_blk_mem_gen_v8_2 : entity is "0";
   attribute C_DISABLE_WARN_BHV_COLL : integer;
-  attribute C_DISABLE_WARN_BHV_COLL of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_DISABLE_WARN_BHV_COLL of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_DISABLE_WARN_BHV_RANGE : integer;
-  attribute C_DISABLE_WARN_BHV_RANGE of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_DISABLE_WARN_BHV_RANGE of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_ELABORATION_DIR : string;
-  attribute C_ELABORATION_DIR of framebufferblk_mem_gen_v8_2 : entity is "./";
+  attribute C_ELABORATION_DIR of framebuffer_blk_mem_gen_v8_2 : entity is "./";
   attribute C_ENABLE_32BIT_ADDRESS : integer;
-  attribute C_ENABLE_32BIT_ADDRESS of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_ENABLE_32BIT_ADDRESS of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EN_DEEPSLEEP_PIN : integer;
-  attribute C_EN_DEEPSLEEP_PIN of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_EN_DEEPSLEEP_PIN of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EN_ECC_PIPE : integer;
-  attribute C_EN_ECC_PIPE of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_EN_ECC_PIPE of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EN_RDADDRA_CHG : integer;
-  attribute C_EN_RDADDRA_CHG of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_EN_RDADDRA_CHG of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EN_RDADDRB_CHG : integer;
-  attribute C_EN_RDADDRB_CHG of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_EN_RDADDRB_CHG of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EN_SHUTDOWN_PIN : integer;
-  attribute C_EN_SHUTDOWN_PIN of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_EN_SHUTDOWN_PIN of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EN_SLEEP_PIN : integer;
-  attribute C_EN_SLEEP_PIN of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_EN_SLEEP_PIN of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of framebufferblk_mem_gen_v8_2 : entity is "Estimated Power for IP     :     20.8193 mW";
+  attribute C_EST_POWER_SUMMARY of framebuffer_blk_mem_gen_v8_2 : entity is "Estimated Power for IP     :     20.8193 mW";
   attribute C_FAMILY : string;
-  attribute C_FAMILY of framebufferblk_mem_gen_v8_2 : entity is "artix7";
+  attribute C_FAMILY of framebuffer_blk_mem_gen_v8_2 : entity is "artix7";
   attribute C_HAS_AXI_ID : integer;
-  attribute C_HAS_AXI_ID of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_AXI_ID of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_ENA of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_ENB : integer;
-  attribute C_HAS_ENB of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_ENB of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_INJECTERR : integer;
-  attribute C_HAS_INJECTERR of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_INJECTERR of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_B of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_MEM_OUTPUT_REGS_B of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_A of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_MUX_OUTPUT_REGS_A of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_B of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_MUX_OUTPUT_REGS_B of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_REGCEA : integer;
-  attribute C_HAS_REGCEA of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_REGCEA of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_REGCEB : integer;
-  attribute C_HAS_REGCEB of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_REGCEB of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_RSTA : integer;
-  attribute C_HAS_RSTA of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_RSTA of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_RSTB : integer;
-  attribute C_HAS_RSTB of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_RSTB of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_SOFTECC_INPUT_REGS_A : integer;
-  attribute C_HAS_SOFTECC_INPUT_REGS_A of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_SOFTECC_INPUT_REGS_A of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_HAS_SOFTECC_OUTPUT_REGS_B : integer;
-  attribute C_HAS_SOFTECC_OUTPUT_REGS_B of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_HAS_SOFTECC_OUTPUT_REGS_B of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_INITA_VAL : string;
-  attribute C_INITA_VAL of framebufferblk_mem_gen_v8_2 : entity is "0";
+  attribute C_INITA_VAL of framebuffer_blk_mem_gen_v8_2 : entity is "0";
   attribute C_INITB_VAL : string;
-  attribute C_INITB_VAL of framebufferblk_mem_gen_v8_2 : entity is "0";
+  attribute C_INITB_VAL of framebuffer_blk_mem_gen_v8_2 : entity is "0";
   attribute C_INIT_FILE : string;
-  attribute C_INIT_FILE of framebufferblk_mem_gen_v8_2 : entity is "framebuffer.mem";
+  attribute C_INIT_FILE of framebuffer_blk_mem_gen_v8_2 : entity is "framebuffer.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of framebufferblk_mem_gen_v8_2 : entity is "no_coe_file_loaded";
+  attribute C_INIT_FILE_NAME of framebuffer_blk_mem_gen_v8_2 : entity is "no_coe_file_loaded";
   attribute C_INTERFACE_TYPE : integer;
-  attribute C_INTERFACE_TYPE of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_INTERFACE_TYPE of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_LOAD_INIT_FILE of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of framebufferblk_mem_gen_v8_2 : entity is 2;
+  attribute C_MEM_TYPE of framebuffer_blk_mem_gen_v8_2 : entity is 2;
   attribute C_MUX_PIPELINE_STAGES : integer;
-  attribute C_MUX_PIPELINE_STAGES of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_MUX_PIPELINE_STAGES of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_PRIM_TYPE : integer;
-  attribute C_PRIM_TYPE of framebufferblk_mem_gen_v8_2 : entity is 1;
+  attribute C_PRIM_TYPE of framebuffer_blk_mem_gen_v8_2 : entity is 1;
   attribute C_READ_DEPTH_A : integer;
-  attribute C_READ_DEPTH_A of framebufferblk_mem_gen_v8_2 : entity is 65536;
+  attribute C_READ_DEPTH_A of framebuffer_blk_mem_gen_v8_2 : entity is 65536;
   attribute C_READ_DEPTH_B : integer;
-  attribute C_READ_DEPTH_B of framebufferblk_mem_gen_v8_2 : entity is 32768;
+  attribute C_READ_DEPTH_B of framebuffer_blk_mem_gen_v8_2 : entity is 32768;
   attribute C_READ_WIDTH_A : integer;
-  attribute C_READ_WIDTH_A of framebufferblk_mem_gen_v8_2 : entity is 4;
+  attribute C_READ_WIDTH_A of framebuffer_blk_mem_gen_v8_2 : entity is 4;
   attribute C_READ_WIDTH_B : integer;
-  attribute C_READ_WIDTH_B of framebufferblk_mem_gen_v8_2 : entity is 8;
+  attribute C_READ_WIDTH_B of framebuffer_blk_mem_gen_v8_2 : entity is 8;
   attribute C_RSTRAM_A : integer;
-  attribute C_RSTRAM_A of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_RSTRAM_A of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_RSTRAM_B : integer;
-  attribute C_RSTRAM_B of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_RSTRAM_B of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_RST_PRIORITY_A : string;
-  attribute C_RST_PRIORITY_A of framebufferblk_mem_gen_v8_2 : entity is "CE";
+  attribute C_RST_PRIORITY_A of framebuffer_blk_mem_gen_v8_2 : entity is "CE";
   attribute C_RST_PRIORITY_B : string;
-  attribute C_RST_PRIORITY_B of framebufferblk_mem_gen_v8_2 : entity is "CE";
+  attribute C_RST_PRIORITY_B of framebuffer_blk_mem_gen_v8_2 : entity is "CE";
   attribute C_SIM_COLLISION_CHECK : string;
-  attribute C_SIM_COLLISION_CHECK of framebufferblk_mem_gen_v8_2 : entity is "ALL";
+  attribute C_SIM_COLLISION_CHECK of framebuffer_blk_mem_gen_v8_2 : entity is "ALL";
   attribute C_USE_BRAM_BLOCK : integer;
-  attribute C_USE_BRAM_BLOCK of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_BRAM_BLOCK of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_USE_BYTE_WEA : integer;
-  attribute C_USE_BYTE_WEA of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_BYTE_WEA of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_USE_BYTE_WEB : integer;
-  attribute C_USE_BYTE_WEB of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_BYTE_WEB of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_DEFAULT_DATA of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_USE_ECC : integer;
-  attribute C_USE_ECC of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_ECC of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_USE_SOFTECC : integer;
-  attribute C_USE_SOFTECC of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_SOFTECC of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_USE_URAM : integer;
-  attribute C_USE_URAM of framebufferblk_mem_gen_v8_2 : entity is 0;
+  attribute C_USE_URAM of framebuffer_blk_mem_gen_v8_2 : entity is 0;
   attribute C_WEA_WIDTH : integer;
-  attribute C_WEA_WIDTH of framebufferblk_mem_gen_v8_2 : entity is 1;
+  attribute C_WEA_WIDTH of framebuffer_blk_mem_gen_v8_2 : entity is 1;
   attribute C_WEB_WIDTH : integer;
-  attribute C_WEB_WIDTH of framebufferblk_mem_gen_v8_2 : entity is 1;
+  attribute C_WEB_WIDTH of framebuffer_blk_mem_gen_v8_2 : entity is 1;
   attribute C_WRITE_DEPTH_A : integer;
-  attribute C_WRITE_DEPTH_A of framebufferblk_mem_gen_v8_2 : entity is 65536;
+  attribute C_WRITE_DEPTH_A of framebuffer_blk_mem_gen_v8_2 : entity is 65536;
   attribute C_WRITE_DEPTH_B : integer;
-  attribute C_WRITE_DEPTH_B of framebufferblk_mem_gen_v8_2 : entity is 32768;
+  attribute C_WRITE_DEPTH_B of framebuffer_blk_mem_gen_v8_2 : entity is 32768;
   attribute C_WRITE_MODE_A : string;
-  attribute C_WRITE_MODE_A of framebufferblk_mem_gen_v8_2 : entity is "READ_FIRST";
+  attribute C_WRITE_MODE_A of framebuffer_blk_mem_gen_v8_2 : entity is "READ_FIRST";
   attribute C_WRITE_MODE_B : string;
-  attribute C_WRITE_MODE_B of framebufferblk_mem_gen_v8_2 : entity is "READ_FIRST";
+  attribute C_WRITE_MODE_B of framebuffer_blk_mem_gen_v8_2 : entity is "READ_FIRST";
   attribute C_WRITE_WIDTH_A : integer;
-  attribute C_WRITE_WIDTH_A of framebufferblk_mem_gen_v8_2 : entity is 4;
+  attribute C_WRITE_WIDTH_A of framebuffer_blk_mem_gen_v8_2 : entity is 4;
   attribute C_WRITE_WIDTH_B : integer;
-  attribute C_WRITE_WIDTH_B of framebufferblk_mem_gen_v8_2 : entity is 8;
+  attribute C_WRITE_WIDTH_B of framebuffer_blk_mem_gen_v8_2 : entity is 8;
   attribute C_XDEVICEFAMILY : string;
-  attribute C_XDEVICEFAMILY of framebufferblk_mem_gen_v8_2 : entity is "artix7";
+  attribute C_XDEVICEFAMILY of framebuffer_blk_mem_gen_v8_2 : entity is "artix7";
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of framebufferblk_mem_gen_v8_2 : entity is "blk_mem_gen_v8_2";
+  attribute ORIG_REF_NAME of framebuffer_blk_mem_gen_v8_2 : entity is "blk_mem_gen_v8_2";
   attribute downgradeipidentifiedwarnings : string;
-  attribute downgradeipidentifiedwarnings of framebufferblk_mem_gen_v8_2 : entity is "yes";
-end framebufferblk_mem_gen_v8_2;
+  attribute downgradeipidentifiedwarnings of framebuffer_blk_mem_gen_v8_2 : entity is "yes";
+end framebuffer_blk_mem_gen_v8_2;
 
-architecture STRUCTURE of framebufferblk_mem_gen_v8_2 is
+architecture STRUCTURE of framebuffer_blk_mem_gen_v8_2 is
   signal \<const0>\ : STD_LOGIC;
 begin
   dbiterr <= \<const0>\;
@@ -3782,7 +3782,7 @@ GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
     );
-inst_blk_mem_gen: entity work.framebufferblk_mem_gen_v8_2_synth
+inst_blk_mem_gen: entity work.framebuffer_blk_mem_gen_v8_2_synth
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),
@@ -3991,7 +3991,7 @@ architecture STRUCTURE of framebuffer is
   attribute DONT_TOUCH of U0 : label is std.standard.true;
   attribute downgradeipidentifiedwarnings of U0 : label is "yes";
 begin
-U0: entity work.framebufferblk_mem_gen_v8_2
+U0: entity work.framebuffer_blk_mem_gen_v8_2
      port map (
       addra(15 downto 0) => addra(15 downto 0),
       addrb(14 downto 0) => addrb(14 downto 0),

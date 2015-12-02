@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
+<<<<<<< HEAD
     <Process Command="vivado" Owner="adnan" Host="mylaptop" Pid="10053">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <Process Command="vivado.bat" Owner="hpm" Host="HPM-PC" Pid="4112">
+=======
+    <Process Command="vivado" Owner="adnan" Host="mylaptop" Pid="14188">
+>>>>>>> 88ba2281261e3552fdbb3f595e54d2468537ee62
+=======
+    <Process Command="vivado" Owner="adnan" Host="mylaptop" Pid="21108">
+>>>>>>> dbda3ea00d4948c7aa02f77a71ccbb4c6245236e
+>>>>>>> c0bdca1195ede6fb258d5347f02d495e8102ccb2
     </Process>
 </ProcessHandle>

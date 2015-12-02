@@ -33,9 +33,9 @@ module project (
   output wire dp,
   output wire vs,
   output wire hs,
-  output wire [3:0] r,
-  output wire [3:0] g,
-  output wire [3:0] b,
+  output reg [3:0] r,
+  output reg [3:0] g,
+  output reg [3:0] b,
   output wire pclk_mirror
   );
 
@@ -168,6 +168,7 @@ module project (
   assign vga_address = port_id[2:0];
   assign vga_write = write_strobe && (port_id[7:3] == 5'b00000);
 
+
   always @(posedge pclk)
     begin
     if (write_strobe)
@@ -177,6 +178,9 @@ module project (
       if (port_id == 8'h0a) qssd[7:0] <= out_port;
       if (port_id == 8'h0b) qssd[15:8] <= out_port;
       if (port_id == 8'h0c) qssd[19:16] <= out_port[3:0];
+      if (port_id == 8'h10) r[3:0] <= out_port;
+      if (port_id == 8'h11) g[3:0] <= out_port;
+      if (port_id == 8'h12) b[3:0] <= out_port;
     end
   end
 
