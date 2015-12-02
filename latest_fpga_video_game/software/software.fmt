@@ -119,7 +119,8 @@
                       ;;============================================================================
 
             gameover: INPUT s5, buttons              ; get center button values
-                      ;CALL map                            ; draw the map using map subroutine
+                      CALL map                       ; draw the map using map subroutine
+                      CALL draw_helicopter           ; draw the helicopter
 
                       INPUT s5, buttons              ; get button values
                       COMPARE s5, buttons_up         ; check if up button is pressed
