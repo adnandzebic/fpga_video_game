@@ -122,7 +122,7 @@ stay_in_start_state:
                ;CALL map                            ; draw the map using map subroutine
 
                INPUT s5, buttons                   ; get button values
-               COMPARE s5, buttons_ct              ; check if center button is pressed
+               COMPARE s5, buttons_up              ; check if up button is pressed
                JUMP Z, enter_play_state2           ; jump to enter_play_state2
                JUMP NZ, stay_in_gameover_state     ; remain in current state with a jump to stay_in_gameover_state
                
@@ -413,7 +413,7 @@ stay_in_gameover_state:
 			  ;; LINE 1 (TOP) FOR T1
               LOAD s0, 8C             ; stax 140
               LOAD s1, C8             ; stay 200
-              LOAD s2, 91             ; endx 145
+              LOAD s2, 93             ; endx 147
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
@@ -497,7 +497,7 @@ stay_in_gameover_state:
 			  ;; LINE 1 (TOP) FOR T2
               LOAD s0, AA             ; stax 170
               LOAD s1, C8             ; stay 200
-              LOAD s2, AF             ; endx 175
+              LOAD s2, B1             ; endx 177
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
@@ -1119,6 +1119,78 @@ stay_in_gameover_state:
               LOAD s3, 78                        ; 120
               CALL draw_line                     ; call the draw_line subroutine
 
+              ;;============================================================================
+              ;; Draws the letter M (Line 1)
+              ;;============================================================================
+              LOAD s0, 82                        ; 130
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 82                        ; 130
+              LOAD s3, 78                        ; 120
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter M (Line 2)
+              ;;============================================================================
+              LOAD s0, 96                        ; 150
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 96                        ; 150
+              LOAD s3, 78                        ; 120
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter M (Line 3)
+              ;;============================================================================
+              LOAD s0, 96                        ; 150
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 8C                        ; 140
+              LOAD s3, 69                        ; 105
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter M (Line 4)
+              ;;============================================================================
+              LOAD s0, 82                        ; 130
+              LOAD s1, 5A                        ; 90
+              LOAD s2, 8C                        ; 140
+              LOAD s3, 69                        ; 105
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter E (Line 1)
+              ;;============================================================================
+              LOAD s0, A0                        ; 160
+              LOAD s1, 5A                        ; 90
+              LOAD s2, A0                        ; 160
+              LOAD s3, 78                        ; 120
+              CALL draw_line                     ; call the draw_line subroutine
+
+              ;;============================================================================
+              ;; Draws the letter E (Line 2)
+              ;;============================================================================
+              LOAD s0, A0                        ; 160
+              LOAD s1, 5A                        ; 90
+              LOAD s2, B4                        ; 180
+              LOAD s3, 5A                        ; 90
+              CALL draw_line                     ; call the draw_line subroutine
+
+             ;;============================================================================
+              ;; Draws the letter E (Line 3)
+              ;;============================================================================
+              LOAD s0, A0                        ; 160
+              LOAD s1, 69                        ; 105
+              LOAD s2, B4                        ; 180
+              LOAD s3, 69                        ; 105
+              CALL draw_line                     ; call the draw_line subroutine
+
+             ;;============================================================================
+              ;; Draws the letter E (Line 4)
+              ;;============================================================================
+              LOAD s0, A0                        ; 160
+              LOAD s1, 78                        ; 120
+              LOAD s2, B4                        ; 180
+              LOAD s3, 78                        ; 120
+              CALL draw_line                     ; call the draw_line subroutine
+
               RETURN                              ; leave start_screen subroutine
 
 ;;============================================================================
@@ -1130,7 +1202,7 @@ stay_in_gameover_state:
               CALL draw_helicopter_cockpit       ; call the subroutine to draw the cockpit
               CALL draw_helicopter_blades        ; call the subroutine to draw the blades
               CALL draw_helicopter_tail          ; call the subroutine to draw the tail
-              CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
+              ;CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
 
               RETURN                              ; go back from drawing helicopter
 
@@ -1220,6 +1292,8 @@ stay_in_gameover_state:
 random_block_location: 
                COMPARE sE, 00                      ; is it time to create a new variable?
                JUMP Z, new_random                  ; jump to new random creator
+               COMPARE sE, FF                      ; is it time to create a new variable?
+               JUMP Z, new_random                  ; jump to new random creator
                JUMP NZ, skip_everything            ; goes back
                
 skip_everything: RETURN                            ; returns back (no new rand. number)
@@ -1245,7 +1319,7 @@ move_heli_up:
                JUMP NC, decrement                  ; necessary as well
                RETURN                              ; do not increment if colliding with top wall
    decrement:
-               SUB sC, 02                          ; move the helicopter up
+               SUB sC, 04                          ; move the helicopter up
                RETURN                              ; get out of subroutine
 
 ;;============================================================================
@@ -1639,6 +1713,48 @@ check_collision:
 	      LOAD s7, s6                         ; used later for drawing the "spark"
 	      COMPARE s8, s6                      ; check if the two intersect
 	      JUMP Z, collision_occurred          ; jump to collision occurred
+	      
+	      LOAD s8, F1                         ; bottom wall vertical coordinate (241)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+
+	      LOAD s8, F2                         ; bottom wall vertical coordinate (242)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+
+	      LOAD s8, F3                         ; bottom wall vertical coordinate (243)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+
+	      LOAD s8, F4                         ; bottom wall vertical coordinate (244)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+
+	      LOAD s8, F5                         ; bottom wall vertical coordinate (245)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
+
+	      LOAD s8, F6                         ; bottom wall vertical coordinate (246)
+	      LOAD s6, sC                         ; get vertical position of helicopter
+	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+	      LOAD s7, s6                         ; used later for drawing the "spark"
+	      COMPARE s8, s6                      ; check if the two intersect
+	      JUMP Z, collision_occurred          ; jump to collision occurred
 
 	      ;;============================================================================
 	      ;; Check Collisions with Block
@@ -1647,6 +1763,26 @@ check_collision:
               LOAD s5, sE                         ; get current horizontal position of block
               SUB s5, 0A                          ; actual block is 10 pixels back
               COMPARE s5, 64                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 63                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 62                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 61                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 60                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 59                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 58                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 57                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 56                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning              
+              COMPARE s5, 55                      ; check if s5 coincides with heli (horizontal check)
+              JUMP Z, check_vertical              ; jump to check vertical positioning
+              COMPARE s5, 54                      ; check if s5 coincides with heli (horizontal check)
               JUMP Z, check_vertical              ; jump to check vertical positioning
               JUMP NZ, no_collision               ; jump to no_collision routine
 
@@ -1662,10 +1798,39 @@ check_vertical:
               JUMP Z, no_collision                ; jump to no_collision routine
               JUMP NZ, loop                       ; keep looping
 
-no_collision: SUB sE, 01                          ; decrement sE
-              ADD sC, 01                          ; increment sC
+no_collision: SUB sE, 01                          ; move block forwards
+              COMPARE sA, 01                      ; check if score is above 500
+              CALL NC, stage2_check               ; call second stage check
+
+              ADD sC, 02                          ; increment sC
               CALL distance                       ; used for keeping the score (increments distance)
               RETURN                              ; leave, since no collisions occurred
+	   
+stage2_check:
+             SUB sE, 01                           ; subtract 1 from sE
+             COMPARE sA, 05                       ; check if score is above 1000
+             CALL NC, stage3_check                ; call speed2
+             RETURN                               ; leave routine
+
+speed2:
+              ;SUB sE, 01                          ; decrement by 2
+	      RETURN                              ; go back	
+	            
+stage3_check:
+             SUB sE, 01                          ; decrement by 3
+             COMPARE sA, 08                       ; check if score is above 1000
+             CALL NC, stage4_check                ; call speed2
+	     RETURN                              ; go back
+
+stage4_check:
+             SUB sE, 01                          ; decrement by 3
+             COMPARE sA, 10                       ; check if score is above 1000
+             CALL NC, stage5_check                ; call speed2
+	     RETURN   
+
+stage5_check:
+             SUB sE, 01                          ; decrement by 3
+	     RETURN   
 
 collision_occurred: 
                OUTPUT s5, stax                     ; set desired stax
