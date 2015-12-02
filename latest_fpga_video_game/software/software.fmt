@@ -86,6 +86,8 @@
                          CALL Z, play                     ; call play subroutine
                          COMPARE s9, GAMEOVER_STATE       ; check if in the gameover state
                          CALL Z, gameover                 ; call the gameover subroutine
+                         COMPARE s9, CREDITS_STATE        ; check if in the credits state
+                         CALL Z, credits                  ; call credits subroutine
                          RETURNI ENABLE                   ; done with isr
                          ;;============================================================================
                          ;; Start - Start Subroutine
@@ -96,11 +98,24 @@
                          COMPARE s5, buttons_ct           ; check if center button is pressed
                          JUMP Z, enter_play_state         ; jump to enter_play_state
                          JUMP NZ, stay_in_start_state     ; remain in current state with a jump to stay_in_start_state
+                         ;COMPARE
+                         ;JUMP Z, credits        ;
        enter_play_state: 
                          LOAD s9, PLAY_STATE              ; load play_state and enter play mode
                          RETURN                           ; return from start subroutine
     stay_in_start_state: 
                          RETURN                           ; return from start subroutine
+                         ;;============================================================================
+                         ;; Credits - Credit Subroutine
+                         ;;============================================================================
+                credits: 
+                         CALL draw_credits                ; draw the credits screen
+                         INPUT s5, buttons                ; get button values
+                         COMPARE s5, buttons_ct           ; check if center button is pressed
+                         JUMP Z, enter_play_state         ; jump to enter_play_state
+                         JUMP NZ, stay_in_credit_state    ; remain in current state with a jump to stay_in_start_state
+   stay_in_credit_state: 
+                         RETURN 
                          ;;============================================================================
                          ;; Game Over - Game Over Subroutine
                          ;;============================================================================
@@ -109,7 +124,7 @@
                          CALL draw_helicopter             ; draw the helicopter
                          CALL draw_block                  ;
                          CALL draw_gameover               ;
-                         LOAD s5, 64                      ; collision point (horzintal)
+                         LOAD s5, 64                      ; collision point (horizontal)
                          OUTPUT s5, stax                  ; set desired stax
                          OUTPUT sC, stay                  ; set desired stay
                          INPUT s8, prng                   ; load random endx
@@ -1023,12 +1038,48 @@
                          ;;;;;;;;;;;;;;;
                          ;;BEGIN GAME;;
                          ;;;;;;;;;;;;;;;
-                         ;; LINE 1 (TOP) FOR C
-                         LOAD s0, 2D                      ; stax 45
-                         LOAD s1, 1E                      ; stay 30
-                         LOAD s2, 23                      ; endx 35
-                         LOAD s3, 1E                      ; endy 30
-                         CALL draw_line                   ;
+                         ;; LINE
+                         ;              LOAD s0,              ; stax
+                         ;             LOAD s1,              ; stay
+                         ;            LOAD s2,              ; endx
+                         ;           LOAD s3,              ; endy
+                         ;          CALL draw_line          ;
+                         RETURN                           ;
+                         ;;============================================================================
+                         ;; Credits - Draw Credits Screen Subroutine
+                         ;;============================================================================
+           draw_credits: 
+                         ;; LINE
+                         ;LOAD s0,              ; stax
+                         ;LOAD s1,              ; stay
+                         ;LOAD s2,              ; endx
+                         ;LOAD s3,              ; endy
+                         ;CALL draw_line          ;
+                         ;; LINE
+                         ;              LOAD s0,              ; stax
+                         ;             LOAD s1,              ; stay
+                         ;            LOAD s2,              ; endx
+                         ;           LOAD s3,              ; endy
+                         ;          CALL draw_line          ;
+                         ;; LINE
+                         ;              LOAD s0,              ; stax
+                         ;             LOAD s1,              ; stay
+                         ;            LOAD s2,              ; endx
+                         ;           LOAD s3,              ; endy
+                         ;          CALL draw_line          ;
+                         ;; LINE
+                         ;              LOAD s0,              ; stax
+                         ;             LOAD s1,              ; stay
+                         ;            LOAD s2,              ; endx
+                         ;           LOAD s3,              ; endy
+                         ;          CALL draw_line          ;
+                         ;; LINE
+                         ;              LOAD s0,              ; stax
+                         ;             LOAD s1,              ; stay
+                         ;            LOAD s2,              ; endx
+                         ;           LOAD s3,              ; endy
+                         ;          CALL draw_line          ;
+                         ;     RETURN      ;
                          ;;============================================================================
                          ;; Draw Helicopter - Draw Helicopter Subroutine
                          ;;============================================================================

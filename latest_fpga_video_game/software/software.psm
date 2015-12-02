@@ -1252,11 +1252,11 @@ stay_in_gameover_state:
 			  ;;;;;;;;;;;;;;;
 			  
 			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+;              LOAD s0,              ; stax 
+ ;             LOAD s1,              ; stay 
+  ;            LOAD s2,              ; endx 
+   ;           LOAD s3,              ; endy 
+    ;          CALL draw_line          ;
 			  RETURN				  ;
 ;;============================================================================
 ;; Credits - Draw Credits Screen Subroutine
@@ -1264,42 +1264,42 @@ stay_in_gameover_state:
 
 draw_credits:
 				;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+              ;LOAD s0,              ; stax 
+              ;LOAD s1,              ; stay 
+              ;LOAD s2,              ; endx 
+              ;LOAD s3,              ; endy 
+              ;CALL draw_line          ;
 
 			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+;              LOAD s0,              ; stax 
+ ;             LOAD s1,              ; stay 
+  ;            LOAD s2,              ; endx 
+   ;           LOAD s3,              ; endy 
+    ;          CALL draw_line          ;
 
 			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+;              LOAD s0,              ; stax 
+ ;             LOAD s1,              ; stay 
+  ;            LOAD s2,              ; endx 
+   ;           LOAD s3,              ; endy 
+    ;          CALL draw_line          ;
 
 			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+;              LOAD s0,              ; stax 
+ ;             LOAD s1,              ; stay 
+  ;            LOAD s2,              ; endx 
+   ;           LOAD s3,              ; endy 
+    ;          CALL draw_line          ;
 
 			  ;; LINE 
-              LOAD s0,              ; stax 
-              LOAD s1,              ; stay 
-              LOAD s2,              ; endx 
-              LOAD s3,              ; endy 
-              CALL draw_line          ;
+;              LOAD s0,              ; stax 
+ ;             LOAD s1,              ; stay 
+  ;            LOAD s2,              ; endx 
+   ;           LOAD s3,              ; endy 
+    ;          CALL draw_line          ;
 
 			  
-			  RETURN				  ;
+;			  RETURN				  ;
 ;;============================================================================
 ;; Draw Helicopter - Draw Helicopter Subroutine
 ;;============================================================================
