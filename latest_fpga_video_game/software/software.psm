@@ -120,19 +120,19 @@ CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
                COMPARE s5, buttons_ct              ; check if center button is pressed
                JUMP Z, enter_play_state            ; jump to enter_play_state
                
-<<<<<<< HEAD
+
                REGBANK B                           ;
                ADD s0, one                         ; counter for determining jump between credit/start
                COMPARE s0, F0                      ; check if 120 seconds
                JUMP Z, enter_credit_state          ; if 2 seconds or 120 frames, jump to credit
                JUMP NZ, stay_in_start_state        ; if not 2 seconds or 120 frames, stay in start
-=======
+
 			   REGBANK B                                               ;
 			   ADD s0, one						   ; counter for determining jump between credit/start
 			   COMPARE s0, 78					   ; check if 120 seconds
 			   JUMP Z, enter_credit_state		   ; if 2 seconds or 120 frames, jump to credit
 			   JUMP NZ, stay_in_start_state		   ; if not 2 seconds or 120 frames, stay in start
->>>>>>> 10e62617c728c32d7810f66cad27df6b5816cb30
+
 enter_play_state:
                REGBANK B                           ;
                LOAD s0, zero                       ;
@@ -1188,11 +1188,8 @@ draw_credits:
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-<<<<<<< HEAD
-              ;; LINE 4 (MIDDLE) FOR R
-=======
 			  ;; LINE 4 (MIDDLE) FOR R
->>>>>>> 10e62617c728c32d7810f66cad27df6b5816cb30
+
               LOAD s0, 37             ; stax 55
               LOAD s1, 2D             ; stay 45
               LOAD s2, 4B             ; endx 75
@@ -1269,7 +1266,7 @@ draw_credits:
               LOAD s3, 37             ; endy 55
               CALL draw_line          ;
 
-	      ;; LINE 5 (BOTTOMRIGHT ANGLED) FOR D
+			  ;; LINE 5 (BOTTOMRIGHT ANGLED) FOR D
               LOAD s0, 87             ; stax 135
               LOAD s1, 37             ; stay 55
               LOAD s2, 82             ; endx 130
