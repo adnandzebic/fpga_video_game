@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="5" Path="C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.xpr">
+<Project Version="7" Minor="5" Path="C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="f8afa13cccbe4da3987c763fdfad61c9"/>

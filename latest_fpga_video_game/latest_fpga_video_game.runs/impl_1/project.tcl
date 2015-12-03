@@ -48,19 +48,18 @@ set_msg_config -id {HDL 9-1654} -limit 100000
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
   debug::add_scope template.lib 1
   set_property design_mode GateLvl [current_fileset]
-  set_property webtalk.parent_dir C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/wt [current_project]
-  set_property parent.project_path C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.xpr [current_project]
-  set_property ip_repo_paths c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/ip [current_project]
-  set_property ip_output_repo c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/ip [current_project]
-  add_files -quiet C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/synth_1/project.dcp
-  add_files -quiet C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/framebuffer.dcp
-  set_property netlist_only true [get_files C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/framebuffer.dcp]
-  read_xdc -mode out_of_context -ref framebuffer -cells U0 c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc]
-  read_xdc C:/Users/hpm/Desktop/fpga_video_game/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/constrs_1/imports/ee178_fall2015_lab8/project.xdc
+  set_property webtalk.parent_dir C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/wt [current_project]
+  set_property parent.project_path C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.xpr [current_project]
+  set_property ip_repo_paths c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/ip [current_project]
+  set_property ip_output_repo c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.cache/ip [current_project]
+  add_files -quiet C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/synth_1/project.dcp
+  add_files -quiet C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/framebuffer.dcp
+  set_property netlist_only true [get_files C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.runs/framebuffer_synth_1/framebuffer.dcp]
+  read_xdc -mode out_of_context -ref framebuffer -cells U0 c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/sources_1/ip/framebuffer/framebuffer_ooc.xdc]
+  read_xdc C:/Users/hpm/Desktop/fpga_video_game/latest_fpga_video_game/latest_fpga_video_game.srcs/constrs_1/imports/ee178_fall2015_lab8/project.xdc
   link_design -top project -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
