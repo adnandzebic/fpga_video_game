@@ -92,16 +92,15 @@
                          ;;============================================================================
                          ;; Start - Start Subroutine
                          ;;============================================================================
-                  start: REGBANK A
+                  start: REGBANK A                        ;
                          INPUT s5, buttons                ; get center button values
                          CALL start_screen                ; draw the map using map subroutine
                          INPUT s5, buttons                ; get button values
                          COMPARE s5, buttons_ct           ; check if center button is pressed
                          JUMP Z, enter_play_state         ; jump to enter_play_state
-                         JUMP NZ, stay_in_start_state     ; remain in current state with a jump to stay_in_start_state
-                         REGBANK B
+                         REGBANK B                        ;
                          ADD s0, one                      ; counter for determining jump between credit/start
-                         COMPARE s0, 78                   ; check if 120 seconds
+                         COMPARE s0, F0                   ; check if 120 seconds
                          JUMP Z, enter_credit_state       ; if 2 seconds or 120 frames, jump to credit
                          JUMP NZ, stay_in_start_state     ; if not 2 seconds or 120 frames, stay in start
        enter_play_state: 
@@ -110,7 +109,14 @@
                          REGBANK A                        ;
                          LOAD s9, PLAY_STATE              ; load play_state and enter play mode
                          RETURN                           ; return from start subroutine
+       enter_start_menu: 
+                         REGBANK B                        ;
+                         LOAD s0, zero                    ; clear counter regbank
+                         REGBANK A                        ;
+                         LOAD s9, START_STATE             ; load start state
+                         RETURN                           ; return to isr
     stay_in_start_state: 
+                         REGBANK A                        ; declare REGBANK A
                          RETURN                           ; return from start subroutine
                          ;;============================================================================
                          ;; Credits - Credit Subroutine
@@ -121,19 +127,18 @@
                          INPUT s5, buttons                ; get button values
                          COMPARE s5, buttons_ct           ; check if center button is pressed
                          JUMP Z, enter_play_state         ; jump to enter_play_state
-                         ;JUMP NZ, stay_in_credit_state        ; remain in current state with a jump to stay_in_start_state
                          REGBANK B                        ; Utilize REGBANK B for counter
                          ADD s0, one                      ; counter for determining when to jump between credit/start
-                         COMPARE s0, 78                   ; 2 seconds / 120 frames -> jump back to start
-                         JUMP Z, enter_play_state         ; if 120 frames, jump back to start
+                         COMPARE s0, F0                   ; 2 seconds / 120 frames -> jump back to start
+                         JUMP Z, enter_start_menu         ; if 120 frames, jump back to start
                          JUMP NZ, stay_in_credit_state    ;
      enter_credit_state: 
                          LOAD s0, zero                    ; if entering credit state, clear REGBANK B s0
                          REGBANK A                        ;
                          LOAD s9, CREDITS_STATE           ; set to credits state
-                         JUMP credits                     ;
+                         RETURN                           ;
    stay_in_credit_state: 
-                         JUMP credits                     ;
+                         RETURN                           ;
                          ;;============================================================================
                          ;; Game Over - Game Over Subroutine
                          ;;============================================================================
@@ -150,6 +155,9 @@
                          INPUT s8, prng                   ; load random endy
                          OUTPUT s8, endy                  ; set random endy
                          CALL old_draw_line               ; draw random line
+                         INPUT s5, buttons                ; get button values
+                         COMPARE s5, buttons_dn           ; check if down button is pressed
+                         JUMP Z, enter_start_menu         ; jump to enter_start_state
                          INPUT s5, buttons                ; get button values
                          COMPARE s5, buttons_up           ; check if up button is pressed
                          JUMP Z, enter_play_state2        ; jump to enter_play_state2
@@ -1361,19 +1369,25 @@
                          LOAD s2, 82                      ; endx 130
                          LOAD s3, 1E                      ; endy 30
                          CALL draw_line                   ;
-                         ;; LINE 2 (TOPRIGHT ANGLED) FOR D
+                         ;; LINE 3 (TOPRIGHT ANGLED) FOR D
                          LOAD s0, 82                      ; stax 130
                          LOAD s1, 1E                      ; stay 30
                          LOAD s2, 87                      ; endx 135
                          LOAD s3, 23                      ; endy 35
                          CALL draw_line                   ;
-                         ;; LINE 3 (RIGHT) FOR D
+                         ;; LINE 4 (RIGHT) FOR D
                          LOAD s0, 87                      ; stax 135
                          LOAD s1, 23                      ; stay 35
                          LOAD s2, 87                      ; endx 135
                          LOAD s3, 37                      ; endy 55
                          CALL draw_line                   ;
-                         ;; LINE 4 (BOTTOMRIGHT ANGLED) FOR D
+                         ;; LINE 5 (BOTTOMRIGHT ANGLED) FOR D
+                         LOAD s0, 87                      ; stax 135
+                         LOAD s1, 37                      ; stay 55
+                         LOAD s2, 82                      ; endx 130
+                         LOAD s3, 3C                      ; endy 60
+                         CALL draw_line                   ;
+                         ;; LINE 6 (BOTTOM) FOR D
                          LOAD s0, 73                      ; stax 115
                          LOAD s1, 3C                      ; stay 60
                          LOAD s2, 82                      ; endx 130
@@ -1439,7 +1453,7 @@
                          LOAD s2, E1                      ; endx 225
                          LOAD s3, 3C                      ; endy 60
                          CALL draw_line                   ;
-                         ;     RETURN      ;
+                         RETURN                           ;
                          ;;============================================================================
                          ;; Draw Helicopter - Draw Helicopter Subroutine
                          ;;============================================================================

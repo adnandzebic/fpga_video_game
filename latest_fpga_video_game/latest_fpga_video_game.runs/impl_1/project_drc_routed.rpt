@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (win64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Wed Dec 02 17:02:23 2015
+| Date         : Wed Dec 02 19:16:01 2015
 | Host         : hpm-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_drc
 ------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-94 net(s) have no routable loads. The problem bus(es) and/or net(s) are kcpsm6_inst/read_strobe_lut/O5, kcpsm6_inst/spm_enable_lut/O5, kcpsm6_inst/address_loop[0].lsb_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[1].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[2].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[4].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[5].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[6].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[8].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[9].upper_pc.mid_pc.pc_muxcy_n_0, quad_seven_seg_inst/counter_reg[0]_i_1_n_1, quad_seven_seg_inst/counter_reg[0]_i_1_n_2, quad_seven_seg_inst/counter_reg[0]_i_1_n_3, quad_seven_seg_inst/counter_reg[4]_i_1_n_1, quad_seven_seg_inst/counter_reg[4]_i_1_n_2 (the first 15 of 91 listed).
+94 net(s) have no routable loads. The problem bus(es) and/or net(s) are kcpsm6_inst/spm_enable_lut/O5, kcpsm6_inst/read_strobe_lut/O5, kcpsm6_inst/address_loop[0].lsb_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[1].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[2].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[4].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[5].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[6].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[8].upper_pc.mid_pc.pc_muxcy_n_0, kcpsm6_inst/address_loop[9].upper_pc.mid_pc.pc_muxcy_n_0, quad_seven_seg_inst/counter_reg[0]_i_1_n_1, quad_seven_seg_inst/counter_reg[0]_i_1_n_2, quad_seven_seg_inst/counter_reg[0]_i_1_n_3, quad_seven_seg_inst/counter_reg[4]_i_1_n_1, quad_seven_seg_inst/counter_reg[4]_i_1_n_2 (the first 15 of 91 listed).
 Related violations: <none>
 
 

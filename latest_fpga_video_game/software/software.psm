@@ -103,67 +103,73 @@ CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
                CALL Z, play                        ; call play subroutine
                COMPARE s9, GAMEOVER_STATE          ; check if in the gameover state
                CALL Z, gameover                    ; call the gameover subroutine
-               COMPARE s9, CREDITS_STATE	       ; check if in the credits state
-			   CALL Z, credits					   ; call credits subroutine
-			   
+               COMPARE s9, CREDITS_STATE           ; check if in the credits state
+               CALL Z, credits                     ; call credits subroutine
+               
                RETURNI ENABLE                      ; done with isr
                
 ;;============================================================================
 ;; Start - Start Subroutine
 ;;============================================================================
 
-        start: REGBANK A
-			   INPUT s5, buttons                   ; get center button values
+        start: REGBANK A                           ;
+               INPUT s5, buttons                   ; get center button values
                CALL start_screen                   ; draw the map using map subroutine
 
                INPUT s5, buttons                   ; get button values
                COMPARE s5, buttons_ct              ; check if center button is pressed
                JUMP Z, enter_play_state            ; jump to enter_play_state
-               JUMP NZ, stay_in_start_state        ; remain in current state with a jump to stay_in_start_state
                
-			   REGBANK B
-			   ADD s0, one						   ; counter for determining jump between credit/start
-			   COMPARE s0, 78					   ; check if 120 seconds
-			   JUMP Z, enter_credit_state		   ; if 2 seconds or 120 frames, jump to credit
-			   JUMP NZ, stay_in_start_state		   ; if not 2 seconds or 120 frames, stay in start
+               REGBANK B                           ;
+               ADD s0, one                         ; counter for determining jump between credit/start
+               COMPARE s0, F0                      ; check if 120 seconds
+               JUMP Z, enter_credit_state          ; if 2 seconds or 120 frames, jump to credit
+               JUMP NZ, stay_in_start_state        ; if not 2 seconds or 120 frames, stay in start
 enter_play_state:
-			   REGBANK B						   ;
-			   LOAD s0, zero					   ;
-			   REGBANK A						   ;
+               REGBANK B                           ;
+               LOAD s0, zero                       ;
+               REGBANK A                           ;
                LOAD s9, PLAY_STATE                 ; load play_state and enter play mode
                RETURN                            ; return from start subroutine
 
+enter_start_menu:
+			   REGBANK B						   ;
+			   LOAD s0, zero					   ; clear counter regbank
+			   REGBANK A						   ;
+			   LOAD s9, START_STATE				   ; load start state
+			   RETURN							   ; return to isr
+			   
 stay_in_start_state:
+			   REGBANK A						   ; declare REGBANK A
                RETURN                          ; return from start subroutine
                
-			   
+               
 ;;============================================================================
 ;; Credits - Credit Subroutine
 ;;============================================================================
-	  credits:
-			   REGBANK A						   ;
-			   CALL draw_credits				   ; draw the credits screen
+      credits:
+               REGBANK A                           ;
+               CALL draw_credits                   ; draw the credits screen
 
-			   INPUT s5, buttons                   ; get button values
+               INPUT s5, buttons                   ; get button values
                COMPARE s5, buttons_ct              ; check if center button is pressed
                JUMP Z, enter_play_state            ; jump to enter_play_state
-               ;JUMP NZ, stay_in_credit_state        ; remain in current state with a jump to stay_in_start_state
-			   
-			   REGBANK B							; Utilize REGBANK B for counter
-			   ADD s0, one						    ; counter for determining when to jump between credit/start
-			   COMPARE s0, 78						; 2 seconds / 120 frames -> jump back to start
-			   JUMP Z, enter_play_state				; if 120 frames, jump back to start
-			   JUMP NZ, stay_in_credit_state		;
-			   
+               
+               REGBANK B                            ; Utilize REGBANK B for counter
+               ADD s0, one                          ; counter for determining when to jump between credit/start
+               COMPARE s0, F0                       ; 2 seconds / 120 frames -> jump back to start
+               JUMP Z, enter_start_menu             ; if 120 frames, jump back to start
+               JUMP NZ, stay_in_credit_state        ;
+               
 enter_credit_state:
-			   LOAD s0, zero						; if entering credit state, clear REGBANK B s0
-			   REGBANK A							;
-			   LOAD s9, CREDITS_STATE				; set to credits state
-			   JUMP credits							;
-			   
+               LOAD s0, zero                        ; if entering credit state, clear REGBANK B s0
+               REGBANK A                            ;
+               LOAD s9, CREDITS_STATE               ; set to credits state
+               RETURN                               ;
+               
 stay_in_credit_state:
-			   JUMP credits							;
-			   
+               RETURN                               ;
+               
 ;;============================================================================
 ;; Game Over - Game Over Subroutine
 ;;============================================================================
@@ -172,7 +178,7 @@ stay_in_credit_state:
                CALL map                            ; draw the map using map subroutine
                CALL draw_helicopter                ; draw the helicopter
                CALL draw_block                     ; draw the obstacle (block)
-			   CALL draw_gameover				   ; draw gameover message
+               CALL draw_gameover                  ; draw gameover message
 
 
                LOAD s5, 64                         ; collision point (horizontal)
@@ -184,10 +190,16 @@ stay_in_credit_state:
                OUTPUT s8, endy                     ; set random endy
                CALL old_draw_line                      ; draw random line
 
+		;	   INPUT s5, buttons                   ; get button values
+               ;COMPARE s5, buttons_dn              ; check if down button is pressed
+               ;JUMP Z, enter_start_menu			   ; jump to enter_start_state
+			   
                INPUT s5, buttons                   ; get button values
                COMPARE s5, buttons_up              ; check if up button is pressed
                JUMP Z, enter_play_state2           ; jump to enter_play_state2
                JUMP NZ, stay_in_gameover_state     ; remain in current state with a jump to stay_in_gameover_state
+
+               
 
 enter_play_state2:
                LOAD s9, PLAY_STATE                 ; load play_state and enter play mode
@@ -196,7 +208,7 @@ enter_play_state2:
                LOAD sA, 00                         ; initial distance (score)
                LOAD sB, 00                         ; initial distance (score)
                OUTPUT sB, qssd_lo                  ; reset qssd_lo
-	       OUTPUT sA, qssd_hi                  ; reset qssd_hi
+           OUTPUT sA, qssd_hi                  ; reset qssd_hi
                LOAD sC, 80                         ; starting helicopter position
                LOAD sD, 05                         ; initialize (needed later)
                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
@@ -217,10 +229,11 @@ stay_in_gameover_state:
                COMPARE s5, buttons_ct              ; check if center button is pressed
                CALL Z, move_heli_up                ; call subroutine that moves the helicopter up
 
+			   
                CALL draw_helicopter                ; draw the helicopter
                CALL random_block_location          ; determines a random place for the block (y direction only)
                CALL draw_block                     ; draw the block using draw_block subroutine
-	       CALL check_collision                ; check if any collisions happen
+               CALL check_collision                ; check if any collisions happen
 
                RETURN                              ; finished with play subroutine
 
@@ -257,15 +270,15 @@ stay_in_gameover_state:
 ;;============================================================================
 
  start_screen: 
-	      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	      ;; Code for PRESS START [START MENU] ;;
-	      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-			  
-	      ;;;;;;;;;;;;;;;
-	      ;;BEGIN PRESS;;
-	      ;;;;;;;;;;;;;;;
+          ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+          ;; Code for PRESS START [START MENU] ;;
+          ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+              
+          ;;;;;;;;;;;;;;;
+          ;;BEGIN PRESS;;
+          ;;;;;;;;;;;;;;;
 
-			  ;; LINE 1 (LEFT) FOR P
+              ;; LINE 1 (LEFT) FOR P
               LOAD s0, 41             ; stax 65
               LOAD s1, C8             ; stay 200
               LOAD s2, 41             ; endx 65
@@ -279,292 +292,292 @@ stay_in_gameover_state:
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR P
+              ;; LINE 3 (RIGHT) FOR P
               LOAD s0, 46             ; stax 70
               LOAD s1, C8             ; stay 200
               LOAD s2, 46             ; endx 70
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (MIDDLE) FOR P
+              ;; LINE 4 (MIDDLE) FOR P
               LOAD s0, 41             ; stax 65
               LOAD s1, CD             ; stay 205
               LOAD s2, 46             ; endx 70
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR R
+              ;; LINE 1 (LEFT) FOR R
               LOAD s0, 4B             ; stax 75
               LOAD s1, C8             ; stay 200
               LOAD s2, 4B             ; endx 75
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR R
+              ;; LINE 2 (TOP) FOR R
               LOAD s0, 4B             ; stax 75
               LOAD s1, C8             ; stay 200
               LOAD s2, 50             ; endx 80
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR R
+              ;; LINE 3 (RIGHT) FOR R
               LOAD s0, 50             ; stax 80
               LOAD s1, C8             ; stay 200
               LOAD s2, 50             ; endx 80
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (MIDDLE) FOR R
+              ;; LINE 4 (MIDDLE) FOR R
               LOAD s0, 4B             ; stax 75
               LOAD s1, CD             ; stay 205
               LOAD s2, 50             ; endx 80
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 5 (ANGLED) FOR R
+              ;; LINE 5 (ANGLED) FOR R
               LOAD s0, 4B             ; stax 75
               LOAD s1, CD             ; stay 205
               LOAD s2, 50             ; endx 80
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
-			  
+              
 
-			  ;; LINE 6 (ANGLED2) FOR R
-			  LOAD s0, 4B             ; stax 75
+              ;; LINE 6 (ANGLED2) FOR R
+              LOAD s0, 4B             ; stax 75
               LOAD s1, CE             ; stay 204
               LOAD s2, 4F             ; endx 79
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
-			  
-			  ;; LINE 1 (LEFT) FOR E
+              
+              ;; LINE 1 (LEFT) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, C8             ; stay 200
               LOAD s2, 55             ; endx 85
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR E
+              ;; LINE 2 (TOP) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, C8             ; stay 200
               LOAD s2, 5A             ; endx 90
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR E
+              ;; LINE 3 (MIDDLE) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, CD             ; stay 205
               LOAD s2, 5A             ; endx 90
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOM) FOR E
+              ;; LINE 4 (BOTTOM) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, D2             ; stay 210
               LOAD s2, 5A             ; endx 90
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 1 (TOP) FOR S1
+              ;; LINE 1 (TOP) FOR S1
               LOAD s0, 5F             ; stax 95
               LOAD s1, C8             ; stay 200
               LOAD s2, 64             ; endx 100
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOPLEFT) FOR S1
+              ;; LINE 2 (TOPLEFT) FOR S1
               LOAD s0, 5F             ; stax 95
               LOAD s1, C8             ; stay 200
               LOAD s2, 5F             ; endx 95
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR S1
+              ;; LINE 3 (MIDDLE) FOR S1
               LOAD s0, 5F             ; stax 95
               LOAD s1, CD             ; stay 205
               LOAD s2, 64             ; endx 100
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOMRIGHT) FOR S1
+              ;; LINE 4 (BOTTOMRIGHT) FOR S1
               LOAD s0, 64             ; stax 100
               LOAD s1, CD             ; stay 205
               LOAD s2, 64             ; endx 100
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 5 (BOTTOM) FOR S1
+              ;; LINE 5 (BOTTOM) FOR S1
               LOAD s0, 5F             ; stax 95
               LOAD s1, D2             ; stay 210
               LOAD s2, 64             ; endx 100
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 1 (TOP) FOR S2
+              ;; LINE 1 (TOP) FOR S2
               LOAD s0, 69             ; stax 105
               LOAD s1, C8             ; stay 200
               LOAD s2, 6E             ; endx 110
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOPLEFT) FOR S2
+              ;; LINE 2 (TOPLEFT) FOR S2
               LOAD s0, 69             ; stax 105
               LOAD s1, C8             ; stay 200
               LOAD s2, 69             ; endx 105
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR S2
+              ;; LINE 3 (MIDDLE) FOR S2
               LOAD s0, 69             ; stax 105
               LOAD s1, CD             ; stay 205
               LOAD s2, 6E             ; endx 110
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOMRIGHT) FOR S2
+              ;; LINE 4 (BOTTOMRIGHT) FOR S2
               LOAD s0, 6E             ; stax 110
               LOAD s1, CD             ; stay 205
               LOAD s2, 6E             ; endx 110
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 5 (BOTTOM) FOR S2
+              ;; LINE 5 (BOTTOM) FOR S2
               LOAD s0, 69             ; stax 105
               LOAD s1, D2             ; stay 210
               LOAD s2, 6E             ; endx 110
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;;;;;;;;;;;;;;;
-			  ;;BEGIN START;;
-			  ;;;;;;;;;;;;;;;
-			  
-			  ;; LINE 1 (TOP) FOR S
+              ;;;;;;;;;;;;;;;
+              ;;BEGIN START;;
+              ;;;;;;;;;;;;;;;
+              
+              ;; LINE 1 (TOP) FOR S
               LOAD s0, 82             ; stax 130
               LOAD s1, C8             ; stay 200
               LOAD s2, 88             ; endx 135
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOPLEFT) FOR S
+              ;; LINE 2 (TOPLEFT) FOR S
               LOAD s0, 82             ; stax 130
               LOAD s1, C8             ; stay 200
               LOAD s2, 82             ; endx 130
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR S
+              ;; LINE 3 (MIDDLE) FOR S
               LOAD s0, 82             ; stax 130
               LOAD s1, CD             ; stay 205
               LOAD s2, 87             ; endx 135
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOMRIGHT) FOR S
+              ;; LINE 4 (BOTTOMRIGHT) FOR S
               LOAD s0, 87             ; stax 135
               LOAD s1, CD             ; stay 205
               LOAD s2, 87             ; endx 135
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 5 (BOTTOM) FOR S
+              ;; LINE 5 (BOTTOM) FOR S
               LOAD s0, 82             ; stax 130
               LOAD s1, D2             ; stay 210
               LOAD s2, 87             ; endx 135
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 1 (TOP) FOR T1
+              ;; LINE 1 (TOP) FOR T1
               LOAD s0, 8C             ; stax 140
               LOAD s1, C8             ; stay 200
               LOAD s2, 93             ; endx 147
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 2 (MIDDLE) FOR T1
+              ;; LINE 2 (MIDDLE) FOR T1
               LOAD s0, 8F             ; stax 143
               LOAD s1, C8             ; stay 200
               LOAD s2, 8F             ; endx 143
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR A
+              ;; LINE 1 (LEFT) FOR A
               LOAD s0, 96             ; stax 150
               LOAD s1, C8             ; stay 200
               LOAD s2, 96             ; endx 150
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR A
+              ;; LINE 2 (TOP) FOR A
               LOAD s0, 96             ; stax 150
               LOAD s1, C8             ; stay 200
               LOAD s2, 9B             ; endx 155
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR A
+              ;; LINE 3 (MIDDLE) FOR A
               LOAD s0, 96             ; stax 150
               LOAD s1, CD             ; stay 205
               LOAD s2, 9B             ; endx 155
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (RIGHT) FOR A
+              ;; LINE 4 (RIGHT) FOR A
               LOAD s0, 9B             ; stax 155
               LOAD s1, C8             ; stay 200
               LOAD s2, 9B             ; endx 155
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR R
+              ;; LINE 1 (LEFT) FOR R
               LOAD s0, A0             ; stax 160
               LOAD s1, C8             ; stay 200
               LOAD s2, A0             ; endx 160
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR R
+              ;; LINE 2 (TOP) FOR R
               LOAD s0, A0             ; stax 160
               LOAD s1, C8             ; stay 200
               LOAD s2, A5             ; endx 165
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR R
+              ;; LINE 3 (RIGHT) FOR R
               LOAD s0, A5             ; stax 165
               LOAD s1, C8             ; stay 200
               LOAD s2, A5             ; endx 165
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 4 (MIDDLE) FOR R
+              ;; LINE 4 (MIDDLE) FOR R
               LOAD s0, A0             ; stax 160
               LOAD s1, CD             ; stay 205
               LOAD s2, A5             ; endx 165
               LOAD s3, CD             ; endy 205
               CALL draw_line          ;
 
-			  ;; LINE 5 (ANGLED) FOR R
+              ;; LINE 5 (ANGLED) FOR R
               LOAD s0, A0             ; stax 160
               LOAD s1, CD             ; stay 205
               LOAD s2, A5             ; endx 165
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
 
-			  ;; LINE 6 (ANGLED2) FOR R
-			  LOAD s0, A0             ; stax 160
+              ;; LINE 6 (ANGLED2) FOR R
+              LOAD s0, A0             ; stax 160
               LOAD s1, CE             ; stay 206
               LOAD s2, A4             ; endx 164
               LOAD s3, D2             ; endy 210
               CALL draw_line          ;
-			  
-			  ;; LINE 1 (TOP) FOR T2
+              
+              ;; LINE 1 (TOP) FOR T2
               LOAD s0, AA             ; stax 170
               LOAD s1, C8             ; stay 200
               LOAD s2, B1             ; endx 177
               LOAD s3, C8             ; endy 200
               CALL draw_line          ;
 
-			  ;; LINE 2 (MIDDLE) FOR T2
+              ;; LINE 2 (MIDDLE) FOR T2
               LOAD s0, AD             ; stax 173
               LOAD s1, C8             ; stay 200
               LOAD s2, AD             ; endx 173
@@ -1256,245 +1269,245 @@ stay_in_gameover_state:
 
               RETURN                              ; leave start_screen subroutine
 
-			  
+              
 ;;============================================================================
 ;; Game Over - Draw Game Over Screen Subroutine
 ;;============================================================================
 
  draw_gameover: 
-	      ;;;;;;;;;;;;;;;;;;;;;;;;
-	      ;; Code for Game Over ;;
-	      ;;;;;;;;;;;;;;;;;;;;;;;;
-			  
-			  ;;;;;;;;;;;;;;;
-			  ;;BEGIN GAME;;
-			  ;;;;;;;;;;;;;;;
-			  
-			  ;; LINE 1 (TOP) FOR G
+          ;;;;;;;;;;;;;;;;;;;;;;;;
+          ;; Code for Game Over ;;
+          ;;;;;;;;;;;;;;;;;;;;;;;;
+              
+              ;;;;;;;;;;;;;;;
+              ;;BEGIN GAME;;
+              ;;;;;;;;;;;;;;;
+              
+              ;; LINE 1 (TOP) FOR G
               LOAD s0, 0A             ; stax 10
               LOAD s1, 1E             ; stay 30
               LOAD s2, 1E             ; endx 30
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
-			  
-			  ;; LINE 2 (LEFT) FOR G
+              
+              ;; LINE 2 (LEFT) FOR G
               LOAD s0, 0A             ; stax 10
               LOAD s1, 1E             ; stay 30
               LOAD s2, 0A             ; endx 10
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 3 (BOTTOM) FOR G
+              ;; LINE 3 (BOTTOM) FOR G
               LOAD s0, 0A             ; stax 10
               LOAD s1, 3C             ; stay 60
               LOAD s2, 1E             ; endx 30
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 4 (RIGHT) FOR G
+              ;; LINE 4 (RIGHT) FOR G
               LOAD s0, 1E             ; stax 30
               LOAD s1, 32             ; stay 50
               LOAD s2, 1E             ; endx 30
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 5 (INNER MIDDLE) FOR G
+              ;; LINE 5 (INNER MIDDLE) FOR G
               LOAD s0, 14             ; stax 20
               LOAD s1, 32             ; stay 50
               LOAD s2, 1E             ; endx 30
               LOAD s3, 32             ; endy 50
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR A
+              ;; LINE 1 (LEFT) FOR A
               LOAD s0, 28             ; stax 40
               LOAD s1, 1E             ; stay 30
               LOAD s2, 28             ; endx 40
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR A
+              ;; LINE 2 (TOP) FOR A
               LOAD s0, 28             ; stax 40
               LOAD s1, 1E             ; stay 30
               LOAD s2, 3C             ; endx 60
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR A
+              ;; LINE 3 (MIDDLE) FOR A
               LOAD s0, 28             ; stax 40
               LOAD s1, 2D             ; stay 45
               LOAD s2, 3C             ; endx 60
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (RIGHT) FOR A
+              ;; LINE 4 (RIGHT) FOR A
               LOAD s0, 3C             ; stax 60
               LOAD s1, 1E             ; stay 30
               LOAD s2, 3C             ; endx 60
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR M
+              ;; LINE 1 (LEFT) FOR M
               LOAD s0, 46             ; stax 70
               LOAD s1, 1E             ; stay 30
               LOAD s2, 46             ; endx 70
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (LEFT ANGLED) FOR M
+              ;; LINE 2 (LEFT ANGLED) FOR M
               LOAD s0, 46             ; stax 70
               LOAD s1, 1E             ; stay 30
               LOAD s2, 50             ; endx 80
               LOAD s3, 32             ; endy 50
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT ANGLED) FOR M
+              ;; LINE 3 (RIGHT ANGLED) FOR M
               LOAD s0, 5A             ; stax 90
               LOAD s1, 1E             ; stay 30
               LOAD s2, 50             ; endx 80
               LOAD s3, 32             ; endy 50
               CALL draw_line          ;
 
-			  ;; LINE 4 (RIGHT) FOR M
+              ;; LINE 4 (RIGHT) FOR M
               LOAD s0, 5A             ; stax 90
               LOAD s1, 1E             ; stay 30
               LOAD s2, 5A             ; endx 90
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR E1
+              ;; LINE 1 (LEFT) FOR E1
               LOAD s0, 64             ; stax 100
               LOAD s1, 1E             ; stay 30
               LOAD s2, 64             ; endx 100
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR E1
+              ;; LINE 2 (TOP) FOR E1
               LOAD s0, 64             ; stax 100
               LOAD s1, 1E             ; stay 30
               LOAD s2, 78             ; endx 120
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR E1
+              ;; LINE 3 (MIDDLE) FOR E1
               LOAD s0, 64             ; stax 100
               LOAD s1, 2D             ; stay 45
               LOAD s2, 78             ; endx 120
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOM) FOR E1
+              ;; LINE 4 (BOTTOM) FOR E1
               LOAD s0, 64             ; stax 100
               LOAD s1, 3C             ; stay 60
               LOAD s2, 78             ; endx 120
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR O
+              ;; LINE 1 (LEFT) FOR O
               LOAD s0, 82             ; stax 130
               LOAD s1, 1E             ; stay 30
               LOAD s2, 82             ; endx 130
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR O
+              ;; LINE 2 (TOP) FOR O
               LOAD s0, 82             ; stax 130
               LOAD s1, 1E             ; stay 30
               LOAD s2, 96             ; endx 150
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR O
+              ;; LINE 3 (RIGHT) FOR O
               LOAD s0, 96             ; stax 150
               LOAD s1, 1E             ; stay 30
               LOAD s2, 96             ; endx 150
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOM) FOR O
+              ;; LINE 4 (BOTTOM) FOR O
               LOAD s0, 82             ; stax 130
               LOAD s1, 3C             ; stay 60
               LOAD s2, 96             ; endx 150
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFTANGLE) FOR V
+              ;; LINE 1 (LEFTANGLE) FOR V
               LOAD s0, A0             ; stax 160
               LOAD s1, 1E             ; stay 30
               LOAD s2, AA             ; endx 170
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (RIGHTANGLE) FOR V
+              ;; LINE 2 (RIGHTANGLE) FOR V
               LOAD s0, B4             ; stax 180
               LOAD s1, 1E             ; stay 30
               LOAD s2, AA             ; endx 170
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR E
+              ;; LINE 1 (LEFT) FOR E
               LOAD s0, BE             ; stax 190
               LOAD s1, 1E             ; stay 30
               LOAD s2, BE             ; endx 190
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR E
+              ;; LINE 2 (TOP) FOR E
               LOAD s0, BE             ; stax 190
               LOAD s1, 1E             ; stay 30
               LOAD s2, D2             ; endx 210
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR E
+              ;; LINE 3 (MIDDLE) FOR E
               LOAD s0, BE             ; stax 190
               LOAD s1, 2D             ; stay 45
               LOAD s2, D2             ; endx 210
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOM) FOR E
+              ;; LINE 4 (BOTTOM) FOR E
               LOAD s0, BE             ; stax 190
               LOAD s1, 3C             ; stay 60
               LOAD s2, D2             ; endx 210
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR R
+              ;; LINE 1 (LEFT) FOR R
               LOAD s0, DC             ; stax 220
               LOAD s1, 1E             ; stay 30
               LOAD s2, DC             ; endx 220
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR R
+              ;; LINE 2 (TOP) FOR R
               LOAD s0, DC             ; stax 220
               LOAD s1, 1E             ; stay 30
               LOAD s2, F0             ; endx 240
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR R
+              ;; LINE 3 (RIGHT) FOR R
               LOAD s0, F0             ; stax 240
               LOAD s1, 1E             ; stay 30
               LOAD s2, F0             ; endx 240
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (MIDDLE) FOR R
+              ;; LINE 4 (MIDDLE) FOR R
               LOAD s0, DC             ; stax 220
               LOAD s1, 2D             ; stay 45
               LOAD s2, F0             ; endx 240
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 5 (ANGLED1) FOR R
+              ;; LINE 5 (ANGLED1) FOR R
               LOAD s0, DC             ; stax 220
               LOAD s1, 2D             ; stay 45
               LOAD s2, F0             ; endx 240
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 6 (ANGLED2) FOR R
+              ;; LINE 6 (ANGLED2) FOR R
               LOAD s0, DC             ; stax 220
               LOAD s1, 2E             ; stay 46
               LOAD s2, EF             ; endx 239
@@ -1502,224 +1515,231 @@ stay_in_gameover_state:
               CALL draw_line          ;
 
 
-			  RETURN				  ;
+              RETURN                  ;
 ;;============================================================================
 ;; Credits - Draw Credits Screen Subroutine
 ;;============================================================================
 
 draw_credits:
-				;; LINE 1 (TOP) FOR C
+                ;; LINE 1 (TOP) FOR C
               LOAD s0, 23             ; stax 35
               LOAD s1, 1E             ; stay 30
               LOAD s2, 2D             ; endx 45
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOPLEFT ANGLED) FOR C
+              ;; LINE 2 (TOPLEFT ANGLED) FOR C
               LOAD s0, 23             ; stax 35
               LOAD s1, 1E             ; stay 30
               LOAD s2, 19             ; endx 25
               LOAD s3, 28             ; endy 40
               CALL draw_line          ;
 
-			  ;; LINE 3 (LEFT) FOR C
+              ;; LINE 3 (LEFT) FOR C
               LOAD s0, 19             ; stax 25
               LOAD s1, 28             ; stay 40
               LOAD s2, 19             ; endx 25
               LOAD s3, 32             ; endy 50
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOMLEFT ANGLED) FOR C
+              ;; LINE 4 (BOTTOMLEFT ANGLED) FOR C
               LOAD s0, 19             ; stax 25
               LOAD s1, 32             ; stay 50
               LOAD s2, 23             ; endx 35
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 5 (BOTTOM) FOR C
+              ;; LINE 5 (BOTTOM) FOR C
               LOAD s0, 23             ; stax 35
               LOAD s1, 3C             ; stay 60
               LOAD s2, 2D             ; endx 45
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR R
+              ;; LINE 1 (LEFT) FOR R
               LOAD s0, 37             ; stax 55
               LOAD s1, 1E             ; stay 30
               LOAD s2, 37             ; endx 55
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR R
+              ;; LINE 2 (TOP) FOR R
               LOAD s0, 37             ; stax 55
               LOAD s1, 1E             ; stay 30
               LOAD s2, 4B             ; endx 75
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR R
+              ;; LINE 3 (RIGHT) FOR R
               LOAD s0, 4B             ; stax 75
               LOAD s1, 1E             ; stay 30
               LOAD s2, 4B             ; endx 75
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (MIDDLE) FOR R
+              ;; LINE 4 (MIDDLE) FOR R
               LOAD s0, 37             ; stax 55
               LOAD s1, 2D             ; stay 45
               LOAD s2, 4B             ; endx 75
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 5 (ANGLED) FOR R
+              ;; LINE 5 (ANGLED) FOR R
               LOAD s0, 37             ; stax 55
               LOAD s1, 2D             ; stay 45
               LOAD s2, 4B             ; endx 75
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 6 (ANGLED2) FOR R
+              ;; LINE 6 (ANGLED2) FOR R
               LOAD s0, 37             ; stax 55
               LOAD s1, 2E             ; stay 46
               LOAD s2, 4A             ; endx 74
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR E
+              ;; LINE 1 (LEFT) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, 1E             ; stay 30
               LOAD s2, 55             ; endx 85
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR E
+              ;; LINE 2 (TOP) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, 1E             ; stay 30
               LOAD s2, 69             ; endx 105
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR E
+              ;; LINE 3 (MIDDLE) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, 2D             ; stay 45
               LOAD s2, 69             ; endx 105
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOM) FOR E
+              ;; LINE 4 (BOTTOM) FOR E
               LOAD s0, 55             ; stax 85
               LOAD s1, 3C             ; stay 60
               LOAD s2, 69             ; endx 105
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (LEFT) FOR D
+              ;; LINE 1 (LEFT) FOR D
               LOAD s0, 73             ; stax 115
               LOAD s1, 1E             ; stay 30
               LOAD s2, 73             ; endx 115
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOP) FOR D
+              ;; LINE 2 (TOP) FOR D
               LOAD s0, 73             ; stax 115
               LOAD s1, 1E             ; stay 30
               LOAD s2, 82             ; endx 130
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 2 (TOPRIGHT ANGLED) FOR D
+              ;; LINE 3 (TOPRIGHT ANGLED) FOR D
               LOAD s0, 82             ; stax 130
               LOAD s1, 1E             ; stay 30
               LOAD s2, 87             ; endx 135
               LOAD s3, 23             ; endy 35
               CALL draw_line          ;
 
-			  ;; LINE 3 (RIGHT) FOR D
+              ;; LINE 4 (RIGHT) FOR D
               LOAD s0, 87             ; stax 135
               LOAD s1, 23             ; stay 35
               LOAD s2, 87             ; endx 135
               LOAD s3, 37             ; endy 55
               CALL draw_line          ;
 
-			  ;; LINE 4 (BOTTOMRIGHT ANGLED) FOR D
+	      ;; LINE 5 (BOTTOMRIGHT ANGLED) FOR D
+              LOAD s0, 87             ; stax 135
+              LOAD s1, 37             ; stay 55
+              LOAD s2, 82             ; endx 130
+              LOAD s3, 3C             ; endy 60
+              CALL draw_line          ;
+
+              ;; LINE 6 (BOTTOM) FOR D
               LOAD s0, 73             ; stax 115
               LOAD s1, 3C             ; stay 60
               LOAD s2, 82             ; endx 130
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (TOP) FOR I
+              ;; LINE 1 (TOP) FOR I
               LOAD s0, 91             ; stax 145
               LOAD s1, 1E             ; stay 30
               LOAD s2, A5             ; endx 165
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 2 (MIDDLE) FOR I
+              ;; LINE 2 (MIDDLE) FOR I
               LOAD s0, 9B             ; stax 155
               LOAD s1, 1E             ; stay 30
               LOAD s2, 9B             ; endx 155
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 3 (BOTTOM) FOR I
+              ;; LINE 3 (BOTTOM) FOR I
               LOAD s0, 91             ; stax 145
               LOAD s1, 3C             ; stay 60
               LOAD s2, A5             ; endx 165
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (TOP) FOR T
+              ;; LINE 1 (TOP) FOR T
               LOAD s0, AF             ; stax 175
               LOAD s1, 1E             ; stay 30
               LOAD s2, C3             ; endx 195
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 2 (MIDDLE) FOR T
+              ;; LINE 2 (MIDDLE) FOR T
               LOAD s0, B9             ; stax 185
               LOAD s1, 1E             ; stay 30
               LOAD s2, B9             ; endx 185
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 1 (TOP) FOR S
+              ;; LINE 1 (TOP) FOR S
               LOAD s0, CD             ; stax 205
               LOAD s1, 1E             ; stay 30
               LOAD s2, E1             ; endx 225
               LOAD s3, 1E             ; endy 30
               CALL draw_line          ;
 
-			  ;; LINE 2 (LEFT) FOR S
+              ;; LINE 2 (LEFT) FOR S
               LOAD s0, CD             ; stax 205
               LOAD s1, 1E             ; stay 30
               LOAD s2, CD             ; endx 205
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 3 (MIDDLE) FOR S
+              ;; LINE 3 (MIDDLE) FOR S
               LOAD s0, CD             ; stax 205
               LOAD s1, 2D             ; stay 45
               LOAD s2, E1             ; endx 225
               LOAD s3, 2D             ; endy 45
               CALL draw_line          ;
 
-			  ;; LINE 4 (RIGHT) FOR S
+              ;; LINE 4 (RIGHT) FOR S
               LOAD s0, E1             ; stax 225
               LOAD s1, 2D             ; stay 45
               LOAD s2, E1             ; endx 225
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  ;; LINE 5 (BOTTOM) FOR S
+              ;; LINE 5 (BOTTOM) FOR S
               LOAD s0, CD             ; stax 205
               LOAD s1, 3C             ; stay 60
               LOAD s2, E1             ; endx 225
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-			  
-;			  RETURN				  ;
+              
+              RETURN                  ;
 ;;============================================================================
 ;; Draw Helicopter - Draw Helicopter Subroutine
 ;;============================================================================
@@ -1731,7 +1751,8 @@ draw_credits:
               CALL draw_helicopter_tail          ; call the subroutine to draw the tail
               ;CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
 
-              RETURN                              ; go back from drawing helicopter
+			  
+              RETURN                             ; go back from drawing helicopter
 
 
 ;;============================================================================
@@ -2195,7 +2216,7 @@ draw_helicopter_blades:
               OUTPUT s1, stay                     ; write stay
               OUTPUT s2, endx                     ; write endx
               OUTPUT s3, endy                     ; write endy
-   	      LOAD s5, busy_go                    ; load go command
+          LOAD s5, busy_go                    ; load go command
               OUTPUT s5, busy                     ; send go command
         wait: INPUT s5, busy                      ; read busy status
               COMPARE s5, busy_go                 ; check busy status
@@ -2219,73 +2240,73 @@ old_draw_line:
 ;;============================================================================
 
 check_collision:
-	      ;;============================================================================
-	      ;; Check Collisions with Map (top wall)
-	      ;;============================================================================
-	      LOAD s5, 60                         ; position of heli/wall collision
-	      LOAD s8, 0F                         ; top wall vertical coordinate (15)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      SUB s6, 0A                          ; the helicopter's blades 10 pixels higher
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
-	      JUMP NC, collision_occurred         ; jump to collision occurred (necessary)
-	      
-	      ;;============================================================================
-	      ;; Check Collisions with Map (bottom wall)
-	      ;;============================================================================
-	      LOAD s8, F0                         ; bottom wall vertical coordinate (240)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
-	      
-	      LOAD s8, F1                         ; bottom wall vertical coordinate (241)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
+          ;;============================================================================
+          ;; Check Collisions with Map (top wall)
+          ;;============================================================================
+          LOAD s5, 60                         ; position of heli/wall collision
+          LOAD s8, 0F                         ; top wall vertical coordinate (15)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          SUB s6, 0A                          ; the helicopter's blades 10 pixels higher
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
+          JUMP NC, collision_occurred         ; jump to collision occurred (necessary)
+          
+          ;;============================================================================
+          ;; Check Collisions with Map (bottom wall)
+          ;;============================================================================
+          LOAD s8, F0                         ; bottom wall vertical coordinate (240)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
+          
+          LOAD s8, F1                         ; bottom wall vertical coordinate (241)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
 
-	      LOAD s8, F2                         ; bottom wall vertical coordinate (242)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
+          LOAD s8, F2                         ; bottom wall vertical coordinate (242)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
 
-	      LOAD s8, F3                         ; bottom wall vertical coordinate (243)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
+          LOAD s8, F3                         ; bottom wall vertical coordinate (243)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
 
-	      LOAD s8, F4                         ; bottom wall vertical coordinate (244)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
+          LOAD s8, F4                         ; bottom wall vertical coordinate (244)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
 
-	      LOAD s8, F5                         ; bottom wall vertical coordinate (245)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
+          LOAD s8, F5                         ; bottom wall vertical coordinate (245)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
 
-	      LOAD s8, F6                         ; bottom wall vertical coordinate (246)
-	      LOAD s6, sC                         ; get vertical position of helicopter
-	      ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
-	      LOAD s7, s6                         ; used later for drawing the "spark"
-	      COMPARE s8, s6                      ; check if the two intersect
-	      JUMP Z, collision_occurred          ; jump to collision occurred
+          LOAD s8, F6                         ; bottom wall vertical coordinate (246)
+          LOAD s6, sC                         ; get vertical position of helicopter
+          ADD s6, 05                          ; the helicopter's bottom is 5 pixels below
+          LOAD s7, s6                         ; used later for drawing the "spark"
+          COMPARE s8, s6                      ; check if the two intersect
+          JUMP Z, collision_occurred          ; jump to collision occurred
 
-	      ;;============================================================================
-	      ;; Check Collisions with Block
-	      ;;============================================================================
+          ;;============================================================================
+          ;; Check Collisions with Block
+          ;;============================================================================
 
               LOAD s5, sE                         ; get current horizontal position of block
               SUB s5, 0A                          ; actual block is 10 pixels back
@@ -2332,7 +2353,7 @@ no_collision: SUB sE, 01                          ; move block forwards
               ADD sC, 02                          ; increment sC
               CALL distance                       ; used for keeping the score (increments distance)
               RETURN                              ; leave, since no collisions occurred
-	   
+       
 stage2_check:
              SUB sE, 01                           ; subtract 1 from sE
              COMPARE sA, 05                       ; check if score is above 1000
@@ -2341,23 +2362,23 @@ stage2_check:
 
 speed2:
               ;SUB sE, 01                          ; decrement by 2
-	      RETURN                              ; go back	
-	            
+          RETURN                              ; go back 
+                
 stage3_check:
              SUB sE, 01                          ; decrement by 3
              COMPARE sA, 08                       ; check if score is above 1000
              CALL NC, stage4_check                ; call speed2
-	     RETURN                              ; go back
+         RETURN                              ; go back
 
 stage4_check:
              SUB sE, 01                          ; decrement by 3
              COMPARE sA, 10                       ; check if score is above 1000
              CALL NC, stage5_check                ; call speed2
-	     RETURN   
+         RETURN   
 
 stage5_check:
              SUB sE, 01                          ; decrement by 3
-	     RETURN   
+         RETURN   
 
 collision_occurred: 
                OUTPUT s5, stax                     ; set desired stax
@@ -2369,7 +2390,7 @@ collision_occurred:
                CALL draw_line                      ; draw random line
                
                LOAD s9, GAMEOVER_STATE             ; should go to gameover state instead
-	       RETURN                              ; return from routine without any increments
+           RETURN                              ; return from routine without any increments
 
 ;;============================================================================
 ;; Distance - Distance Subroutine
@@ -2383,9 +2404,9 @@ collision_occurred:
               
    distance2: ADD sA, one                         ; add one to the next degree
               LOAD sB, zero                       ; reset sB
-	      OUTPUT sB, qssd_lo                  ; put distance value to qssd
-	      OUTPUT sA, qssd_hi                  ; put distance value to qssd
-	      RETURN                              ; finished with distance subroutine
+          OUTPUT sB, qssd_lo                  ; put distance value to qssd
+          OUTPUT sA, qssd_hi                  ; put distance value to qssd
+          RETURN                              ; finished with distance subroutine
 
 ;;============================================================================
 ;; Interrupt - Vector.
