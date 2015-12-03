@@ -138,18 +138,29 @@ enter_play_state:
                LOAD s0, zero                       ;
                REGBANK A                           ;
                LOAD s9, PLAY_STATE                 ; load play_state and enter play mode
-               RETURN                            ; return from start subroutine
+               RETURN                              ; return from start subroutine
 
 enter_start_menu:
 			   REGBANK B						   ;
 			   LOAD s0, zero					   ; clear counter regbank
 			   REGBANK A						   ;
 			   LOAD s9, START_STATE				   ; load start state
+			   
+			   ;; RESET EVERYTHING BEFORE RETURNING
+               LOAD sA, 00                         ; initial distance (score)
+               LOAD sB, 00                         ; initial distance (score)
+               OUTPUT sB, qssd_lo                  ; reset qssd_lo
+		       OUTPUT sA, qssd_hi                  ; reset qssd_hi
+               LOAD sC, 80                         ; starting helicopter position
+               LOAD sD, 05                         ; initialize (needed later)
+               LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
+               LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
+               
 			   RETURN							   ; return to isr
 			   
 stay_in_start_state:
 			   REGBANK A						   ; declare REGBANK A
-               RETURN                          ; return from start subroutine
+               RETURN                              ; return from start subroutine
                
                
 ;;============================================================================
@@ -158,25 +169,28 @@ stay_in_start_state:
       credits:
                REGBANK A                           ;
                CALL draw_credits                   ; draw the credits screen
-
+			   CALL draw_ad						   ;
+			   CALL draw_hp						   ; draw HENRY PHAM name on credit screen
+			   
+			   
                INPUT s5, buttons                   ; get button values
                COMPARE s5, buttons_ct              ; check if center button is pressed
                JUMP Z, enter_play_state            ; jump to enter_play_state
                
-               REGBANK B                            ; Utilize REGBANK B for counter
-               ADD s0, one                          ; counter for determining when to jump between credit/start
-               COMPARE s0, F0                       ; 2 seconds / 120 frames -> jump back to start
-               JUMP Z, enter_start_menu             ; if 120 frames, jump back to start
-               JUMP NZ, stay_in_credit_state        ;
+               REGBANK B                           ; Utilize REGBANK B for counter
+               ADD s0, one                         ; counter for determining when to jump between credit/start
+               COMPARE s0, F0                      ; 2 seconds / 120 frames -> jump back to start
+               JUMP Z, enter_start_menu            ; if 120 frames, jump back to start
+               JUMP NZ, stay_in_credit_state       ;
                
 enter_credit_state:
-               LOAD s0, zero                        ; if entering credit state, clear REGBANK B s0
-               REGBANK A                            ;
-               LOAD s9, CREDITS_STATE               ; set to credits state
-               RETURN                               ;
+               LOAD s0, zero                       ; if entering credit state, clear REGBANK B s0
+               REGBANK A                           ;
+               LOAD s9, CREDITS_STATE              ; set to credits state
+               RETURN                              ;
                
 stay_in_credit_state:
-               RETURN                               ;
+               RETURN                              ;
                
 ;;============================================================================
 ;; Game Over - Game Over Subroutine
@@ -196,18 +210,15 @@ stay_in_credit_state:
                OUTPUT s8, endx                     ; set random endx
                INPUT s8, prng                      ; load random endy
                OUTPUT s8, endy                     ; set random endy
-               CALL old_draw_line                      ; draw random line
+               CALL old_draw_line                  ; draw random line
 
-		;	   INPUT s5, buttons                   ; get button values
-               ;COMPARE s5, buttons_dn              ; check if down button is pressed
-               ;JUMP Z, enter_start_menu			   ; jump to enter_start_state
+			   INPUT s5, buttons                   ; get button values
+               COMPARE s5, buttons_dn              ; check if down button is pressed
+               JUMP Z, enter_start_menu			   ; jump to enter_start_state
 			   
-               INPUT s5, buttons                   ; get button values
                COMPARE s5, buttons_up              ; check if up button is pressed
                JUMP Z, enter_play_state2           ; jump to enter_play_state2
                JUMP NZ, stay_in_gameover_state     ; remain in current state with a jump to stay_in_gameover_state
-
-               
 
 enter_play_state2:
                LOAD s9, PLAY_STATE                 ; load play_state and enter play mode
@@ -216,7 +227,7 @@ enter_play_state2:
                LOAD sA, 00                         ; initial distance (score)
                LOAD sB, 00                         ; initial distance (score)
                OUTPUT sB, qssd_lo                  ; reset qssd_lo
-           OUTPUT sA, qssd_hi                  ; reset qssd_hi
+		       OUTPUT sA, qssd_hi                  ; reset qssd_hi
                LOAD sC, 80                         ; starting helicopter position
                LOAD sD, 05                         ; initialize (needed later)
                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
@@ -661,65 +672,65 @@ stay_in_gameover_state:
               ;;============================================================================
               ;; Draws the letter H (Line 1)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 10
-	      LOAD s1, 30                         ; 30
-	      LOAD s2, 00                         ; 10
-	      LOAD s3, 3C                         ; 60
-	      CALL draw_line                      ; draws the line
+				LOAD s0, 00                         ; 10
+				LOAD s1, 30                         ; 30
+				LOAD s2, 00                         ; 10
+				LOAD s3, 3C                         ; 60
+				CALL draw_line                      ; draws the line
 
               ;;============================================================================
               ;; Draws the letter H (Line 2)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 35
-	      LOAD s1, 30                         ; 30
-	      LOAD s2, 00                         ; 35
-	      LOAD s3, 3C                         ; 60
-	      CALL draw_line                      ; draws the line		
+				LOAD s0, 00                         ; 35
+				LOAD s1, 30                         ; 30
+				LOAD s2, 00                         ; 35
+				LOAD s3, 3C                         ; 60
+				CALL draw_line                      ; draws the line		
 
               ;;============================================================================
               ;; Draws the letter H (Line 3)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 15
-	      LOAD s1, 2D                         ; 30
-	      LOAD s2, 00                         ; 35
-	      LOAD s3, 2D                         ; 60
-	      CALL draw_line                      ; draws the line
+				LOAD s0, 00                         ; 15
+				LOAD s1, 2D                         ; 30
+				LOAD s2, 00                         ; 35
+				LOAD s3, 2D                         ; 60
+				CALL draw_line                      ; draws the line
 
               ;;============================================================================
               ;; Draws the letter E (Line 1)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 40
-	      LOAD s1, 1E                         ; 30
-	      LOAD s2, 00                         ; 40
-	      LOAD s3, 2D                         ; 60
-	      CALL draw_line                      ; draws the line
+				LOAD s0, 00                         ; 40
+				LOAD s1, 1E                         ; 30
+				LOAD s2, 00                         ; 40
+				LOAD s3, 2D                         ; 60
+				CALL draw_line                      ; draws the line
 
               ;;============================================================================
               ;; Draws the letter E (Line 2)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 40
-	      LOAD s1, 1E                         ; 30
-	      LOAD s2, 00                         ; 60
-	      LOAD s3, 1E                         ; 30
-	      CALL draw_line                      ; draws the line
+				LOAD s0, 00                         ; 40
+				LOAD s1, 1E                         ; 30
+				LOAD s2, 00                         ; 60
+				LOAD s3, 1E                         ; 30
+				CALL draw_line                      ; draws the line
 	      
               ;;============================================================================
               ;; Draws the letter E (Line 3)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 40
-	      LOAD s1, 1E                         ; 45
-	      LOAD s2, 00                         ; 60
-	      LOAD s3, 1E                         ; 45
-	      CALL draw_line                      ; draws the line
+				LOAD s0, 00                         ; 40
+				LOAD s1, 1E                         ; 45
+				LOAD s2, 00                         ; 60
+				LOAD s3, 1E                         ; 45
+				CALL draw_line                      ; draws the line
 	      
               ;;============================================================================
               ;; Draws the letter E (Line 4)
               ;;============================================================================               
-	      LOAD s0, 00                         ; 40
-	      LOAD s1, 1E                         ; 60
-	      LOAD s2, 00                         ; 60
-	      LOAD s3, 1E                         ; 60
-	      CALL draw_line                      ; draws the line
+				LOAD s0, 00                         ; 40
+				LOAD s1, 1E                         ; 60
+				LOAD s2, 00                         ; 60
+				LOAD s3, 1E                         ; 60
+				CALL draw_line                      ; draws the line
 
               ;;============================================================================
               ;; NEW LINE STARTS HERE (GAME)
@@ -1125,7 +1136,6 @@ stay_in_gameover_state:
               LOAD s3, 3C             ; endy 60
               CALL draw_line          ;
 
-
               RETURN                  ;
 ;;============================================================================
 ;; Credits - Draw Credits Screen Subroutine
@@ -1352,6 +1362,114 @@ draw_credits:
 
               
               RETURN                  ;
+			  
+;;============================================================================
+;; Draw NAMES - Draw NAMES Subroutine
+;;============================================================================
+	draw_hp:
+			;; LINE 1 (LEFT) for H
+              LOAD s0, D2             ; stax 210
+              LOAD s1, 78             ; stay 120
+              LOAD s2, D2             ; endx 210
+              LOAD s3, 8C             ; endy 140
+              CALL draw_line          ;
+
+			;; LINE 2 (MIDDLE) FOR H
+              LOAD s0, D2             ; stax 210
+              LOAD s1, 82             ; stay 130
+              LOAD s2, DC             ; endx 220
+              LOAD s3, 82             ; endy 130
+              CALL draw_line          ;
+
+			;; LINE 3 (RIGHT) FOR H
+              LOAD s0, DC             ; stax 220
+              LOAD s1, 78             ; stay 120
+              LOAD s2, DC             ; endx 220
+              LOAD s3, 8C             ; endy 140
+              CALL draw_line          ;
+
+			;; LINE 1 (LEFT) for P
+              LOAD s0, E6             ; stax 230
+              LOAD s1, 78             ; stay 120
+              LOAD s2, E6             ; endx 230
+              LOAD s3, 8C             ; endy 140
+              CALL draw_line          ;
+
+			;; LINE 2 (TOP) FOR P
+              LOAD s0, E6             ; stax 230
+              LOAD s1, 78             ; stay 120
+              LOAD s2, F0             ; endx 240
+              LOAD s3, 78             ; endy 120
+              CALL draw_line          ;
+
+			;; LINE 3 (RIGHT) FOR P
+              LOAD s0, F0             ; stax 240
+              LOAD s1, 78             ; stay 120
+              LOAD s2, F0             ; endx 240
+              LOAD s3, 82             ; endy 130
+              CALL draw_line          ;
+
+			;; LINE 4 (MIDDLE) FOR P
+              LOAD s0, E6             ; stax 230
+              LOAD s1, 82             ; stay 130
+              LOAD s2, F0             ; endx 240
+              LOAD s3, 82             ; endy 130
+              CALL draw_line          ;
+
+			  RETURN
+			  
+	draw_ad:
+			;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+
+			;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+
+			;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+
+			;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+
+			;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+
+			;; LINE 
+              LOAD s0,              ; stax 
+              LOAD s1,              ; stay 
+              LOAD s2,              ; endx 
+              LOAD s3,              ; endy 
+              CALL draw_line          ;
+
+
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+
 ;;============================================================================
 ;; Draw Helicopter - Draw Helicopter Subroutine
 ;;============================================================================
@@ -2016,9 +2134,9 @@ collision_occurred:
               
    distance2: ADD sA, one                         ; add one to the next degree
               LOAD sB, zero                       ; reset sB
-          OUTPUT sB, qssd_lo                  ; put distance value to qssd
-          OUTPUT sA, qssd_hi                  ; put distance value to qssd
-          RETURN                              ; finished with distance subroutine
+              OUTPUT sB, qssd_lo                  ; put distance value to qssd
+              OUTPUT sA, qssd_hi                  ; put distance value to qssd
+              RETURN                              ; finished with distance subroutine
 
 ;;============================================================================
 ;; Interrupt - Vector.
