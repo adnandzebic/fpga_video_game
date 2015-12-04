@@ -127,7 +127,7 @@ CONSTANT CREDITS_STATE   , 03 ; credits screen state
                JUMP Z, enter_credit_state          ; if 2 seconds or 120 frames, jump to credit
                JUMP NZ, stay_in_start_state        ; if not 2 seconds or 120 frames, stay in start
 
-	        REGBANK B                                               ;
+			   REGBANK B                                               ;
 			   ADD s0, one						   ; counter for determining jump between credit/start
 			   COMPARE s0, 78					   ; check if 120 seconds
 			   JUMP Z, enter_credit_state		   ; if 2 seconds or 120 frames, jump to credit
@@ -879,9 +879,9 @@ stay_in_gameover_state:
               ;; Draws the letter T (Line 1)
               ;;============================================================================               
 				LOAD s0, AA                         ; 170
-				LOAD s1, 3C                         ; 60
+				LOAD s1, 1E                         ; 30
 				LOAD s2, BE                         ; 190
-				LOAD s3, 3C                         ; 60
+				LOAD s3, 1E                         ; 30
 				CALL draw_line                      ; draws the line
 
               ;;============================================================================
