@@ -1628,21 +1628,21 @@ stay_in_gameover_state:
 			  ;; LINE 2 (TOP) FOR P
               LOAD s0, BE             ; stax 190
               LOAD s1, F5             ; stay 245
-              LOAD s2, C1             ; endx 193
+              LOAD s2, C3             ; endx 195
               LOAD s3, F5             ; endy 245
               CALL draw_line          ;
 
 			  ;; LINE 3 (RIGHT) FOR P
-              LOAD s0, C1             ; stax 193
+              LOAD s0, C3             ; stax 195
               LOAD s1, F5             ; stay 245
-              LOAD s2, C1             ; endx 193
+              LOAD s2, C3             ; endx 195
               LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
 			  ;; LINE 4 (MIDDLE) FOR P
               LOAD s0, BE             ; stax 190
               LOAD s1, F8             ; stay 248
-              LOAD s2, C1             ; endx 193
+              LOAD s2, C3             ; endx 195
               LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
@@ -1663,21 +1663,21 @@ stay_in_gameover_state:
 			  ;; LINE 2 (TOP) FOR P
               LOAD s0, D2             ; stax 210
               LOAD s1, F5             ; stay 245
-              LOAD s2, D5             ; endx 213
+              LOAD s2, D7             ; endx 215
               LOAD s3, F5             ; endy 245
               CALL draw_line          ;
 
 			  ;; LINE 3 (RIGHT) FOR P
-              LOAD s0, D5             ; stax 213
+              LOAD s0, D7             ; stax 215
               LOAD s1, F5             ; stay 245
-              LOAD s2, D5             ; endx 213
+              LOAD s2, D7             ; endx 215
               LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
 			  ;; LINE 4 (MIDDLE) FOR P
               LOAD s0, D2             ; stax 210
               LOAD s1, F8             ; stay 248
-              LOAD s2, D5             ; endx 213
+              LOAD s2, D7             ; endx 215
               LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
