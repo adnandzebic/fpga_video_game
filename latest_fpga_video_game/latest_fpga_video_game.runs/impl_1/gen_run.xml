@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449210978">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="project.vdi"/>
@@ -26,6 +27,13 @@
   <File Type="ROUTE-PWR" Name="project_power_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="project_drc_routed.pb"/>
   <File Type="ROUTE-DRC" Name="project_drc_routed.rpt"/>
+=======
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1449199752">
+  <File Type="OPT-DCP" Name="project_opt.dcp"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
+  <File Type="RUN-SRCS" Name="$PDATADIR/runs/impl_1/sources.xml"/>
+  <File Type="PWROPT-DCP" Name="project_pwropt.dcp"/>
+>>>>>>> b12ac3b8e83d2d5c57f55823d147b635354eb730
   <File Type="ROUTE-DCP" Name="project_routed.dcp"/>
   <File Type="PHYSOPT-DRC" Name="project_drc_physopted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="project_physopt.dcp"/>
