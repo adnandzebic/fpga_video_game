@@ -58,7 +58,7 @@ CONSTANT start_menu_3    , 78;
 CONSTANT START_STATE     , 00 ; start screen state
 CONSTANT PLAY_STATE      , 01 ; play state
 CONSTANT GAMEOVER_STATE  , 02 ; game over screen state
-CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
+CONSTANT CREDITS_STATE   , 03 ; credits screen state
 
 ;;============================================================================
 ;; Boot.
@@ -127,7 +127,7 @@ CONSTANT CREDITS_STATE   , 03 ; credits screen state (not used for now)
                JUMP Z, enter_credit_state          ; if 2 seconds or 120 frames, jump to credit
                JUMP NZ, stay_in_start_state        ; if not 2 seconds or 120 frames, stay in start
 
-			   REGBANK B                                               ;
+	        REGBANK B                                               ;
 			   ADD s0, one						   ; counter for determining jump between credit/start
 			   COMPARE s0, 78					   ; check if 120 seconds
 			   JUMP Z, enter_credit_state		   ; if 2 seconds or 120 frames, jump to credit
@@ -870,7 +870,7 @@ stay_in_gameover_state:
               ;; Draws the letter P (Line 4)
               ;;============================================================================               
 				LOAD s0, A5                         ; 165
-				LOAD s1, 2D                         ; 45
+				LOAD s1, 1E                         ; 30
 				LOAD s2, A5                         ; 165
 				LOAD s3, 2D                         ; 45
 				CALL draw_line                      ; draws the line
@@ -966,12 +966,21 @@ stay_in_gameover_state:
 				CALL draw_line                      ; draws the line
 
               ;;============================================================================
-              ;; Draws the letter R (Line 4)
+              ;; Draws the letter R (Line 5)
               ;;============================================================================               
 				LOAD s0, DC                         ; 220
 				LOAD s1, 2E                         ; 46
 				LOAD s2, EF                         ; 239
 				LOAD s3, 3C                         ; 60
+				CALL draw_line                      ; draws the line
+				
+			  ;;============================================================================
+              ;; Draws the letter R (Line 6)
+              ;;============================================================================               
+				LOAD s0, F0                         ; 240
+				LOAD s1, 1E                         ; 30
+				LOAD s2, F0                         ; 240
+				LOAD s3, 2D                         ; 45
 				CALL draw_line                      ; draws the line
 
 
@@ -1619,22 +1628,22 @@ stay_in_gameover_state:
 			  ;; LINE 2 (TOP) FOR P
               LOAD s0, BE             ; stax 190
               LOAD s1, F5             ; stay 245
-              LOAD s2, C3             ; endx 195
+              LOAD s2, C1             ; endx 193
               LOAD s3, F5             ; endy 245
               CALL draw_line          ;
 
 			  ;; LINE 3 (RIGHT) FOR P
-              LOAD s0, C3             ; stax 195
+              LOAD s0, C1             ; stax 193
               LOAD s1, F5             ; stay 245
-              LOAD s2, C3             ; endx 195
-              LOAD s3, F7             ; endy 247
+              LOAD s2, C1             ; endx 193
+              LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
 			  ;; LINE 4 (MIDDLE) FOR P
               LOAD s0, BE             ; stax 190
-              LOAD s1, F7             ; stay 247
-              LOAD s2, C3             ; endx 195
-              LOAD s3, F7             ; endy 247
+              LOAD s1, F8             ; stay 248
+              LOAD s2, C1             ; endx 193
+              LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
 			  ;; LINE 1 DASH2
@@ -1654,22 +1663,22 @@ stay_in_gameover_state:
 			  ;; LINE 2 (TOP) FOR P
               LOAD s0, D2             ; stax 210
               LOAD s1, F5             ; stay 245
-              LOAD s2, D7             ; endx 215
+              LOAD s2, D5             ; endx 213
               LOAD s3, F5             ; endy 245
               CALL draw_line          ;
 
 			  ;; LINE 3 (RIGHT) FOR P
-              LOAD s0, D6             ; stax 214
+              LOAD s0, D5             ; stax 213
               LOAD s1, F5             ; stay 245
-              LOAD s2, D6             ; endx 214
-              LOAD s3, F7             ; endy 247
+              LOAD s2, D5             ; endx 213
+              LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
 			  ;; LINE 4 (MIDDLE) FOR P
               LOAD s0, D2             ; stax 210
-              LOAD s1, F7             ; stay 247
-              LOAD s2, D7             ; endx 215
-              LOAD s3, F7             ; endy 247
+              LOAD s1, F8             ; stay 248
+              LOAD s2, D5             ; endx 213
+              LOAD s3, F8             ; endy 248
               CALL draw_line          ;
 
 			  ;; LINE 1 (LEFT) FOR L
