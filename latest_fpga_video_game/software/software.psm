@@ -169,7 +169,7 @@ stay_in_start_state:
       credits:
                REGBANK A                           ;
                CALL draw_credits                   ; draw the credits screen
-			   ;CALL draw_ad						   ;
+			   CALL draw_ad						   ;
 			   CALL draw_hp						   ; draw HENRY PHAM name on credit screen
 			   CALL draw_helicopter				   ;
 			   
@@ -2041,50 +2041,141 @@ draw_credits:
 
 			  RETURN
 			  
-	;draw_ad:
-			;; LINE 
-          ;    LOAD s0,              ; stax 
-         ;     LOAD s1,              ; stay 
-         ;     LOAD s2,              ; endx 
-         ;     LOAD s3,              ; endy 
-         ;     CALL draw_line          ;
+	draw_ad:
 
-			;; LINE 
-         ;     LOAD s0,              ; stax 
-         ;     LOAD s1,              ; stay 
-         ;     LOAD s2,              ; endx 
-         ;     LOAD s3,              ; endy 
-         ;     CALL draw_line          ;
+              ;;============================================================================
+              ;; Draws 'C' of DZEBIC Last Name (Line 1)
+              ;;============================================================================
+              
+              LOAD s0, F6                         ; 246
+              LOAD s1, CD                         ; 205
+              LOAD s2, FA                         ; 250
+              LOAD s3, CD                         ; 205
+              CALL draw_line                      ; draws the line
 
-			;; LINE 
-         ;     LOAD s0,              ; stax 
-         ;     LOAD s1,              ; stay 
-         ;     LOAD s2,              ; endx 
-         ;     LOAD s3,              ; endy 
-         ;     CALL draw_line          ;
+              ;;============================================================================
+              ;; Draws 'C' of DZEBIC Last Name (Line 2)
+              ;;============================================================================
+              
+              LOAD s0, F5                         ; 245
+              LOAD s1, CE                         ; 206
+              LOAD s2, F6                         ; 246
+              LOAD s3, CD                         ; 205
+              CALL draw_line                      ; draws the line
 
-			;; LINE 
-         ;     LOAD s0,              ; stax 
-         ;     LOAD s1,              ; stay 
-         ;     LOAD s2,              ; endx 
-         ;     LOAD s3,              ; endy 
-         ;     CALL draw_line          ;
+              ;;============================================================================
+              ;; Draws 'C' of DZEBIC Last Name (Line 3)
+              ;;============================================================================
+              
+              LOAD s0, F5                         ; 245
+              LOAD s1, D1                         ; 209
+              LOAD s2, F6                         ; 246
+              LOAD s3, D2                         ; 210
+              CALL draw_line                      ; draws the line
+              
+              ;;============================================================================
+              ;; Draws 'C' of DZEBIC Last Name (Line 4)
+              ;;============================================================================
+              
+              LOAD s0, F5                         ; 245
+              LOAD s1, CE                         ; 206
+              LOAD s2, F5                         ; 245
+              LOAD s3, D1                         ; 209
+              CALL draw_line                      ; draws the line              
 
-			;; LINE 
-         ;     LOAD s0,              ; stax 
-         ;     LOAD s1,              ; stay 
-         ;     LOAD s2,              ; endx 
-         ;     LOAD s3,              ; endy 
-         ;     CALL draw_line          ;
+              ;;============================================================================
+              ;; Draws 'C' of DZEBIC Last Name (Line 5)
+              ;;============================================================================
+              
+              LOAD s0, F6                         ; 246
+              LOAD s1, D2                         ; 210
+              LOAD s2, FA                         ; 250
+              LOAD s3, D2                         ; 210
+              CALL draw_line                      ; draws the line   
+ 
+           
+              ;;============================================================================
+              ;; Draws 'I' of DZEBIC Last Name (Line 1)
+              ;;============================================================================
+              
+              LOAD s0, F0                         ; 240
+              LOAD s1, CD                         ; 205
+              LOAD s2, F0                         ; 240
+              LOAD s3, D2                         ; 210
+              CALL draw_line                      ; draws the line  
 
-			;; LINE 
-          ;    LOAD s0,              ; stax 
-            ;  LOAD s1,              ; stay 
-           ;   LOAD s2,              ; endx 
-          ;    LOAD s3,              ; endy 
-         ;     CALL draw_line          ;
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 1)
+              ;;============================================================================
+              
+              LOAD s0, EB                         ; 235
+              LOAD s1, CD                         ; 205
+              LOAD s2, EA                         ; 234
+              LOAD s3, CE                         ; 206
+              CALL draw_line                      ; draws the line  
 
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 2)
+              ;;============================================================================
+              
+              LOAD s0, EB                         ; 235
+              LOAD s1, CE                         ; 206
+              LOAD s2, EB                         ; 235
+              LOAD s3, D1                         ; 209
+              CALL draw_line                      ; draws the line  
+              
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 3)
+              ;;============================================================================
+              
+              LOAD s0, EA                         ; 234
+              LOAD s1, D2                         ; 210
+              LOAD s2, EB                         ; 235
+              LOAD s3, D1                         ; 209
+              CALL draw_line                      ; draws the line               
+              
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 4)
+              ;;============================================================================
+              
+              LOAD s0, E6                         ; 230
+              LOAD s1, CD                         ; 205
+              LOAD s2, E6                         ; 230
+              LOAD s3, D2                         ; 210
+              CALL draw_line                      ; draws the line                 
 
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 5)
+              ;;============================================================================
+              
+              LOAD s0, E6                         ; 230
+              LOAD s1, CF                         ; 207
+              LOAD s2, EB                         ; 235
+              LOAD s3, CF                         ; 207
+              CALL draw_line                      ; draws the line  
+
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 5)
+              ;;============================================================================
+              
+              LOAD s0, E6                         ; 230
+              LOAD s1, CD                         ; 205
+              LOAD s2, EA                         ; 234
+              LOAD s3, CD                         ; 205
+              CALL draw_line                      ; draws the line  
+
+              ;;============================================================================
+              ;; Draws 'B' of DZEBIC Last Name (Line 5)
+              ;;============================================================================
+              
+              LOAD s0, E6                         ; 230
+              LOAD s1, D2                         ; 210
+              LOAD s2, EA                         ; 234
+              LOAD s3, D2                         ; 210
+              CALL draw_line                      ; draws the line 
+
+              
+              RETURN                               ; done with drawing name
 			  
 			  
 			  
