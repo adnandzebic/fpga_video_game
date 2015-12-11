@@ -135,7 +135,7 @@ module project (
   software software_inst (
     .address(address),
     .instruction(instruction),
-    .bram_enable(bram_enable),
+    .enable(bram_enable),
     .clk(pclk));
 
   always @(posedge pclk)
