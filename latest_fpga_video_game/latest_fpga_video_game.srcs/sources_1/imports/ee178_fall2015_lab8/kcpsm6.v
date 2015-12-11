@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Copyright © 2010-2012, Xilinx, Inc.
+// Copyright Â© 2010-2012, Xilinx, Inc.
 // This file contains confidential and proprietary information of Xilinx, Inc. and is
 // protected under U.S. and international copyright and other intellectual property laws.
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -67,8 +67,8 @@
 module kcpsm6 (address, instruction, bram_enable, in_port, out_port, port_id, write_strobe, k_write_strobe, read_strobe, interrupt, interrupt_ack, sleep, reset, clk) ;
 
 parameter [7:0] 	hwbuild = 8'h00 ;
-parameter [11:0] 	interrupt_vector = 12'h7FF ;
-parameter integer scratch_pad_memory_size = 64 ;   
+parameter [11:0] 	interrupt_vector = 12'hFFF ;
+parameter integer scratch_pad_memory_size = 256 ;   
 
 output [11:0]	address ;
 input	 [17:0]    	instruction ;
