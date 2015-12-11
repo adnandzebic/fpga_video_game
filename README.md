@@ -8,11 +8,11 @@ The result was a playable and addictive helicopter game that uses a small proces
 
 ## Screenshots
 <p align="center" >
-<img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/helicopter-game.jpg" alt="Helicopter Game" title="Helicopter Game" width="200">
+<img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/helicopter-game.jpg" alt="Helicopter Game" title="Helicopter Game" width="400">
 </p>
 
 
 ## Original "Helicopter Game"
 <p align="center" >
-<img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/classic.png" alt="Classic Helicopter Game" title="Classic Helicopter Game" width="200">
+<img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/classic.png" alt="Classic Helicopter Game" title="Classic Helicopter Game" width="400">
 </p>
