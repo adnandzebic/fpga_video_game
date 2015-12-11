@@ -170,6 +170,18 @@ enter_start_menu:
                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
                LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
                
+			   REGBANK B						   ;
+			   LOAD s0, zero					   ;
+			   LOAD s1, zero					   ;
+			   LOAD s2, zero				       ;
+			   LOAD s3, zero					   ;
+			   LOAD s6, 80						   ;
+			   LOAD s7, 80						   ;
+			   LOAD s8, 80						   ;
+			   LOAD s9, 80						   ;
+			   LOAD sA, 80						   ;
+			   
+			   REGBANK A						   ;
 			   RETURN							   ; return to isr
 			   
 stay_in_start_state:
@@ -213,6 +225,7 @@ stay_in_credit_state:
      gameover:
                CALL map                            ; draw the map using map subroutine
                CALL draw_helicopter                ; draw the helicopter
+			   CALL draw_helicopter_smoke1		   ; draw frozen heli smoke
                CALL draw_block                     ; draw the obstacle (block)
                CALL draw_gameover                  ; draw gameover message
 
@@ -245,6 +258,20 @@ enter_play_state2:
                LOAD sD, 05                         ; initialize (needed later)
                LOAD sE, FF                         ; load 255 into sE (horizontal coordinate of block)
                LOAD sF, 62                         ; load 108 into sF (vertical coordinate of block)
+			   
+			   REGBANK B						   ;
+			   LOAD s0, zero					   ;
+			   LOAD s1, zero					   ;
+			   LOAD s2, zero				       ;
+			   LOAD s3, zero					   ;
+			   LOAD s6, 80						   ;
+			   LOAD s7, 80						   ;
+			   LOAD s8, 80						   ;
+			   LOAD s9, 80						   ;
+			   LOAD sA, 80						   ;
+
+			   REGBANK A						   ;
+			   
                RETURN                              ; return from start subroutine
 
 stay_in_gameover_state:
@@ -263,6 +290,7 @@ stay_in_gameover_state:
 
 			   
                CALL draw_helicopter                ; draw the helicopter
+			   CALL draw_helicopter_smoke		   ;
                CALL random_block_location          ; determines a random place for the block (y direction only)
                CALL draw_block                     ; draw the block using draw_block subroutine
                CALL check_collision                ; check if any collisions happen
@@ -2432,7 +2460,7 @@ draw_credits:
               ;;============================================================================
               
               LOAD s0, D2                         ; 210
-              LOAD s1, CD                         ; 210
+              LOAD s1, D2                         ; 210
               LOAD s2, D7                         ; 215
               LOAD s3, D2                         ; 210
               CALL draw_line                      ; draws the line 
@@ -2441,9 +2469,9 @@ draw_credits:
               ;; Draws 'Z' of DZEBIC Last Name (Line 3)
               ;;============================================================================
               
-              LOAD s0, D2                         ; 210
+              LOAD s0, D7                         ; 215
               LOAD s1, CD                         ; 205
-              LOAD s2, D7                         ; 215
+              LOAD s2, D2                         ; 210
               LOAD s3, D2                         ; 210
               CALL draw_line                      ; draws the line 
 
@@ -2501,10 +2529,10 @@ draw_credits:
               ;; Draws 'D' of DZEBIC Last Name (Line 6)
               ;;============================================================================
               
-              LOAD s0, C8                         ; 200
-              LOAD s1, CD                         ; 205
-              LOAD s2, C8                         ; 200
-              LOAD s3, D2                         ; 210
+              LOAD s0, CD                         ; 205
+              LOAD s1, CE                         ; 206
+              LOAD s2, CD                         ; 205
+              LOAD s3, D1                         ; 209
               CALL draw_line                      ; draws the line
 
               ;;============================================================================
@@ -2725,7 +2753,7 @@ draw_credits:
               CALL draw_helicopter_cockpit       ; call the subroutine to draw the cockpit
               CALL draw_helicopter_blades        ; call the subroutine to draw the blades
               CALL draw_helicopter_tail          ; call the subroutine to draw the tail
-              CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
+              ;CALL draw_helicopter_smoke         ; call the subroutine to draw the smoke
 
 			  
               RETURN                             ; go back from drawing helicopter
@@ -3115,10 +3143,14 @@ draw_helicopter_blades:
 
   draw_helicopter_smoke: 
   
-			  REGBANK A
+			  REGBANK A							  ;
 			  STAR s1, sC						  ; s1 in REGBANK B holds vertical position of pixel 1
 
 			  REGBANK B							  ;
+			  LOAD sE, sD						  ; load ninth pixel into tenth pixel y
+			  LOAD sD, sC						  ; load eighth pixel into ninth pixel y
+			  LOAD sC, sB						  ; load seventh pixel into eighth pixel y
+			  LOAD sB, sA						  ; load sixth pixel into seventh pixel y
 			  LOAD sA, s9						  ; load fifth's pixel into sixth pixel y
 			  LOAD s9, s8						  ; load fourth pixel's y into fifth pixel y
 			  LOAD s8, s7						  ; load third pixel's y into fourth pixel y
@@ -3133,7 +3165,7 @@ draw_helicopter_blades:
 			  CALL draw_line					  ;
 			  
 			  ;; DRAW second pixel behind helicopter
-			  SUB s0, 02						  ; second smoke will be 2 pixels away from first smoke
+			  SUB s0, 03						  ; second smoke will be 2 pixels away from first smoke
 			  LOAD s2, s0						  ; giving to endx as well
 			  
 			  LOAD s1, s7						  ;
@@ -3141,7 +3173,109 @@ draw_helicopter_blades:
 			  CALL draw_line					  ; 
 			  
 			  ;; DRAW third pixel behind helicopter
-			  SUB s0, 02						  ;
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, s8						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+
+			  ;; DRAW fourth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, s9						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+
+
+			  
+			  ;; DRAW fifth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sA						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+
+			  REGBANK A							  ;
+              LOAD s5, beam_md                    ; load desired beam
+              OUTPUT s5, beam                     ; set desired beam		
+			  REGBANK B							  ;
+			  
+			  
+			  ;; DRAW sixth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sB						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+
+			  ;; DRAW seventh pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sC						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+
+			  REGBANK A							  ;
+              LOAD s5, beam_lo                    ; load desired beam
+              OUTPUT s5, beam                     ; set desired beam		
+			  REGBANK B							  ;
+			  
+			  ;; DRAW eighth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sD						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+			  ;; DRAW ninth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sE						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+			  REGBANK A							  ;
+              LOAD s5, beam_hi                    ; load desired beam
+              OUTPUT s5, beam                     ; set desired beam		
+
+			  RETURN							  ;
+			  
+			  
+;;============================================================================
+;; Draw Frozen Helicopter Smoke - Draw Helicopter Smoke Subroutine
+;;============================================================================
+
+  draw_helicopter_smoke1: 
+  
+			  STAR s1, sC						  ;
+			  
+			  REGBANK B							  ;
+			  ;; DRAW first pixel behind helicopter
+			  LOAD s0, 46						  ; LOAD x position (70) to stax
+			  LOAD s2, s0						  ; LOAD x position s0 to endx (s2)
+			  
+			  LOAD s3, s6						  ; LOAD y position to endy position
+			  CALL draw_line					  ;
+			  
+			  ;; DRAW second pixel behind helicopter
+			  SUB s0, 03						  ; second smoke will be 2 pixels away from first smoke
+			  LOAD s2, s0						  ; giving to endx as well
+			  
+			  LOAD s1, s7						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ; 
+			  
+			  ;; DRAW third pixel behind helicopter
+			  SUB s0, 03						  ;
 			  LOAD s2, s0						  ;
 			  
 			  LOAD s1, s8						  ;
@@ -3149,7 +3283,7 @@ draw_helicopter_blades:
 			  CALL draw_line					  ;
 			  
 			  ;; DRAW fourth pixel behind helicopter
-			  SUB s0, 02						  ;
+			  SUB s0, 03						  ;
 			  LOAD s2, s0						  ;
 			  
 			  LOAD s1, s9						  ;
@@ -3157,7 +3291,7 @@ draw_helicopter_blades:
 			  CALL draw_line					  ;
 			  
 			  ;; DRAW fifth pixel behind helicopter
-			  SUB s0, 02						  ;
+			  SUB s0, 03						  ;
 			  LOAD s2, s0						  ;
 			  
 			  LOAD s1, sA						  ;
@@ -3165,10 +3299,53 @@ draw_helicopter_blades:
 			  CALL draw_line					  ;
 			  
 			  REGBANK A							  ;
-			  RETURN							  ;
-
+              LOAD s5, beam_md                    ; load desired beam
+              OUTPUT s5, beam                     ; set desired beam		
+			  REGBANK B							  ;
 			  
-
+			  ;; DRAW sixth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sB						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+			  ;; DRAW seventh pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sC						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+			  REGBANK A							  ;
+              LOAD s5, beam_lo                    ; load desired beam
+              OUTPUT s5, beam                     ; set desired beam		
+			  REGBANK B							  ;
+			  
+			  ;; DRAW eighth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sD						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+			  ;; DRAW ninth pixel behind helicopter
+			  SUB s0, 03						  ;
+			  LOAD s2, s0						  ;
+			  
+			  LOAD s1, sE						  ;
+			  LOAD s3, s1						  ;
+			  CALL draw_line					  ;
+			  
+			  REGBANK A							  ;
+              LOAD s5, beam_hi                    ; load desired beam
+              OUTPUT s5, beam                     ; set desired beam		
+			  
+			  RETURN							  ;
+			  
 ;;============================================================================
 ;; Draw Line - Draw Line Subroutine
 ;;============================================================================
@@ -3373,7 +3550,7 @@ collision_occurred:
 ;; Interrupt - Vector.
 ;;============================================================================
 
-               ADDRESS 7FF                         ; must be located here
+               ADDRESS FFF                         ; must be located here
    isr_vector: JUMP isr                            ; always jump to isr
 
 ;;============================================================================
