@@ -8,6 +8,9 @@ The result was a playable and addictive helicopter game that uses a small proces
 
 ## Gameplay Footage
 
+IMAGE 2                    |  IMAGE 1
+:-------------------------:|:-------------------------:
+<img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/hc3.gif" alt="Helicopter Game" title="Helicopter Game" width="300"> | <img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/hc2.gif" alt="Helicopter Game" title="Helicopter Game" width="300">
 
 |<img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/hc3.gif" alt="Helicopter Game" title="Helicopter Game" width="300">  |   <img src="https://raw.githubusercontent.com/adnandzebic/fpga_video_game/master/hc2.gif" alt="Helicopter Game" title="Helicopter Game" width="300">|
 
