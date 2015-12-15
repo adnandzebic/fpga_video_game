@@ -198,6 +198,9 @@ stay_in_start_state:
 			   CALL draw_ad						   ;
 			   CALL draw_hp						   ; draw HENRY PHAM name on credit screen
 			   CALL draw_helicopter				   ;
+			   CALL draw_JA						   ; DRAW Jerins name
+			   CALL draw_BS						   ; DRAW Biks name
+			   CALL draw_JS					   ; DRAW Jas's name
 			   
                INPUT s5, buttons                   ; get button values
                COMPARE s5, buttons_ct              ; check if center button is pressed
@@ -1471,7 +1474,7 @@ stay_in_gameover_state:
 			  ;; LINE 6 (BOTTOM) FOR D
               LOAD s0, 0A             ; stax 10
               LOAD s1, FA             ; stay 250
-              LOAD s2, 0F             ; endx 15
+              LOAD s2, 0D             ; endx 13
               LOAD s3, FA             ; endy 250
               CALL draw_line          ;
 
@@ -2031,7 +2034,753 @@ draw_credits:
 ;;============================================================================
 ;; Draw NAMES - Draw NAMES Subroutine
 ;;============================================================================
-	draw_hp:
+	
+
+	draw_BS:			 
+
+			  ;; LINE 1 (TOP) FOR B
+              LOAD s0, AA             ; stax 205
+              LOAD s1, E1             ; stay 30
+              LOAD s2, AE             ; endx 225
+              LOAD s3, E1             ; endy 30
+              CALL draw_line          ;
+
+              ;; LINE 2 (LEFT) FOR B
+              LOAD s0, AA             ; stax 205
+              LOAD s1, E1             ; stay 30
+              LOAD s2, AA             ; endx 205
+              LOAD s3, E6             ; endy 45
+              CALL draw_line          ;
+
+              ;; LINE 3 (MIDDLE) FOR B
+              LOAD s0, AA             ; stax 205
+              LOAD s1, E6             ; stay 45
+              LOAD s2, AF             ; endx 225
+              LOAD s3, E6             ; endy 45
+              CALL draw_line          ;
+
+              ;; LINE 4 (RIGHT) FOR B
+              LOAD s0, AF             ; stax 225
+              LOAD s1, E3             ; stay 45
+              LOAD s2, AF             ; endx 225
+              LOAD s3, E6             ; endy 60
+              CALL draw_line          ;
+
+              ;; LINE 5 (BOTTOM) FOR B
+              LOAD s0, AE             ; stax 205
+              LOAD s1, E1             ; stay 60
+              LOAD s2, AE             ; endx 225
+              LOAD s3, E3            ; endy 60
+              CALL draw_line          ;
+
+			  ;; LINE 6 (BOTTOM) FOR B
+              LOAD s0, AA             ; stax 205
+              LOAD s1, E3             ; stay 60
+              LOAD s2, AF             ; endx 225
+              LOAD s3, E3            ; endy 60
+              CALL draw_line          ;
+
+			  ;; LINE 1 (TOP) FOR I
+              LOAD s0, B7             ; stax 145
+              LOAD s1, E1             ; stay 30
+              LOAD s2, B7             ; endx 165
+              LOAD s3, E6             ; endy 30
+              CALL draw_line          ;
+
+			  ;; LINE 4 (RIGHT) FOR K
+              LOAD s0, BE             ; stax 225
+              LOAD s1, E1             ; stay 45
+              LOAD s2, BE             ; endx 225
+              LOAD s3, E6             ; endy 60
+              CALL draw_line          ;
+
+              ;; LINE 5 (BOTTOM) FOR K
+              LOAD s0, BE             ; stax 205
+              LOAD s1, E3             ; stay 60
+              LOAD s2, C3             ; endx 225
+              LOAD s3, E1            ; endy 60
+              CALL draw_line          ;
+
+			  ;; LINE 1 (TOP) FOR K
+              LOAD s0, BE             ; stax 145
+              LOAD s1, E3             ; stay 30
+              LOAD s2, C3             ; endx 165
+              LOAD s3, E6             ; endy 30
+              CALL draw_line          ;
+
+			  ;; LINE 1 (TOP) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, E1             ; stay 30
+              LOAD s2, D2             ; endx 225
+              LOAD s3, E1             ; endy 30
+              CALL draw_line          ;
+
+              ;; LINE 2 (LEFT) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, E1             ; stay 30
+              LOAD s2, CD             ; endx 205
+              LOAD s3, E3             ; endy 45
+              CALL draw_line          ;
+
+              ;; LINE 3 (MIDDLE) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, E3             ; stay 45
+              LOAD s2, D2             ; endx 225
+              LOAD s3, E3             ; endy 45
+              CALL draw_line          ;
+
+              ;; LINE 4 (RIGHT) FOR S
+              LOAD s0, D2             ; stax 225
+              LOAD s1, E3             ; stay 45
+              LOAD s2, D2             ; endx 225
+              LOAD s3, E6             ; endy 60
+              CALL draw_line          ;
+
+              ;; LINE 5 (BOTTOM) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, E6             ; stay 60
+              LOAD s2, D2             ; endx 225
+              LOAD s3, E6            ; endy 60
+              CALL draw_line          ;
+
+
+			  ;; LINE 1 (TOP) FOR I
+              LOAD s0, D9             ; stax 145
+              LOAD s1, E1             ; stay 30
+              LOAD s2, D9             ; endx 165
+              LOAD s3, E6             ; endy 30
+              CALL draw_line          ;
+
+      
+			  ;; LINE 1 (LEFT) FOR N
+              LOAD s0, E1             ; stax 180
+              LOAD s1, E1             ; stay 215
+              LOAD s2, E1             ; endx 180
+              LOAD s3, E6             ; endy 220
+              CALL draw_line          ;
+
+			  ;; LINE 2 (ANGLED) FOR N
+              LOAD s0, E1             ; stax 180
+              LOAD s1, E1             ; stay 215
+              LOAD s2, E6             ; endx 185
+              LOAD s3, E6             ; endy 220
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR N
+              LOAD s0, E6             ; stax 185
+              LOAD s1, E1             ; stay 215
+              LOAD s2, E6             ; endx 185
+              LOAD s3, E6             ; endy 220
+              CALL draw_line          ;
+
+			  ;; LINE 1 (TOP) FOR G
+              LOAD s0, EB             ; stax 205
+              LOAD s1, E1             ; stay 30
+              LOAD s2, F0             ; endx 225
+              LOAD s3, E1             ; endy 30
+              CALL draw_line          ;
+
+              ;; LINE 2 (LEFT) FOR G
+              LOAD s0, EB             ; stax 205
+              LOAD s1, E1             ; stay 30
+              LOAD s2, EB            ; endx 205
+              LOAD s3, E6             ; endy 45
+              CALL draw_line          ;
+
+              ;; LINE 3 (MIDDLE) FOR G
+              LOAD s0, EB             ; stax 205
+              LOAD s1, E6             ; stay 45
+              LOAD s2, F0             ; endx 225
+              LOAD s3, E6             ; endy 45
+              CALL draw_line          ;
+
+              ;; LINE 4 (RIGHT) FOR G
+              LOAD s0, F0             ; stax 225
+              LOAD s1, E3             ; stay 45
+              LOAD s2, F0             ; endx 225
+              LOAD s3, E6             ; endy 60
+              CALL draw_line          ;
+
+              ;; LINE 5 (BOTTOM) FOR G
+              LOAD s0, ED             ; stax 205
+              LOAD s1, E3             ; stay 60
+              LOAD s2, F0             ; endx 225
+              LOAD s3, E3            ; endy 60
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) for H
+              LOAD s0, F5             ; stax 245
+              LOAD s1, E1             ; stay 225
+              LOAD s2, F5             ; endx 245
+              LOAD s3, E6             ; endy 230
+              CALL draw_line          ;
+
+			  ;; LINE 2 (MIDDLE) FOR H
+              LOAD s0, F5             ; stax 245
+              LOAD s1, E3             ; stay 227
+              LOAD s2, FA             ; endx 250
+              LOAD s3, E3             ; endy 227
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR H
+              LOAD s0, FA             ; stax 250
+              LOAD s1, E1             ; stay 225
+              LOAD s2, FA             ; endx 250
+              LOAD s3, E6             ; endy 230
+              CALL draw_line          ;
+			  
+			  RETURN				  ;
+
+draw_JS:
+			  ;; LINE 1 (TOP) for J
+              LOAD s0, AA             ; stax 195
+              LOAD s1, EB             ; stay 245
+              LOAD s2, AF             ; endx 200
+              LOAD s3, EB             ; endy 245
+              CALL draw_line          ;
+			  ;; LINE 2 (MIDDLE) FOR J
+              LOAD s0, AF             ; stax 198
+              LOAD s1, EB             ; stay 245
+              LOAD s2, AF             ; endx 198
+              LOAD s3, F0             ; endy 250
+              CALL draw_line          ;
+			  ;; LINE 3 (BOTTOM) FOR J
+              LOAD s0, AA             ; stax 195
+              LOAD s1, F0             ; stay 250
+              LOAD s2, AF             ; endx 198
+              LOAD s3, F0             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR A
+              LOAD s0, B4             ; stax 245
+              LOAD s1, EB             ; stay 245
+              LOAD s2, B4             ; endx 245
+              LOAD s3, F0             ; endy 250
+              CALL draw_line          ;
+			  
+			  ;; LINE 2 (MIDDLE) FOR A
+              LOAD s0, B4             ; stax 245
+              LOAD s1, ED             ; stay 247
+              LOAD s2, B9             ; endx 250
+              LOAD s3, ED             ; endy 247
+              CALL draw_line          ;
+ 
+			  ;; LINE 3 (TOP) FOR A
+              LOAD s0, B4             ; stax 245
+              LOAD s1, EB             ; stay 245
+              LOAD s2, B9             ; endx 250
+              LOAD s3, EB             ; endy 245
+              CALL draw_line          ;
+			  
+			  ;; LINE 4 (RIGHT) FOR A
+              LOAD s0, B9             ; stax 250
+              LOAD s1, EB             ; stay 245
+              LOAD s2, B9             ; endx 250
+              LOAD s3, F0             ; endy 250
+              CALL draw_line          ;
+ 
+			  ;; LINE 1 (TOP) FOR S
+              LOAD s0, BE             ; 
+              LOAD s1, EB             ; stay 235
+              LOAD s2, C3             ; 
+              LOAD s3, EB             ; endy 235
+              CALL draw_line          ;
+			  
+              ;; LINE 2 (LEFT) FOR S
+              LOAD s0, BE             ; stax 205
+              LOAD s1, EB             ; stay 235
+              LOAD s2, BE             ; endx 205
+              LOAD s3, ED             ; endy 238
+              CALL draw_line          ;
+			  
+              ;; LINE 3 (MIDDLE) FOR S
+              LOAD s0, BE             ; stax 205
+              LOAD s1, ED             ; stay
+              LOAD s2, C3             ; endx 225
+              LOAD s3, ED             ; endy 45
+              CALL draw_line          ;
+			  
+              ;; LINE 4 (RIGHT) FOR S
+              LOAD s0, C3             ; stax 225
+              LOAD s1, ED             ; stay 45
+              LOAD s2, C3             ; endx 225
+              LOAD s3, F0             ; endy 60
+              CALL draw_line          ;
+			  
+              ;; LINE 5 (BOTTOM) FOR S
+              LOAD s0, BE             ; stax 205
+              LOAD s1, F0             ; stay 60
+              LOAD s2, C3             ; endx 225
+              LOAD s3, F0             ; endy 60
+              CALL draw_line          ;
+			  
+			  ;; LINE 1 (TOP) FOR S
+              LOAD s0, CD             ; 
+              LOAD s1, EB             ; stay 235
+              LOAD s2, D2             ; 
+              LOAD s3, EB             ; endy 235
+              CALL draw_line          ;
+			  
+              ;; LINE 2 (LEFT) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, EB             ; stay 235
+              LOAD s2, CD             ; endx 205
+              LOAD s3, ED             ; endy 238
+              CALL draw_line          ;
+			  
+              ;; LINE 3 (MIDDLE) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, ED             ; stay
+              LOAD s2, D2             ; endx 225
+              LOAD s3, ED             ; endy 45
+              CALL draw_line          ;
+			  
+              ;; LINE 4 (RIGHT) FOR S
+              LOAD s0, D2             ; stax 225
+              LOAD s1, ED             ; stay 45
+              LOAD s2, D2             ; endx 225
+              LOAD s3, F0             ; endy 60
+              CALL draw_line          ;
+			  
+              ;; LINE 5 (BOTTOM) FOR S
+              LOAD s0, CD             ; stax 205
+              LOAD s1, F0             ; stay 60
+              LOAD s2, D2             ; endx 225
+              LOAD s3, F0            ; endy 60
+              CALL draw_line         
+
+			  ;; LINE 1 (TOP) FOR I
+              LOAD s0, D9             ; stax 145
+              LOAD s1, EB             ; stay 30
+              LOAD s2, D9             ; endx 165
+              LOAD s3, F0             ; endy 30
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR N
+              LOAD s0, E1             ; stax 180
+              LOAD s1, EB             ; stay 215
+              LOAD s2, E1             ; endx 180
+              LOAD s3, F0             ; endy 220
+              CALL draw_line          ;
+			  
+			  ;; LINE 2 (ANGLED) FOR N
+              LOAD s0, E1             ; stax 180
+              LOAD s1, EB             ; stay 215
+              LOAD s2, E6             ; endx 185
+              LOAD s3, F0             ; endy 220
+              CALL draw_line          ;
+			  
+			  ;; LINE 3 (RIGHT) FOR N
+              LOAD s0, E6             ; stax 185
+              LOAD s1, EB             ; stay 215
+              LOAD s2, E6             ; endx 185
+              LOAD s3, F0             ; endy 220
+              CALL draw_line          ;
+
+			  ;; LINE 1 (TOP) FOR G
+              LOAD s0, EB             ; stax 205
+              LOAD s1, EB             ; stay 30
+              LOAD s2, F0             ; endx 225
+              LOAD s3, EB             ; endy 30
+              CALL draw_line          ;
+			  
+              ;; LINE 2 (LEFT) FOR G
+              LOAD s0, EB             ; stax 205
+              LOAD s1, EB             ; stay 30
+              LOAD s2, EB             ; endx 205
+              LOAD s3, F0             ; endy 45
+              CALL draw_line          ;
+			  
+              ;; LINE 3 (MIDDLE) FOR G
+              LOAD s0, EB             ; stax 205
+              LOAD s1, ED             ; stay 45
+              LOAD s2, F0             ; endx 225
+              LOAD s3, ED             ; endy 45
+              CALL draw_line          ;
+			  
+              ;; LINE 4 (RIGHT) FOR G
+              LOAD s0, F0             ; stax 225
+              LOAD s1, ED             ; stay 45
+              LOAD s2, F0             ; endx 225
+              LOAD s3, F0             ; endy 60
+              CALL draw_line          ;
+			  
+              ;; LINE 5 (BOTTOM) FOR G
+              LOAD s0, ED             ; stax 205
+              LOAD s1, F0             ; stay 60
+              LOAD s2, F0             ; endx 225
+              LOAD s3, F0             ; endy 60
+              CALL draw_line          ;
+ 
+			  ;; LINE 1 (LEFT) for H
+              LOAD s0, F5             ; stax 245
+              LOAD s1, EB             ; stay 225
+              LOAD s2, F5             ; endx 245
+              LOAD s3, F0             ; endy 230
+              CALL draw_line          ;
+
+			  ;; LINE 2 (MIDDLE) FOR H
+              LOAD s0, F5             ; stax 245
+              LOAD s1, ED             ; stay 227
+              LOAD s2, FA             ; endx 250
+              LOAD s3, ED             ; endy 227
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR H
+              LOAD s0, FA             ; stax 250
+              LOAD s1, EB             ; stay 225
+              LOAD s2, FA             ; endx 250
+              LOAD s3, F0             ; endy 230
+              CALL draw_line          ; 
+
+
+			  RETURN				  ;
+			  
+draw_JA:
+			  ;; LINE 1 (TOP) for J
+              LOAD s0, 73             ; stax 115
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 78             ; endx 120
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 2 (MIDDLE) FOR J
+              LOAD s0, 76             ; stax 118
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 76             ; endx 118
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 3 (BOTTOM) FOR J
+              LOAD s0, 73             ; stax 115
+              LOAD s1, FA             ; stay 250
+              LOAD s2, 76             ; endx 118
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR E
+              LOAD s0, 7D             ; stax 125
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 7D             ; endx 125
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (TOP) FOR E
+              LOAD s0, 7D             ; stax 125
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 82             ; endx 130
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 3 (MIDDLE) FOR E
+              LOAD s0, 7D             ; stax 125
+              LOAD s1, F7             ; stay 247
+              LOAD s2, 82             ; endx 130
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 4 (BOTTOM) FOR E
+              LOAD s0, 7D             ; stax 125
+              LOAD s1, FA             ; stay 250
+              LOAD s2, 82             ; endx 130
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR R
+              LOAD s0, 87             ; stax 135
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 87             ; endx 135
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (TOP) FOR R
+              LOAD s0, 87             ; stax 135
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 8C             ; endx 140
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR R
+              LOAD s0, 8C             ; stax 140
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 8C             ; endx 140
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 4 (MIDDLE) FOR R
+              LOAD s0, 87             ; stax 135
+              LOAD s1, F7             ; stay 247
+              LOAD s2, 8C             ; endx 140
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 5 (ANGLED) FOR R
+              LOAD s0, 87             ; stax 135
+              LOAD s1, F7             ; stay 247
+              LOAD s2, 8C             ; endx 140
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1  FOR I
+              LOAD s0, 91             ; stax 145
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 91             ; endx 145
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR N
+              LOAD s0, 96             ; stax 150
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 96             ; endx 150
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (ANGLED) FOR N
+              LOAD s0, 96             ; stax 150
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 9B             ; endx 155
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR N
+              LOAD s0, 9B             ; stax 155
+              LOAD s1, F5             ; stay 245
+              LOAD s2, 9B             ; endx 155
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR A
+              LOAD s0, A5             ; stax 165
+              LOAD s1, F5             ; stay 245
+              LOAD s2, A5             ; endx 165
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+
+	      ;; LINE 2 (MIDDLE) FOR A
+              LOAD s0, A5             ; stax 165
+              LOAD s1, F7             ; stay 247
+              LOAD s2, AA             ; endx 170
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+	      ;; LINE 3 (TOP) FOR A
+              LOAD s0, A5             ; stax 165
+              LOAD s1, F5             ; stay 245
+              LOAD s2, AA             ; endx 170
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+	      ;; LINE 4 (RIGHT) FOR A
+              LOAD s0, AA             ; stax 170
+              LOAD s1, F5             ; stay 245
+              LOAD s2, AA             ; endx 170
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+              ;; LINE 1 FOR V
+              LOAD s0, AF             ; stax 175
+              LOAD s1, F5             ; stay 245
+              LOAD s2, B2             ; endx 178
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+	      ;; LINE 2 FOR V
+	      LOAD s0, B2             ; stax 178
+              LOAD s1, FA             ; stay 250
+              LOAD s2, B4             ; endx 180
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+
+			  ;; LINE 1 (LEFT) FOR A
+              LOAD s0, B9             ; stax 185
+              LOAD s1, F5             ; stay 245
+              LOAD s2, B9             ; endx 185
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+
+			  ;; LINE 2 (MIDDLE) FOR A
+              LOAD s0, B9             ; stax 185
+              LOAD s1, F7             ; stay 247
+              LOAD s2, BE             ; endx 190
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 3 (TOP) FOR A
+              LOAD s0, B9             ; stax 185
+              LOAD s1, F5             ; stay 245
+              LOAD s2, BE             ; endx 190
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 4 (RIGHT) FOR A
+              LOAD s0, BE             ; stax 190
+              LOAD s1, F5             ; stay 245
+              LOAD s2, BE             ; endx 190
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+
+			  ;; LINE 1 (LEFT) FOR R
+              LOAD s0, C3             ; stax 195
+              LOAD s1, F5             ; stay 245
+              LOAD s2, C3             ; endx 195
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (TOP) FOR R
+              LOAD s0, C3             ; stax 195
+              LOAD s1, F5             ; stay 245
+              LOAD s2, C8             ; endx 200
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR R
+              LOAD s0, C8             ; stax 200
+              LOAD s1, F5             ; stay 245
+              LOAD s2, C8             ; endx 200
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 4 (MIDDLE) FOR R
+              LOAD s0, C3             ; stax 195
+              LOAD s1, F7             ; stay 247
+              LOAD s2, C8             ; endx 200
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 5 (ANGLED) FOR R
+              LOAD s0, C3             ; stax 195
+              LOAD s1, F7             ; stay 247
+              LOAD s2, C8             ; endx 200
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR A
+              LOAD s0, CD             ; stax 205
+              LOAD s1, F5             ; stay 245
+              LOAD s2, CD             ; endx 205
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (MIDDLE) FOR A
+              LOAD s0, CD             ; stax 205
+              LOAD s1, F7             ; stay 247
+              LOAD s2, D2             ; endx 210
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 3 (TOP) FOR A
+              LOAD s0, CD             ; stax 205
+              LOAD s1, F5             ; stay 245
+              LOAD s2, D2             ; endx 210
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 4 (RIGHT) FOR A
+              LOAD s0, D2             ; stax 210
+              LOAD s1, F5             ; stay 245
+              LOAD s2, D2             ; endx 210
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR C
+              LOAD s0, D7             ; stax 215
+              LOAD s1, F5             ; stay 245
+              LOAD s2, D7             ; endx 215
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (TOP) FOR C
+              LOAD s0, D7             ; stax 215
+              LOAD s1, F5             ; stay 245
+              LOAD s2, DC             ; endx 220
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 4 (BOTTOM) FOR C
+              LOAD s0, D7             ; stax 215
+              LOAD s1, FA             ; stay 250
+              LOAD s2, DC             ; endx 220
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) for H
+              LOAD s0, E1             ; stax 225
+              LOAD s1, F5             ; stay 245
+              LOAD s2, E1             ; endx 225
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+			  
+    		  ;; LINE 2 (MIDDLE) FOR H
+              LOAD s0, E1             ; stax 225
+              LOAD s1, F7             ; stay 247
+              LOAD s2, E6             ; endx 230
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+			  
+   			  ;; LINE 3 (RIGHT) FOR H
+              LOAD s0, E6             ; stax 230
+              LOAD s1, F5             ; stay 245
+              LOAD s2, E6             ; endx 230
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 1 (LEFT) FOR A
+              LOAD s0, EB             ; stax 235
+              LOAD s1, F5             ; stay 245
+              LOAD s2, EB             ; endx 235
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (MIDDLE) FOR A
+              LOAD s0, EB             ; stax 235
+              LOAD s1, F7             ; stay 247
+              LOAD s2, F0             ; endx 240
+              LOAD s3, F7             ; endy 247
+              CALL draw_line          ;
+
+			  ;; LINE 3 (TOP) FOR A
+              LOAD s0, EB             ; stax 235
+              LOAD s1, F5             ; stay 245
+              LOAD s2, F0             ; endx 240
+              LOAD s3, F5             ; endy 245
+              CALL draw_line          ;
+
+			  ;; LINE 4 (RIGHT) FOR A
+              LOAD s0, F0             ; stax 240
+              LOAD s1, F5             ; stay 245
+              LOAD s2, F0             ; endx 240
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+
+			  ;; LINE 1 (LEFT) FOR N
+              LOAD s0, F5             ; stax 245
+              LOAD s1, F5             ; stay 245
+              LOAD s2, F5             ; endx 245
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 2 (ANGLED) FOR N
+              LOAD s0, F5             ; stax 245
+              LOAD s1, F5             ; stay 245
+              LOAD s2, FA             ; endx 250
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  ;; LINE 3 (RIGHT) FOR N
+              LOAD s0, FA             ; stax 250
+              LOAD s1, F5             ; stay 245
+              LOAD s2, FA             ; endx 250
+              LOAD s3, FA             ; endy 250
+              CALL draw_line          ;
+
+			  RETURN				  ;
+			  
+draw_hp:
 			  ;; LINE 1 (LEFT) for H
               LOAD s0, A0             ; stax 160
               LOAD s1, D7             ; stay 215
@@ -2270,7 +3019,7 @@ draw_credits:
               LOAD s3, DC             ; endy 220
               CALL draw_line          ;
 
-			  RETURN
+			  RETURN				  ;
 			  
 	draw_ad:
 
@@ -2738,12 +3487,6 @@ draw_credits:
               RETURN                               ; done with drawing name
 			  
 			  
-			  
-			  
-			  
-			  
-			  
-
 ;;============================================================================
 ;; Draw Helicopter - Draw Helicopter Subroutine
 ;;============================================================================
