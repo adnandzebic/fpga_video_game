@@ -3,17 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<<<<<<< HEAD
-<application name="pa" timeStamp="Thu Dec  3 22:36:18 2015">
+<application name="pa" timeStamp="Sun Dec 27 02:29:16 2015">
 <section name="Project Information" visible="false">
-<property name="ProjectID" value="444e640c2af943e8a3b1fdda2ee06761" type="ProjectID"/>
-<property name="ProjectIteration" value="6" type="ProjectIteration"/>
-=======
-<application name="pa" timeStamp="Thu Dec 03 19:32:39 2015">
-<section name="Project Information" visible="false">
-<property name="ProjectID" value="444e640c2af943e8a3b1fdda2ee06761" type="ProjectID"/>
-<property name="ProjectIteration" value="15" type="ProjectIteration"/>
->>>>>>> b12ac3b8e83d2d5c57f55823d147b635354eb730
+<property name="ProjectID" value="6322f18de90449efbd2b6aac91ef9627" type="ProjectID"/>
+<property name="ProjectIteration" value="2" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -24,9 +17,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="84" type="GuiMode"/>
+<property name="GuiMode" value="115" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="58" type="TclMode"/>
+<property name="TclMode" value="77" type="TclMode"/>
 </item>
 </section>
 </application>

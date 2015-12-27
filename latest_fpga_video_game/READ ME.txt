@@ -1,0 +1,3 @@
+NOTE: Can use the project.bit file for running on hardware via Xilinx Vivado
+
+*Excess folders and files have been removed for sake of simplicity and access of files
